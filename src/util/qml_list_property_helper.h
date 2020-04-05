@@ -1,9 +1,8 @@
 //
-// Copyright (c) 2020, 219 Design, LLC
+// Copyright (c) 2020, pestophagous (pestophagous@users.noreply.github.com)
 // See LICENSE.txt
 //
-// https://www.219design.com
-// Software | Electrical | Mechanical | Product Design
+// https://github.com/pestophagous/
 //
 #ifndef PROJ_LIB_QML_LIST_PROPERTY_H
 #define PROJ_LIB_QML_LIST_PROPERTY_H
@@ -15,8 +14,11 @@
 #include <utility>
 #include <vector>
 
-namespace project
+
+
+namespace heory
 {
+
 namespace internal
 {
     template <typename T>
@@ -77,6 +79,8 @@ QQmlListProperty<T> MakeQmlListProperty( QObject* owner, Collection* items )
         &internal::QmlListHelper<T, Collection>::ItemAt );
 }
 
-} // namespace project
+
+} // namespace heory
+
 
 #endif // PROJ_LIB_QML_LIST_PROPERTY_H

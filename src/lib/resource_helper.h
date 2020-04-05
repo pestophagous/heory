@@ -1,9 +1,8 @@
 //
-// Copyright (c) 2020, 219 Design, LLC
+// Copyright (c) 2020, pestophagous (pestophagous@users.noreply.github.com)
 // See LICENSE.txt
 //
-// https://www.219design.com
-// Software | Electrical | Mechanical | Product Design
+// https://github.com/pestophagous/
 //
 #ifndef PROJ_LIB_RESOURCE_HELPER_H
 #define PROJ_LIB_RESOURCE_HELPER_H
@@ -11,8 +10,11 @@
 #include <QtCore/QObject>
 #include <QtQml/QQmlEngine>
 
-namespace project
+
+
+namespace heory
 {
+
 class ResourceHelper : public QObject
 {
     Q_OBJECT
@@ -33,6 +35,8 @@ public:
     const QString imageSourcePrefix = "qrc:///libstyles/";
 };
 
-} // namespace project
+
+} // namespace heory
+
 
 #endif // PROJ_LIB_RESOURCE_HELPER_H

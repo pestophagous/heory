@@ -1,9 +1,8 @@
 //
-// Copyright (c) 2020, 219 Design, LLC
+// Copyright (c) 2020, pestophagous (pestophagous@users.noreply.github.com)
 // See LICENSE.txt
 //
-// https://www.219design.com
-// Software | Electrical | Mechanical | Product Design
+// https://github.com/pestophagous/
 //
 
 #include <QGuiApplication>
@@ -16,7 +15,7 @@ int main( int argc, char* argv[] )
     QGuiApplication app( argc, argv );
 
     // ViewModels must OUTLIVE the qml engine, so create them first:
-    project::ViewModelCollection vms( app );
+    heory::ViewModelCollection vms( app );
 
     // Created after vms, so that we avoid null vm qml warnings upon vm dtors
     QQmlApplicationEngine engine;

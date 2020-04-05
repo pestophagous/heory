@@ -1,16 +1,18 @@
 //
-// Copyright (c) 2020, 219 Design, LLC
+// Copyright (c) 2020, pestophagous (pestophagous@users.noreply.github.com)
 // See LICENSE.txt
 //
-// https://www.219design.com
-// Software | Electrical | Mechanical | Product Design
+// https://github.com/pestophagous/
 //
 #include "cli_options.h"
 
 #include <QCommandLineParser>
 
-namespace project
+
+
+namespace heory
 {
+
 constexpr char GUI_TEST_CLI_OPT[] = "guitest";
 
 CliOptions::CliOptions( const QCoreApplication& app )
@@ -33,4 +35,6 @@ bool CliOptions::RunningGuiTests() const
 {
     return m_guiTests;
 }
-} // namespace project
+
+} // namespace heory
+

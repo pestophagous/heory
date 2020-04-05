@@ -1,7 +1,6 @@
-// Copyright (c) 2020, 219 Design, LLC
+// Copyright (c) 2020, pestophagous (pestophagous@users.noreply.github.com)
 // See LICENSE.txt
-// https://www.219design.com
-// Software | Electrical | Mechanical | Product Design
+// https://github.com/pestophagous/
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.12
@@ -10,7 +9,7 @@ import libstyles 1.0
 
 ApplicationWindow {
   id: rootx
-  title: "Hello World"
+  title: "Hello heory"
   width: 400
   height: 520
   visible: true

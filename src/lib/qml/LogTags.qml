@@ -1,7 +1,6 @@
-// Copyright (c) 2020, 219 Design, LLC
+// Copyright (c) 2020, pestophagous (pestophagous@users.noreply.github.com)
 // See LICENSE.txt
-// https://www.219design.com
-// Software | Electrical | Mechanical | Product Design
+// https://github.com/pestophagous/
 // -----------------------------------------------------------------------------
 // Rationale for Singleton LoggingCategory(s) comes from qt docs:
 // https://web.archive.org/web/20181016025119/https://doc.qt.io/qt-5/qml-qtqml-loggingcategory.html

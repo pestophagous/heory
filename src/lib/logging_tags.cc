@@ -1,9 +1,8 @@
 //
-// Copyright (c) 2020, 219 Design, LLC
+// Copyright (c) 2020, pestophagous (pestophagous@users.noreply.github.com)
 // See LICENSE.txt
 //
-// https://www.219design.com
-// Software | Electrical | Mechanical | Product Design
+// https://github.com/pestophagous/
 //
 #include "logging_tags.h"
 
@@ -11,8 +10,11 @@
 
 #include "src/lib/cli_options.h"
 
-namespace project
+
+
+namespace heory
 {
+
 // refer to comments in our header file to see why we store this string here
 constexpr char GUI_TEST_LOG_TAG[] = "thisapp.guitesting";
 
@@ -47,4 +49,6 @@ QString LoggingTags::GuiTestingLogTag() const
     return GUI_TEST_LOG_TAG; // exposed as a Q_PROPERTY
 }
 
-} // namespace project
+
+} // namespace heory
+
