@@ -1,9 +1,8 @@
 //
-// Copyright (c) 2020, 219 Design, LLC
+// Copyright (c) 2020, pestophagous (pestophagous@users.noreply.github.com)
 // See LICENSE.txt
 //
-// https://www.219design.com
-// Software | Electrical | Mechanical | Product Design
+// https://github.com/pestophagous/
 //
 #ifndef PROJECT_LIB_LOGGING_TAGS_H
 #define PROJECT_LIB_LOGGING_TAGS_H
@@ -12,8 +11,11 @@
 #include <QtCore/QObject>
 #include <QtQml/QQmlEngine>
 
-namespace project
+
+
+namespace heory
 {
+
 class CliOptions;
 
 // Qt uses the terminology "logging categories" to refer to what other
@@ -53,6 +55,8 @@ signals:
 };
 
 Q_DECLARE_LOGGING_CATEGORY( guiTests ) // Make this match up with LogTags.qml
-} // namespace project
+
+} // namespace heory
+
 
 #endif // PROJECT_LIB_LOGGING_TAGS_H

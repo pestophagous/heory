@@ -1,9 +1,8 @@
 //
-// Copyright (c) 2020, 219 Design, LLC
+// Copyright (c) 2020, pestophagous (pestophagous@users.noreply.github.com)
 // See LICENSE.txt
 //
-// https://www.219design.com
-// Software | Electrical | Mechanical | Product Design
+// https://github.com/pestophagous/
 //
 #include "qml_message_interceptor.h"
 
@@ -15,8 +14,11 @@
 #    define strcasecmp _stricmp
 #endif
 
-namespace project
+
+
+namespace heory
 {
+
 namespace
 {
     // QtMessageHandler is a typedef qtbase/src/corelib/global/qlogging.h
@@ -89,4 +91,6 @@ QmlMessageInterceptor::~QmlMessageInterceptor()
     original_handler = nullptr;
 }
 
-} // namespace project
+
+} // namespace heory
+

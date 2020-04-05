@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Hello World
-Comment=From the github template 219-design/qt-qml-project-template-with-ci
+Name=heory
 Exec=app
 Icon=app
 # available categories, see: https://specifications.freedesktop.org/menu-spec/latest/apa.html

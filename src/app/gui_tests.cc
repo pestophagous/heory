@@ -1,9 +1,8 @@
 //
-// Copyright (c) 2020, 219 Design, LLC
+// Copyright (c) 2020, pestophagous (pestophagous@users.noreply.github.com)
 // See LICENSE.txt
 //
-// https://www.219design.com
-// Software | Electrical | Mechanical | Product Design
+// https://github.com/pestophagous/
 //
 #include "gui_tests.h"
 
@@ -12,8 +11,11 @@
 
 #include "util-assert.h"
 
-namespace project
+
+
+namespace heory
 {
+
 namespace
 {
     // Don't let this discourage us from ever renaming our qml filenames. This
@@ -35,4 +37,6 @@ GuiTests::GuiTests( const QQmlApplicationEngine& engine )
 
 GuiTests::~GuiTests() = default;
 
-} // namespace project
+
+} // namespace heory
+

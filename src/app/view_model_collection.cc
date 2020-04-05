@@ -1,9 +1,8 @@
 //
-// Copyright (c) 2020, 219 Design, LLC
+// Copyright (c) 2020, pestophagous (pestophagous@users.noreply.github.com)
 // See LICENSE.txt
 //
-// https://www.219design.com
-// Software | Electrical | Mechanical | Product Design
+// https://github.com/pestophagous/
 //
 #include "view_model_collection.h"
 
@@ -14,12 +13,15 @@
 #include "src/lib/resource_helper.h"
 #include "src/lib/resources.h"
 
-namespace project
+
+
+namespace heory
 {
+
 ViewModelCollection::ViewModelCollection( const QGuiApplication& app )
     : m_opts( std::make_unique<CliOptions>( app ) ), m_qmlLogger( std::make_unique<QmlMessageInterceptor>() ), m_logging( std::make_unique<LoggingTags>( *m_opts ) )
 {
-    project::initLibResources();
+    heory::initLibResources();
 
     // Do after the 'init..resource' calls, in case any ctor wants rsrcs:
     // m_navigation = std::make_unique<Navigation>();
@@ -40,4 +42,6 @@ void ViewModelCollection::ExportContextPropertiesToQml( QQmlApplicationEngine* e
     }
 }
 
-} // namespace project
+
+} // namespace heory
+
