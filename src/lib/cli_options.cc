@@ -8,11 +8,8 @@
 
 #include <QCommandLineParser>
 
-
-
 namespace heory
 {
-
 constexpr char GUI_TEST_CLI_OPT[] = "guitest";
 
 CliOptions::CliOptions( const QCoreApplication& app )
@@ -37,4 +34,3 @@ bool CliOptions::RunningGuiTests() const
 }
 
 } // namespace heory
-

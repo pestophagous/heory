@@ -14,11 +14,8 @@
 #include <utility>
 #include <vector>
 
-
-
 namespace heory
 {
-
 namespace internal
 {
     template <typename T>
@@ -79,8 +76,6 @@ QQmlListProperty<T> MakeQmlListProperty( QObject* owner, Collection* items )
         &internal::QmlListHelper<T, Collection>::ItemAt );
 }
 
-
 } // namespace heory
-
 
 #endif // PROJ_LIB_QML_LIST_PROPERTY_H

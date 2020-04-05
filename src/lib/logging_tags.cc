@@ -10,11 +10,8 @@
 
 #include "src/lib/cli_options.h"
 
-
-
 namespace heory
 {
-
 // refer to comments in our header file to see why we store this string here
 constexpr char GUI_TEST_LOG_TAG[] = "thisapp.guitesting";
 
@@ -49,6 +46,4 @@ QString LoggingTags::GuiTestingLogTag() const
     return GUI_TEST_LOG_TAG; // exposed as a Q_PROPERTY
 }
 
-
 } // namespace heory
-

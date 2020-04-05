@@ -11,11 +11,8 @@
 
 #include "util-assert.h"
 
-
-
 namespace heory
 {
-
 namespace
 {
     // Don't let this discourage us from ever renaming our qml filenames. This
@@ -37,6 +34,4 @@ GuiTests::GuiTests( const QQmlApplicationEngine& engine )
 
 GuiTests::~GuiTests() = default;
 
-
 } // namespace heory
-

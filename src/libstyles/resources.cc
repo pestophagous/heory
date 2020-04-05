@@ -16,11 +16,8 @@ static inline void init()
     Q_INIT_RESOURCE( libstyles );
 }
 
-
-
 namespace heory
 {
-
 void initLibStylesResources()
 {
     init();
@@ -29,6 +26,4 @@ void initLibStylesResources()
     // qRegisterMetaType<CustomType*>("CustomType*");
 }
 
-
 } // namespace heory
-

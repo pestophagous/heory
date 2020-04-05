@@ -8,15 +8,10 @@
 #ifndef PROJ_LIB_LIB_H
 #define PROJ_LIB_LIB_H
 
-
-
 namespace heory
 {
-
 int LibraryFunction();
 
-
 } // namespace heory
-
 
 #endif // PROJ_LIB_LIB_H
