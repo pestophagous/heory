@@ -8,11 +8,8 @@
 
 #include <QtQml/QQmlContext>
 
-
-
 namespace heory
 {
-
 namespace
 {
     ResourceHelper helper;
@@ -23,6 +20,4 @@ namespace
     engine->rootContext()->setContextProperty( "resourceHelper", &helper );
 }
 
-
 } // namespace heory
-

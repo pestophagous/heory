@@ -7,14 +7,10 @@
 #ifndef PROJ_LIBSTYLES_RESOURCES_H
 #define PROJ_LIBSTYLES_RESOURCES_H
 
-
-
 namespace heory
 {
-
 void initLibStylesResources();
 
 } // namespace heory
-
 
 #endif // PROJ_LIBSTYLES_RESOURCES_H

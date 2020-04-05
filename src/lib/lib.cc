@@ -7,16 +7,11 @@
 
 #include "lib.h"
 
-
-
 namespace heory
 {
-
 int LibraryFunction()
 {
     return 5;
 }
 
-
 } // namespace heory
-

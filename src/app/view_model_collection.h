@@ -13,11 +13,8 @@
 
 #include <memory>
 
-
-
 namespace heory
 {
-
 class CliOptions;
 class GuiTests;
 class LoggingTags;
@@ -43,6 +40,5 @@ private:
 };
 
 } // namespace heory
-
 
 #endif // PROJECT_APP_VIEW_MODEL_COLLECTION_H

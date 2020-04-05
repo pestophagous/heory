@@ -14,11 +14,8 @@
 #    define strcasecmp _stricmp
 #endif
 
-
-
 namespace heory
 {
-
 namespace
 {
     // QtMessageHandler is a typedef qtbase/src/corelib/global/qlogging.h
@@ -91,6 +88,4 @@ QmlMessageInterceptor::~QmlMessageInterceptor()
     original_handler = nullptr;
 }
 
-
 } // namespace heory
-

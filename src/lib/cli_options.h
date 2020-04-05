@@ -9,11 +9,8 @@
 
 #include <QCoreApplication>
 
-
-
 namespace heory
 {
-
 class CliOptions
 {
 public:
@@ -30,6 +27,5 @@ private:
 };
 
 } // namespace heory
-
 
 #endif // PROJECT_APP_CLI_OPTIONS_H

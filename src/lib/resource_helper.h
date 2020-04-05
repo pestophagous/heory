@@ -10,11 +10,8 @@
 #include <QtCore/QObject>
 #include <QtQml/QQmlEngine>
 
-
-
 namespace heory
 {
-
 class ResourceHelper : public QObject
 {
     Q_OBJECT
@@ -35,8 +32,6 @@ public:
     const QString imageSourcePrefix = "qrc:///libstyles/";
 };
 
-
 } // namespace heory
-
 
 #endif // PROJ_LIB_RESOURCE_HELPER_H

@@ -11,11 +11,8 @@
 #include <QtCore/QObject>
 #include <QtQml/QQmlEngine>
 
-
-
 namespace heory
 {
-
 class CliOptions;
 
 // Qt uses the terminology "logging categories" to refer to what other
@@ -57,6 +54,5 @@ signals:
 Q_DECLARE_LOGGING_CATEGORY( guiTests ) // Make this match up with LogTags.qml
 
 } // namespace heory
-
 
 #endif // PROJECT_LIB_LOGGING_TAGS_H

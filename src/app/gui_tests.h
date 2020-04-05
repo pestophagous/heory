@@ -10,11 +10,8 @@
 #include <QQmlApplicationEngine>
 #include <QtCore/QObject>
 
-
-
 namespace heory
 {
-
 class GuiTests : public QObject
 {
     Q_OBJECT
@@ -27,6 +24,5 @@ public:
 };
 
 } // namespace heory
-
 
 #endif // PROJECT_APP_GUI_TESTS_H

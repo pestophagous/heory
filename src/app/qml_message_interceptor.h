@@ -9,11 +9,8 @@
 
 #include <QObject>
 
-
-
 namespace heory
 {
-
 class QmlMessageInterceptor
 {
 public:
@@ -22,8 +19,6 @@ public:
     ~QmlMessageInterceptor();
 };
 
-
 } // namespace heory
-
 
 #endif // PROJECT_APP_QML_MESSAGE_INTERCEPTOR_H
