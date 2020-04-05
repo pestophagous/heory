@@ -23,7 +23,9 @@ sudo apt-get update
 sudo apt-get --assume-yes install \
   build-essential \
   clang-format-6.0 \
+  cmake \
   git \
+  libasound2-dev \
   libc-bin \
   libdbus-1-3 \
   libdouble-conversion1 \
@@ -32,11 +34,17 @@ sudo apt-get --assume-yes install \
   libgl1-mesa-dev \
   libgl1-mesa-glx \
   libglib2.0-0 \
+  libglib2.0-dev \
   libglu1-mesa-dev \
   libgtk-3-0 \
   libharfbuzz0b \
   libicu60 \
   libjpeg8 \
+  libpcaudio-dev \
+  libpcaudio0 \
+  libpulse-dev \
+  libreadline-dev \
+  libsndfile1-dev \
   libtiff5 \
   libxcb-icccm4 \
   libxcb-image0 \
@@ -48,6 +56,7 @@ sudo apt-get --assume-yes install \
   libxkbcommon-x11-0 \
   libxkbcommon0 \
   mesa-common-dev \
+  pkgconf \
   psmisc \
   python3 \
   wget \

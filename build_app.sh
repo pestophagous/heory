@@ -23,6 +23,12 @@ else
   git submodule update --init --recursive
 fi
 
+mkdir -p build/fsynth
+pushd build/fsynth >& /dev/null
+  cmake --enable-debug -DCMAKE_BUILD_TYPE=Debug ../../fluidsynth/
+  make VERBOSE=1
+popd >& /dev/null
+
 source $DIR/path_to_qmake.bash
 
 cd build
