@@ -21,9 +21,13 @@ fi
 
 sudo apt-get update
 sudo apt-get --assume-yes install \
+  alsa-base \
+  alsa-oss \
+  alsa-utils \
   build-essential \
   clang-format-6.0 \
   cmake \
+  fluid-soundfont-gm \
   git \
   libasound2-dev \
   libc-bin \
@@ -55,9 +59,13 @@ sudo apt-get --assume-yes install \
   libxcb-xkb1 \
   libxkbcommon-x11-0 \
   libxkbcommon0 \
+  linux-modules-$(uname -r) \
+  linux-modules-extra-$(uname -r) \
   mesa-common-dev \
   pkgconf \
   psmisc \
   python3 \
   wget \
   xvfb
+
+sudo usermod -a -G audio $USER
