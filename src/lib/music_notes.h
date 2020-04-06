@@ -36,6 +36,9 @@ public:
 
     void ExportContextPropertiesToQml( QQmlEngine* engine );
 
+    // lowercase due to use from QML
+    Q_INVOKABLE void playTestNote();
+
 private:
     FsynthWrapper* const m_fsynth;
 };

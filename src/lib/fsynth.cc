@@ -30,6 +30,13 @@ struct FsynthWrapper::Impl
     {
     }
 
+    ~Impl()
+    {
+        ShutdownFsynth();
+    }
+
+    void ShutdownFsynth();
+
     const bool test_lacking_alsa;
     fluid_settings_t* settings = nullptr;
     fluid_synth_t* synth = nullptr;
@@ -37,6 +44,20 @@ struct FsynthWrapper::Impl
     fluid_midi_driver_t* mdriver = nullptr;
     fluid_audio_driver_t* adriver = nullptr;
 };
+
+void FsynthWrapper::Impl::ShutdownFsynth()
+{
+    delete_fluid_audio_driver( this->adriver );
+    this->adriver = nullptr;
+    delete_fluid_midi_driver( this->mdriver );
+    this->mdriver = nullptr;
+    delete_fluid_midi_router( this->router );
+    this->router = nullptr;
+    delete_fluid_synth( this->synth );
+    this->synth = nullptr;
+    delete_fluid_settings( this->settings );
+    this->settings = nullptr;
+}
 
 FsynthWrapper::FsynthWrapper( const CliOptions& /*options*/ )
     : m_i( new Impl )
@@ -89,6 +110,12 @@ FsynthWrapper::FsynthWrapper( const CliOptions& /*options*/ )
 FsynthWrapper::~FsynthWrapper()
 {
     delete m_i;
+}
+
+void FsynthWrapper::PlayNote()
+{
+    const int note = fluid_synth_noteon( m_i->synth, 0 /*chan*/, 60 /*key*/, 100 /*velocity*/ );
+    FASSERT( note == FLUID_OK, "failed in fluid_synth_noteon" );
 }
 
 } // namespace heory

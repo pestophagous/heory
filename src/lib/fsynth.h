@@ -14,14 +14,17 @@ class CliOptions;
 class FsynthWrapper
 {
 public:
+    struct Impl; // "effectively private" type, due to being opaque.
+
     explicit FsynthWrapper( const CliOptions& options );
     ~FsynthWrapper();
 
     FsynthWrapper( const FsynthWrapper& ) = delete;
     FsynthWrapper& operator=( const FsynthWrapper& ) = delete;
 
+    void PlayNote();
+
 private:
-    struct Impl;
     Impl* const m_i;
 };
 

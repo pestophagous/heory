@@ -105,6 +105,7 @@ ApplicationWindow {
           blacknwhite.checked = false
           logoImage.rotation = 0
           smileyImage.rotation = 0
+          musicNotesViewModel.playTestNote()
         }
       }
     }
