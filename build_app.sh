@@ -26,7 +26,8 @@ fi
 mkdir -p build/fsynth
 pushd build/fsynth >& /dev/null
   cmake --enable-debug -DCMAKE_BUILD_TYPE=Debug ../../fluidsynth/
-  make VERBOSE=1
+  make VERBOSE=1 DESTDIR=./gcc_64
+  make VERBOSE=1 DESTDIR=./gcc_64 install
 popd >& /dev/null
 
 source $DIR/path_to_qmake.bash

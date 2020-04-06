@@ -29,6 +29,7 @@ then
   env
 
   ./tools/ci/provision.sh
+  ./tools/ci/prep-dummy-soundcard.sh
   git submodule update --init # avoid '--recursive' (as long as we can) due to inner qmlfmt deps
 
   XDISPLAY=":1"

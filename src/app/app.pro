@@ -14,5 +14,6 @@ HEADERS += \
     view_model_collection.h
 
 # 'pri' usage based on http://archive.is/https://www.toptal.com/qt/vital-guide-qmake
+!include(../lib/fluidsynth_linkonly.pri) { error() }
 !include(../lib/lib.pri) { error() }
 !include(../libstyles/libstyles.pri) { error() }
