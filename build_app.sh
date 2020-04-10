@@ -36,6 +36,14 @@ pushd build/fsynth >& /dev/null
   make VERBOSE=1 DESTDIR=./gcc_64 install
 popd >& /dev/null
 
+# You don't need to commit the changes to version.h with every commit, but it is
+# harmless if you go ahead and keep committing it.
+#
+# A possibly less-annoying (to yourself) way to deal with it is:
+#      git update-index --assume-unchanged src/util/version.h
+# (Then git won't ever show you the file as "dirty" and needing to be committed.)
+tools/update_version_strings.sh src/util/version.h
+
 source $DIR/path_to_qmake.bash
 
 cd build
