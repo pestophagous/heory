@@ -20,7 +20,13 @@ cd $DIR  # enter this script's directory. (in case called from root of repositor
 if [ -f build_qt_binaries/.git ]; then
   echo "Skipping any work in qt5 bin submodule. Looks done already."
 else
-  git submodule update --init --recursive
+  git submodule update --init --recursive build_qt_binaries
+fi
+
+if [ -f fluidsynth/.git ]; then
+  echo "Skipping any work in fluidsynth submodule. Looks done already."
+else
+  git submodule update --init --recursive fluidsynth
 fi
 
 mkdir -p build/fsynth
