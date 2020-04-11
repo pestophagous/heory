@@ -11,7 +11,7 @@
 import sys
 
 MUST_HAVE = [
-    "thisapp.guitesting: ApplicationWindow onCompleted",
+    "ApplicationWindow onCompleted",
 ]
 
 MUST_NOT = [
