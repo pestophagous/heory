@@ -1,6 +1,6 @@
 !include($$top_srcdir/compiler_flags.pri) { error() }
 
-QT += core
+QT += core qml quick
 
 TEMPLATE = lib
 CONFIG += shared
@@ -13,6 +13,7 @@ SOURCES += \
     lib.cc \
     logging_tags.cc \
     music_notes.cc \
+    notation_strings.cc \
     resource_helper.cc \
     resources.cc
 
@@ -22,6 +23,7 @@ HEADERS += \
     lib.h \
     logging_tags.h \
     music_notes.h \
+    notation_strings.h \
     resource_helper.h \
     resources.h
 
