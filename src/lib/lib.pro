@@ -14,6 +14,7 @@ SOURCES += \
     logging_tags.cc \
     music_notes.cc \
     notation_strings.cc \
+    pitch.cc \
     resource_helper.cc \
     resources.cc
 
@@ -24,6 +25,7 @@ HEADERS += \
     logging_tags.h \
     music_notes.h \
     notation_strings.h \
+    pitch.h \
     resource_helper.h \
     resources.h
 
