@@ -9,13 +9,13 @@
 #include <QtQml/QQmlContext>
 
 #include "gui_tests.h"
-#include "qml_message_interceptor.h"
 #include "src/lib/cli_options.h"
 #include "src/lib/fsynth.h"
 #include "src/lib/logging_tags.h"
 #include "src/lib/music_notes.h"
 #include "src/lib/resource_helper.h"
 #include "src/lib/resources.h"
+#include "src/util/qml_message_interceptor.h"
 #include "src/util/version.h" // USE THIS SPARINGLY. IT CAN TRIGGER MANY REBUILDS.
 
 namespace heory
