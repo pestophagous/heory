@@ -21,9 +21,11 @@ public:
     CliOptions& operator=( const CliOptions& ) = delete;
 
     bool RunningGuiTests() const;
+    bool MaximumQtLogging() const;
 
 private:
     bool m_guiTests = false;
+    bool m_maximumQtLogs = false;
 };
 
 } // namespace heory
