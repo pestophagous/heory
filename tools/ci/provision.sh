@@ -28,6 +28,7 @@ sudo apt-get --assume-yes install \
   clang-format-6.0 \
   cmake \
   fluid-soundfont-gm \
+  gdb \
   git \
   libasound2-dev \
   libc-bin \
