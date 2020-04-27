@@ -112,9 +112,9 @@ FsynthWrapper::~FsynthWrapper()
     delete m_i;
 }
 
-void FsynthWrapper::PlayNote()
+void FsynthWrapper::PlayNote( const Pitch pitch )
 {
-    const int note = fluid_synth_noteon( m_i->synth, 0 /*chan*/, 60 /*key*/, 100 /*velocity*/ );
+    const int note = fluid_synth_noteon( m_i->synth, 0 /*chan*/, pitch.AsMidi() /*key*/, 100 /*velocity*/ );
     FASSERT( note == FLUID_OK, "failed in fluid_synth_noteon" );
 }
 

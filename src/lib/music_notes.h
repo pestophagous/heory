@@ -15,6 +15,29 @@
 namespace heory
 {
 class FsynthWrapper;
+class PitchTraining;
+class SoundIO_Interface;
+
+class PitchTrainerVM : public QObject
+{
+    Q_OBJECT
+
+    // clang-format off
+
+    // Q_PROPERTY( QString
+    //             READ
+    //             NOTIFY  )
+    // clang-format on
+
+public:
+    explicit PitchTrainerVM( SoundIO_Interface* io );
+    ~PitchTrainerVM() override;
+
+    Q_INVOKABLE void testing();
+
+private:
+    std::unique_ptr<PitchTraining> m_training;
+};
 
 class MusicNotes : public QObject
 {
@@ -41,6 +64,8 @@ public:
 
 private:
     FsynthWrapper* const m_fsynth;
+
+    PitchTrainerVM m_pitchTrainerVM;
 };
 
 } // namespace heory

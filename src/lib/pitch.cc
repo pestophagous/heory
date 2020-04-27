@@ -20,11 +20,34 @@ namespace
     return Pitch( midi );
 }
 
+/*static*/ Pitch Pitch::MiddleC()
+{
+    return FromMidi( 60 );
+}
+
+/*static*/ Pitch Pitch::C5()
+{
+    return FromMidi( 72 );
+}
+
 Pitch::Pitch( int midi )
     // clang-format off
     : m_midi( midi )
 // clang-format on
 {
+}
+
+Pitch& Pitch::operator=( const Pitch& rhs )
+{
+    // check for self-assignment
+    if( &rhs == this )
+    {
+        return *this;
+    }
+
+    *const_cast<int*>( &m_midi ) = rhs.m_midi;
+
+    return *this;
 }
 
 Pitch::~Pitch() = default;
@@ -73,4 +96,8 @@ int Pitch::OctaveNumber() const
     return ( m_midi / 12 ) - 1;
 }
 
+Pitch Pitch::IncrementHalfStep() const
+{
+    return FromMidi( m_midi + 1 );
+}
 } // namespace heory
