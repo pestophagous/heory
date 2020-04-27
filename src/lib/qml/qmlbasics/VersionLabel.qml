@@ -6,6 +6,6 @@ import ".."
 
 Label {
   font: Theme.basicFont
-  color: Theme.primaryDark
+  color: Theme.neutralMediumLight
   text: versionInfoGitHash + " - Built on: " + versionInfoBuildDateString
 }
