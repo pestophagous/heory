@@ -56,4 +56,10 @@ QtObject {
   basicFont.underline: false
   basicFont.pixelSize: 14
   basicFont.family: "arial"
+
+  property font mediumFont
+  mediumFont.bold: basicFont.bold
+  mediumFont.underline: basicFont.underline
+  mediumFont.pixelSize: 20
+  mediumFont.family: basicFont.family
 }
