@@ -1,11 +1,11 @@
 <RCC>
   <qresource prefix="">
     <!-- PLEASE OBEY ALPHABETICAL ORDER -->
-    <file>qml/DebugRectangle.qml</file>
-    <file>qml/ImageSvgHelper.qml</file>
     <file>qml/LogTags.qml</file>
-    <file>qml/VersionLabel.qml</file>
     <file>qml/main.qml</file>
+    <file>qml/qmlbasics/DebugRectangle.qml</file>
+    <file>qml/qmlbasics/ImageSvgHelper.qml</file>
+    <file>qml/qmlbasics/VersionLabel.qml</file>
     <file>qml/qmldir</file>
   </qresource>
 </RCC>

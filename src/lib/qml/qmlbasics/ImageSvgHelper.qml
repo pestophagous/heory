@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import ".."
 
 
 // (apparently because constantly resizing an SVG would be expensive in an app
