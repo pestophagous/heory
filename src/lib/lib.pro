@@ -15,6 +15,7 @@ SOURCES += \
     music_notes.cc \
     notation_strings.cc \
     pitch.cc \
+    pitch_training.cc \
     resource_helper.cc \
     resources.cc
 
@@ -26,8 +27,10 @@ HEADERS += \
     music_notes.h \
     notation_strings.h \
     pitch.h \
+    pitch_training.h \
     resource_helper.h \
-    resources.h
+    resources.h \
+    sound_io_interface.h
 
 # 'pri' usage based on http://archive.is/https://www.toptal.com/qt/vital-guide-qmake
 !include(../libstyles/libstyles.pri) { error() }

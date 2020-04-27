@@ -16,8 +16,12 @@ class Pitch
 {
 public:
     static Pitch FromMidi( int midi );
+    static Pitch MiddleC();
+    static Pitch C5();
 
     ~Pitch();
+
+    Pitch& operator=( const Pitch& );
 
     int AsMidi() const;
 
@@ -28,6 +32,8 @@ public:
 
     QString OctaveNumberLabel() const;
     int OctaveNumber() const;
+
+    Pitch IncrementHalfStep() const;
 
 private:
     explicit Pitch( int midi );
