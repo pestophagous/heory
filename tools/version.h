@@ -18,8 +18,8 @@
 // (Then git won't ever show you the file as "dirty" and needing to be committed.)
 namespace heory
 {
-constexpr char BUILD_ON_DATE[] = "2020-04-11";
-constexpr char GIT_HASH_WHEN_BUILT[] = "38e7bcba68";
+constexpr char BUILD_ON_DATE[] = "yyyy-mm-dd";
+constexpr char GIT_HASH_WHEN_BUILT[] = "abcdefghij";
 } // namespace heory
 
 #endif // PROJ_LIB_VERSION_H
