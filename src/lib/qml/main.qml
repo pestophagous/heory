@@ -6,6 +6,7 @@ import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.12
 import QtQuick.Controls.Universal 2.2
 import libstyles 1.0
+import "./qmlbasics"
 
 ApplicationWindow {
   id: rootx
