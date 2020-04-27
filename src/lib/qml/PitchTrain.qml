@@ -6,4 +6,16 @@ import "./qmlbasics"
 
 FramedSubScreen {
   id: root
+
+  StyledButton {
+    anchors.centerIn: parent
+    height: 60
+    width: 120
+
+    text: "Test"
+
+    onClicked: {
+      pitchTrainerViewModel.testing()
+    }
+  }
 }
