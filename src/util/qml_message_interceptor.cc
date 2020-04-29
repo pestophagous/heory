@@ -16,18 +16,19 @@
 
 namespace heory
 {
-struct QmlMessageInterceptor::Pimpl // "effectively private" due to no definition in header, but provides full access to
-    // Interceptor
+struct QmlMessageInterceptor::Pimpl // "effectively private" due to no definition in header,
+                                    // but provides full access to Interceptor
 {
-    explicit Pimpl( QmlMessageInterceptor* o )
-        : owner( o )
+    explicit Pimpl( QmlMessageInterceptor* o ) : owner( o )
     {
         FASSERT( owner, "cannot be nullptr" );
     }
 
-    void DecoratorFunc( QtMsgType type, const QMessageLogContext& context, const QString& message )
+    void DecoratorFunc(
+        QtMsgType type, const QMessageLogContext& context, const QString& message )
     {
-        owner->DecoratorFunction( type, context, message ); // pass through to PRIVATE method of interceptor.
+        owner->DecoratorFunction(
+            type, context, message ); // pass through to PRIVATE method of interceptor.
     }
 
     QmlMessageInterceptor* const owner;
@@ -69,13 +70,15 @@ namespace
         // IMPOSSIBLE to ever match on '/qqmlapplicationengine.cpp' because they
         // seem to strip out file info (it shows "unknown") for the filename in
         // certain RELEASE/optimized qt builds.
-        if( EndsWith( file, ".qml" ) || EndsWith( file, ".js" ) || EndsWith( file, "/qqmlapplicationengine.cpp" ) )
+        if( EndsWith( file, ".qml" ) || EndsWith( file, ".js" )
+            || EndsWith( file, "/qqmlapplicationengine.cpp" ) )
         {
             FFAIL( "qml warning detected (in *qml or *js file). please fix it." );
         }
     }
 
-    void DecoratorFunc( QtMsgType type, const QMessageLogContext& context, const QString& message )
+    void DecoratorFunc(
+        QtMsgType type, const QMessageLogContext& context, const QString& message )
     {
         FASSERT( our_interceptor, "you must assign to our_interceptor before we get here" );
         our_interceptor->DecoratorFunc( type, context, message );
@@ -84,12 +87,14 @@ namespace
 } // namespace
 
 QmlMessageInterceptor::QmlMessageInterceptor( const bool suppressDefaultLogWhenSinkIsPresent )
-    : m_pimpl( new Pimpl( this ) ), m_suppressDefaultLogWhenSinkIsPresent( suppressDefaultLogWhenSinkIsPresent )
+    : m_pimpl( new Pimpl( this ) )
+    , m_suppressDefaultLogWhenSinkIsPresent( suppressDefaultLogWhenSinkIsPresent )
 {
     FASSERT( original_handler == nullptr,
-        "Qt supports just one handler at a time, so it would be an error to construct more than one of these" );
-    FASSERT( our_interceptor == nullptr,
-        "Qt supports just one handler at a time, so it would be an error to construct more than one of these" );
+        "Qt supports just one handler at a time, so it would be "
+        "an error to construct more than one of these" );
+    FASSERT( our_interceptor == nullptr, "Qt supports just one handler at a time, so it would "
+                                         "be an error to construct more than one of these" );
     our_interceptor = m_pimpl;
     original_handler = qInstallMessageHandler( DecoratorFunc );
 }
@@ -102,8 +107,8 @@ QmlMessageInterceptor::~QmlMessageInterceptor()
     delete m_pimpl;
 }
 
-void QmlMessageInterceptor::AddMessageSink(
-    std::weak_ptr<std::function<void( QtMsgType type, const QMessageLogContext& context, const QString& message )>>
+void QmlMessageInterceptor::AddMessageSink( std::weak_ptr<std::function<void(
+        QtMsgType type, const QMessageLogContext& context, const QString& message )>>
         sink )
 {
     m_sinks.push_back( sink );
@@ -139,7 +144,8 @@ void QmlMessageInterceptor::DecoratorFunction(
     }
 }
 
-int QmlMessageInterceptor::TeeToSinks( QtMsgType type, const QMessageLogContext& context, const QString& message )
+int QmlMessageInterceptor::TeeToSinks(
+    QtMsgType type, const QMessageLogContext& context, const QString& message )
 {
     int sinksThatWereLoggedTo = 0;
     for( auto& sink : m_sinks )
@@ -158,10 +164,10 @@ int QmlMessageInterceptor::TeeToSinks( QtMsgType type, const QMessageLogContext&
 
 void QmlMessageInterceptor::CullDeadSinks()
 {
-    using weakPtr = std::weak_ptr<
-        std::function<void( QtMsgType type, const QMessageLogContext& context, const QString& message )>>;
-    m_sinks.erase(
-        std::remove_if( m_sinks.begin(), m_sinks.end(), []( weakPtr sinkPtr ) { return sinkPtr.expired(); } ),
+    using weakPtr = std::weak_ptr<std::function<void(
+        QtMsgType type, const QMessageLogContext& context, const QString& message )>>;
+    m_sinks.erase( std::remove_if( m_sinks.begin(), m_sinks.end(),
+                       []( weakPtr sinkPtr ) { return sinkPtr.expired(); } ),
         m_sinks.end() );
 }
 

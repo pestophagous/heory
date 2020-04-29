@@ -13,7 +13,8 @@ PitchTraining::PitchTraining( const Pitch lowest, const Pitch highest, SoundIO_I
 // clang-format on
 {
     FASSERT( m_io, "cannot be null" );
-    FASSERT( highest.AsMidi() > lowest.AsMidi(), "we need an ordered pair of distinct values, least to greatest" );
+    FASSERT( highest.AsMidi() > lowest.AsMidi(),
+        "we need an ordered pair of distinct values, least to greatest" );
     m_io->SubscribeToIncomingPitches( this );
     Restart();
 }
