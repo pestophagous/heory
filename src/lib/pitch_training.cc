@@ -14,7 +14,13 @@ PitchTraining::PitchTraining( const Pitch lowest, const Pitch highest, SoundIO_I
 {
     FASSERT( m_io, "cannot be null" );
     FASSERT( highest.AsMidi() > lowest.AsMidi(), "we need an ordered pair of distinct values, least to greatest" );
+    m_io->SubscribeToIncomingPitches( this );
     Restart();
+}
+
+PitchTraining::~PitchTraining()
+{
+    m_io->UnsubscribeToIncomingPitches( this );
 }
 
 void PitchTraining::Restart()
@@ -39,6 +45,11 @@ void PitchTraining::ProcessThisGuess( Pitch guess )
     {
         Advance();
     }
+}
+
+void PitchTraining::OnIncomingNote( Pitch pitch )
+{
+    ProcessThisGuess( pitch );
 }
 
 void PitchTraining::AssignNext()

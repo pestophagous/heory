@@ -10,6 +10,8 @@
 #include "src/lib/pitch.h"
 #include "src/lib/sound_io_interface.h"
 
+#include <vector>
+
 namespace heory
 {
 class CliOptions;
@@ -27,8 +29,17 @@ public:
 
     void PlayNote( Pitch pitch ) override;
 
+    void SubscribeToIncomingPitches( IncomingPitchListener_Interface* listener ) override;
+    void UnsubscribeToIncomingPitches( IncomingPitchListener_Interface* listener ) override;
+
+    struct VoidDataPreRouter;
+    friend struct VoidDataPreRouter;
+
 private:
+    void NotifyIncomingPitch( int asMidi ) const;
     Impl* const m_i;
+
+    std::vector<IncomingPitchListener_Interface*> m_pitchListeners;
 };
 
 } // namespace heory
