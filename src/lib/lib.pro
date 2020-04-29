@@ -22,6 +22,7 @@ SOURCES += \
 HEADERS += \
     cli_options.h \
     fsynth.h \
+    incoming_pitch_listener_interface.h \
     lib.h \
     logging_tags.h \
     music_notes.h \

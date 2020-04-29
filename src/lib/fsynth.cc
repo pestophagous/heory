@@ -3,14 +3,31 @@
 #include <QDebug>
 
 #include <fluidsynth.h>
+#include <fluidsynth/fluid_midi.h>
 #include <fluidsynth/version.h>
 
+#include <algorithm>
 #include <stdlib.h>
 
 #include "util-assert.h"
 
 namespace heory
 {
+struct FsynthWrapper::VoidDataPreRouter
+{
+    VoidDataPreRouter( fluid_midi_router_t* r, FsynthWrapper* w )
+        : router( r ), wrapper( w )
+    {
+    }
+    void OnNote( int asMidi )
+    {
+        wrapper->NotifyIncomingPitch( asMidi );
+    }
+
+    fluid_midi_router_t* const router = nullptr;
+    FsynthWrapper* const wrapper = nullptr;
+};
+
 namespace
 {
     bool IsRunningOnGithubRuner()
@@ -21,6 +38,21 @@ namespace
         }
         return false;
     }
+
+    int OnIncomingMidiEvent( void* data, fluid_midi_event_t* event )
+    {
+        FsynthWrapper::VoidDataPreRouter* ourData = static_cast<FsynthWrapper::VoidDataPreRouter*>( data );
+
+        if( NOTE_ON == event->type )
+        {
+            ourData->OnNote( event->param1 );
+        }
+
+        // TODO: make dump_pre and dump_post optional on CLI flag
+        return fluid_midi_dump_prerouter( ourData->router, event );
+        //return fluid_midi_router_handle_midi_event( ourData->router, event );
+    }
+
 } // namespace
 
 struct FsynthWrapper::Impl
@@ -43,6 +75,7 @@ struct FsynthWrapper::Impl
     fluid_midi_router_t* router = nullptr;
     fluid_midi_driver_t* mdriver = nullptr;
     fluid_audio_driver_t* adriver = nullptr;
+    std::unique_ptr<VoidDataPreRouter> voidData;
 };
 
 void FsynthWrapper::Impl::ShutdownFsynth()
@@ -84,19 +117,22 @@ FsynthWrapper::FsynthWrapper( const CliOptions& /*options*/ )
         // ALSA lib seq_hw.c:466:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
         // fluidsynth: error: Error opening ALSA sequencer
 
+        // TODO: make dump_pre and dump_post optional on CLI flag
         m_i->router = new_fluid_midi_router(
             m_i->settings,
             fluid_midi_dump_postrouter,
             static_cast<void*>( m_i->synth ) );
         FASSERT( m_i->router, "must be non-null" );
 
+        m_i->voidData.reset( new VoidDataPreRouter( m_i->router, this ) );
+
         // In dump mode, text output is generated for events going into and out of
         // the router.  The example dump functions are put into the chain before and
         // after the router.
         m_i->mdriver = new_fluid_midi_driver(
             m_i->settings,
-            fluid_midi_dump_prerouter,
-            static_cast<void*>( m_i->router ) );
+            &OnIncomingMidiEvent,
+            static_cast<void*>( m_i->voidData.get() ) );
         FASSERT( m_i->mdriver, "must be non-null" );
 
         m_i->adriver = new_fluid_audio_driver( m_i->settings, m_i->synth );
@@ -116,6 +152,39 @@ void FsynthWrapper::PlayNote( const Pitch pitch )
 {
     const int note = fluid_synth_noteon( m_i->synth, 0 /*chan*/, pitch.AsMidi() /*key*/, 100 /*velocity*/ );
     FASSERT( note == FLUID_OK, "failed in fluid_synth_noteon" );
+}
+
+void FsynthWrapper::SubscribeToIncomingPitches( IncomingPitchListener_Interface* listener )
+{
+    const auto finder = std::find( m_pitchListeners.begin(), m_pitchListeners.end(), listener );
+    if( finder != m_pitchListeners.end() )
+    {
+        FFAIL( "did you know you already added this listener?" );
+        return;
+    }
+
+    m_pitchListeners.push_back( listener );
+}
+
+void FsynthWrapper::UnsubscribeToIncomingPitches( IncomingPitchListener_Interface* listener )
+{
+    const auto finder = std::find( m_pitchListeners.begin(), m_pitchListeners.end(), listener );
+    if( finder == m_pitchListeners.end() )
+    {
+        FFAIL( "did you know that this listener was not subscribed?" );
+        return;
+    }
+
+    m_pitchListeners.erase( finder );
+}
+
+void FsynthWrapper::NotifyIncomingPitch( const int asMidi ) const
+{
+    const Pitch p = Pitch::FromMidi( asMidi );
+    for( const auto& listener : m_pitchListeners )
+    {
+        listener->OnIncomingNote( p );
+    }
 }
 
 } // namespace heory

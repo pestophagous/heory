@@ -9,15 +9,17 @@
 
 #include <QString>
 
+#include "src/lib/incoming_pitch_listener_interface.h"
 #include "src/lib/pitch.h"
 #include "src/lib/sound_io_interface.h"
 
 namespace heory
 {
-class PitchTraining
+class PitchTraining : public IncomingPitchListener_Interface
 {
 public:
     PitchTraining( Pitch lowest, Pitch highest, SoundIO_Interface* io );
+    ~PitchTraining() override;
 
     PitchTraining( const PitchTraining& ) = delete;
     PitchTraining& operator=( const PitchTraining& ) = delete;
@@ -30,6 +32,8 @@ public:
     void MakeSound() const;
 
     void ProcessThisGuess( Pitch guess );
+
+    void OnIncomingNote( Pitch pitch ) override;
 
 private:
     void AssignNext();
