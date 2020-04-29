@@ -3,8 +3,8 @@
 
 //#define FLEX_DISABLE_ASSERT // <--- disabling should be done in a release build
 
-// If NDEBUG is defined as a macro name at the point in the source code where <cassert> is included,
-// then assert does nothing.
+// If NDEBUG is defined as a macro name at the point in the source code where <cassert> is
+// included, then assert does nothing.
 #ifdef NDEBUG
 // Hard-enabling of assert() even if NDEBUG is defined
 #    define NDEBUG_WAS_SET_FASSERT_HEADER
@@ -49,10 +49,12 @@ static inline void UnSuppress_All_Assertions()
 
     static const char* negation = "FLEX_SUPALL_ASRT=";
     // should return 0 for SUCCESS:
-    /*const int ret =*/_putenv( (char*) negation ); // on win32, this is enough to nullify the var.
+    /*const int ret =*/_putenv(
+        (char*) negation ); // on win32, this is enough to nullify the var.
 
 #    if !defined( _WIN32 )
-    /*const int ret =*/unsetenv( "FLEX_SUPALL_ASRT" ); // on posix, the above set it to "", and HERE we nullify it
+    /*const int ret =*/unsetenv(
+        "FLEX_SUPALL_ASRT" ); // on posix, the above set it to "", and HERE we nullify it
 #    endif //#if ! defined(_WIN32)
 
 #endif // FLEX_DISABLE_ASSERT
@@ -72,12 +74,8 @@ static inline void TrapDebug()
 #endif // Win/Apple
 }
 
-static inline void OptionToContinue(
-    const char* title,
-    const char* message,
-    const char* filename,
-    const int line,
-    const char* funcname )
+static inline void OptionToContinue( const char* title, const char* message,
+    const char* filename, const int line, const char* funcname )
 {
 #if defined( _WIN32 )
 
@@ -98,20 +96,22 @@ static inline void OptionToContinue(
     CFStringRef headerRef = CFStringCreateWithCString( NULL, title, kCFStringEncodingUTF8 );
     CFStringRef messageRef = CFStringCreateWithCString( NULL, message, kCFStringEncodingUTF8 );
 
-    CFStringRef button1 = CFStringCreateWithCString( NULL, "Break", kCFStringEncodingUTF8 ); // defaultButtonTitle
-    CFStringRef button2 = CFStringCreateWithCString( NULL, "Continue", kCFStringEncodingUTF8 ); // alternateButtonTitle
+    CFStringRef button1 = CFStringCreateWithCString(
+        NULL, "Break", kCFStringEncodingUTF8 ); // defaultButtonTitle
+    CFStringRef button2 = CFStringCreateWithCString(
+        NULL, "Continue", kCFStringEncodingUTF8 ); // alternateButtonTitle
 
     CFOptionFlags response;
 
-    CFUserNotificationDisplayAlert( 0, // timeout. (apparently in seconds) The amount of time to wait for the user to dismiss
-        // the notification dialog before the dialog dismisses
-        // itself. Pass 0 to have the dialog never time out.
+    CFUserNotificationDisplayAlert( 0, // timeout. (apparently in seconds) The amount of time
+                                       // to wait for the user to dismiss the notification
+                                       // dialog before the dialog dismisses itself. Pass 0 to
+                                       // have the dialog never time out.
         kCFUserNotificationCautionAlertLevel,
         NULL, // iconURL
         NULL, // soundURL
         NULL, // localizationURL
-        headerRef,
-        messageRef,
+        headerRef, messageRef,
         button1, // defaultButtonTitle
         button2, // alternateButtonTitle
         NULL, // otherButtonTitle
@@ -137,7 +137,8 @@ static inline void OptionToContinue(
         // either the notification timed out by itself (no user interaction),
         // or else the user hit the ESCAPE key
 
-        fprintf( stderr, "ignoring opportunity to debug the FAIL (either due to inaction or ESC key)\n" );
+        fprintf( stderr,
+            "ignoring opportunity to debug the FAIL (either due to inaction or ESC key)\n" );
     }
 
 #elif defined( __linux__ )
@@ -197,38 +198,26 @@ static inline void OptionToContinue(
 
 #if defined( __APPLE__ ) || defined( __linux__ )
 
-static inline void Flex_Asrt_Unix( const char* message,
-    const char* filename,
-    const int line,
-    const char* funcname )
+static inline void Flex_Asrt_Unix(
+    const char* message, const char* filename, const int line, const char* funcname )
 {
     if( getenv( "FLEX_SUPALL_ASRT" ) )
     {
         return;
     }
 
-    OptionToContinue( "FASSERT",
-        message,
-        filename,
-        line,
-        funcname );
+    OptionToContinue( "FASSERT", message, filename, line, funcname );
 }
 
-static inline void Flex_Fail_Unix( const char* message,
-    const char* filename,
-    const int line,
-    const char* funcname )
+static inline void Flex_Fail_Unix(
+    const char* message, const char* filename, const int line, const char* funcname )
 {
     if( getenv( "FLEX_SUPALL_ASRT" ) )
     {
         return;
     }
 
-    OptionToContinue( "FFAIL",
-        message,
-        filename,
-        line,
-        funcname );
+    OptionToContinue( "FFAIL", message, filename, line, funcname );
 }
 
 #endif //#if defined(__APPLE__)
@@ -300,25 +289,23 @@ static inline bool GetEnv_WinOnly( const char* name )
 #    if defined( _WIN32 )
 
 // when assertions are enabled on Win:
-#        define FASSERT( cond, msg )                        \
-            __pragma( warning( push ) )                     \
-                __pragma( warning( disable : 4127 ) ) do    \
-            {                                               \
-                if( !GetEnv_WinOnly( "FLEX_SUPALL_ASRT" ) ) \
-                    assert( ( cond ) && ( msg ) );          \
-            }                                               \
-            while( 0 )                                      \
+#        define FASSERT( cond, msg )                                             \
+            __pragma( warning( push ) ) __pragma( warning( disable : 4127 ) ) do \
+            {                                                                    \
+                if( !GetEnv_WinOnly( "FLEX_SUPALL_ASRT" ) )                      \
+                    assert( ( cond ) && ( msg ) );                               \
+            }                                                                    \
+            while( 0 )                                                           \
             __pragma( warning( pop ) )
 
 // when assertions are enabled on Win:
-#        define FFAIL( msg )                                \
-            __pragma( warning( push ) )                     \
-                __pragma( warning( disable : 4127 ) ) do    \
-            {                                               \
-                if( !GetEnv_WinOnly( "FLEX_SUPALL_ASRT" ) ) \
-                    assert( !msg );                         \
-            }                                               \
-            while( 0 )                                      \
+#        define FFAIL( msg )                                                     \
+            __pragma( warning( push ) ) __pragma( warning( disable : 4127 ) ) do \
+            {                                                                    \
+                if( !GetEnv_WinOnly( "FLEX_SUPALL_ASRT" ) )                      \
+                    assert( !msg );                                              \
+            }                                                                    \
+            while( 0 )                                                           \
             __pragma( warning( pop ) )
 
 #    elif defined( __APPLE__ ) || defined( __linux__ )
@@ -332,8 +319,7 @@ static inline bool GetEnv_WinOnly( const char* name )
                 Flex_Asrt_Unix( msg, __FILE__, __LINE__, __func__ )
 
 // when assertions are enabled on Mac:
-#        define FFAIL( msg ) \
-            Flex_Fail_Unix( msg, __FILE__, __LINE__, __func__ )
+#        define FFAIL( msg ) Flex_Fail_Unix( msg, __FILE__, __LINE__, __func__ )
 
 #    else
 // TODO

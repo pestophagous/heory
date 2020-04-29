@@ -25,10 +25,12 @@ namespace
 GuiTests::GuiTests( const QQmlApplicationEngine& engine )
 {
     connect( &engine, &QQmlApplicationEngine::objectCreated, [=]( QObject*, const QUrl& url ) {
-        FASSERT( url.fileName() == QString( EXPECTED_FIRST_LOADED_FILE ), "something must have changed in loading behavior of QQmlApplicationEngine" );
+        FASSERT( url.fileName() == QString( EXPECTED_FIRST_LOADED_FILE ),
+            "something must have changed in loading behavior of QQmlApplicationEngine" );
 
         // quit during next event-loop cycle
-        QTimer::singleShot( 1 /*milliseconds*/, QCoreApplication::instance(), QCoreApplication::quit );
+        QTimer::singleShot(
+            1 /*milliseconds*/, QCoreApplication::instance(), QCoreApplication::quit );
     } );
 }
 

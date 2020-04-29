@@ -47,7 +47,8 @@ void ViewModelCollection::ExportContextPropertiesToQml( QQmlApplicationEngine* e
 
     m_musicNotes->ExportContextPropertiesToQml( engine );
 
-    // Keep this at the END of the 'ExportContext...' method, so all view models are exported before any tests run
+    // Keep this at the END of the 'ExportContext...' method, so all view models are exported
+    // before any tests run
     if( m_opts->RunningGuiTests() )
     {
         m_guiTests = std::make_unique<GuiTests>( *engine );
