@@ -31,9 +31,9 @@ public:
     Pitch CurrentlyExpecting() const;
     void MakeSound() const;
 
-    void ProcessThisGuess( Pitch guess );
+    void ProcessThisGuess( PitchLifetime guess );
 
-    void OnIncomingNote( Pitch pitch ) override;
+    void OnIncomingNote( PitchLifetime pitch ) override;
 
 private:
     void AssignNext();

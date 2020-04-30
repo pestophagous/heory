@@ -22,6 +22,10 @@ struct FsynthWrapper::VoidDataPreRouter
     {
         wrapper->NotifyIncomingPitch( asMidi );
     }
+    void OnNoteTermination( int asMidi )
+    {
+        wrapper->NotifyPitchTermination( asMidi );
+    }
 
     fluid_midi_router_t* const router = nullptr;
     FsynthWrapper* const wrapper = nullptr;
@@ -29,6 +33,8 @@ struct FsynthWrapper::VoidDataPreRouter
 
 namespace
 {
+    using std::placeholders::_1;
+
     bool IsRunningOnGithubRuner()
     {
         if( getenv( "GITHUB_ACTIONS" ) )
@@ -46,6 +52,10 @@ namespace
         if( NOTE_ON == event->type )
         {
             ourData->OnNote( event->param1 );
+        }
+        else if( NOTE_OFF == event->type )
+        {
+            ourData->OnNoteTermination( event->param1 );
         }
 
         // TODO: make dump_pre and dump_post optional on CLI flag
@@ -177,12 +187,64 @@ void FsynthWrapper::UnsubscribeToIncomingPitches( IncomingPitchListener_Interfac
     m_pitchListeners.erase( finder );
 }
 
-void FsynthWrapper::NotifyIncomingPitch( const int asMidi ) const
+void FsynthWrapper::NotifyIncomingPitch( const int asMidi )
 {
-    const Pitch p = Pitch::FromMidi( asMidi );
+    m_debugFlag_IncomingNotify = true;
+
+    auto finder = m_activePitches.find( asMidi );
+    if( finder == m_activePitches.end() )
+    {
+        m_activePitches[ asMidi ] = std::vector<std::function<void()>>{};
+    }
+
+    auto pitch = Pitch::FromMidi( asMidi );
+    const PitchLifetime plife(
+        pitch, std::bind( &FsynthWrapper::AddOneoffTerminationCallback, this, pitch, _1 ) );
+
     for( const auto& listener : m_pitchListeners )
     {
-        listener->OnIncomingNote( p );
+        listener->OnIncomingNote( plife );
+    }
+    m_debugFlag_IncomingNotify = false;
+}
+
+void FsynthWrapper::NotifyPitchTermination( const int asMidi )
+{
+    auto finder = m_activePitches.find( asMidi );
+    if( finder == m_activePitches.end() )
+    {
+        FFAIL( "A pitch is terminating that was never known to have started? did we mess up "
+               "our map?" );
+        return;
+    }
+
+    for( auto& functor : finder->second )
+    {
+        if( functor )
+        {
+            functor();
+        }
+    }
+
+    m_activePitches.erase( finder );
+}
+
+void FsynthWrapper::AddOneoffTerminationCallback( Pitch p, std::function<void()> callback )
+{
+    FASSERT( m_debugFlag_IncomingNotify,
+        "our understanding is this can ONLY be reached during NotifyIncomingPitch" );
+
+    auto finder = m_activePitches.find( p.AsMidi() );
+    if( finder == m_activePitches.end() )
+    {
+        FFAIL( "FsynthWrapper sent the pitch to whoever wants a callback. how can the pitch "
+               "not be in the map?" );
+        return;
+    }
+
+    if( callback )
+    {
+        finder->second.push_back( callback );
     }
 }
 

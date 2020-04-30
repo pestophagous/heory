@@ -40,15 +40,15 @@ Pitch PitchTraining::CurrentlyExpecting() const
     return m_expectedPitch;
 }
 
-void PitchTraining::ProcessThisGuess( Pitch guess )
+void PitchTraining::ProcessThisGuess( PitchLifetime guess )
 {
-    if( guess.AsMidi() == CurrentlyExpecting().AsMidi() )
+    if( guess.pitch.AsMidi() == CurrentlyExpecting().AsMidi() )
     {
-        Advance();
+        guess.OnLifetimeComplete( [this]() { Advance(); } );
     }
 }
 
-void PitchTraining::OnIncomingNote( Pitch pitch )
+void PitchTraining::OnIncomingNote( PitchLifetime pitch )
 {
     ProcessThisGuess( pitch );
 }
