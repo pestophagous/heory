@@ -10,6 +10,8 @@
 #include "src/lib/pitch.h"
 #include "src/lib/sound_io_interface.h"
 
+#include <functional>
+#include <map>
 #include <vector>
 
 namespace heory
@@ -36,10 +38,16 @@ public:
     friend struct VoidDataPreRouter;
 
 private:
-    void NotifyIncomingPitch( int asMidi ) const;
+    void NotifyIncomingPitch( int asMidi );
+    void NotifyPitchTermination( int asMidi );
+    void AddOneoffTerminationCallback( Pitch p, std::function<void()> callback );
     Impl* const m_i;
 
+    mutable bool m_debugFlag_IncomingNotify = false;
+
     std::vector<IncomingPitchListener_Interface*> m_pitchListeners;
+
+    std::map<int, std::vector<std::function<void()>>> m_activePitches;
 };
 
 } // namespace heory
