@@ -9,8 +9,9 @@
 
 namespace heory
 {
-PitchTrainerVM::PitchTrainerVM( SoundIO_Interface* io )
-    : m_training( std::make_unique<PitchTraining>( Pitch::MiddleC(), Pitch::C5(), io ) )
+PitchTrainerVM::PitchTrainerVM( SoundIO_Interface* io, Random* random )
+    : m_training(
+          std::make_unique<PitchTraining>( Pitch::MiddleC(), Pitch::C5(), io, random ) )
 {
 }
 
@@ -22,8 +23,8 @@ void PitchTrainerVM::testing()
     m_training->Advance();
 }
 
-MusicNotes::MusicNotes( FsynthWrapper* fsynth )
-    : m_fsynth( fsynth ), m_pitchTrainerVM( fsynth )
+MusicNotes::MusicNotes( FsynthWrapper* fsynth, Random* random )
+    : m_fsynth( fsynth ), m_pitchTrainerVM( fsynth, random )
 {
 }
 

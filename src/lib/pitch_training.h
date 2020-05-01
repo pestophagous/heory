@@ -15,10 +15,12 @@
 
 namespace heory
 {
+class Random;
+
 class PitchTraining : public IncomingPitchListener_Interface
 {
 public:
-    PitchTraining( Pitch lowest, Pitch highest, SoundIO_Interface* io );
+    PitchTraining( Pitch lowest, Pitch highest, SoundIO_Interface* io, Random* random );
     ~PitchTraining() override;
 
     PitchTraining( const PitchTraining& ) = delete;
@@ -39,6 +41,7 @@ private:
     void AssignNext();
 
     SoundIO_Interface* const m_io;
+    Random* const m_random;
     const Pitch m_lowest;
     const Pitch m_highest;
 

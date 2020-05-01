@@ -21,6 +21,7 @@ class GuiTests;
 class LoggingTags;
 class MusicNotes;
 class QmlMessageInterceptor;
+class Random;
 
 class ViewModelCollection
 {
@@ -38,6 +39,7 @@ private:
     std::unique_ptr<QmlMessageInterceptor> m_qmlLogger;
     std::unique_ptr<LoggingTags> m_logging;
     std::unique_ptr<FsynthWrapper> m_fsynth;
+    std::unique_ptr<Random> m_random;
 
     std::unique_ptr<MusicNotes> m_musicNotes;
 

@@ -17,6 +17,7 @@
 #include "src/lib/resource_helper.h"
 #include "src/lib/resources.h"
 #include "src/util/qml_message_interceptor.h"
+#include "src/util/random_concrete.h"
 
 namespace heory
 {
@@ -25,13 +26,14 @@ ViewModelCollection::ViewModelCollection( const QGuiApplication& app )
     : m_opts( std::make_unique<CliOptions>( app ) ),
       m_qmlLogger( std::make_unique<QmlMessageInterceptor>( !m_opts->MaximumQtLogging() ) ),
       m_logging( std::make_unique<LoggingTags>( *m_opts ) ),
-      m_fsynth( std::make_unique<FsynthWrapper>( *m_opts ) )
+      m_fsynth( std::make_unique<FsynthWrapper>( *m_opts ) ),
+      m_random( std::make_unique<RandomConcrete>() )
 // clang-format on
 {
     heory::initLibResources();
 
     // Do after the 'init..resource' calls, in case any ctor wants rsrcs:
-    m_musicNotes = std::make_unique<MusicNotes>( m_fsynth.get() );
+    m_musicNotes = std::make_unique<MusicNotes>( m_fsynth.get(), m_random.get() );
 }
 
 ViewModelCollection::~ViewModelCollection() = default;
