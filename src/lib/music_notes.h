@@ -16,6 +16,7 @@ namespace heory
 {
 class FsynthWrapper;
 class PitchTraining;
+class Random;
 class SoundIO_Interface;
 
 class PitchTrainerVM : public QObject
@@ -30,7 +31,7 @@ class PitchTrainerVM : public QObject
     // clang-format on
 
 public:
-    explicit PitchTrainerVM( SoundIO_Interface* io );
+    explicit PitchTrainerVM( SoundIO_Interface* io, Random* random );
     ~PitchTrainerVM() override;
 
     Q_INVOKABLE void testing();
@@ -51,7 +52,7 @@ class MusicNotes : public QObject
     // clang-format on
 
 public:
-    explicit MusicNotes( FsynthWrapper* fsynth );
+    explicit MusicNotes( FsynthWrapper* fsynth, Random* random );
     ~MusicNotes() override;
 
     MusicNotes( const MusicNotes& ) = delete;

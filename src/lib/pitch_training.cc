@@ -1,12 +1,14 @@
 #include "pitch_training.h"
 
+#include "src/util/random.h"
 #include "util-assert.h"
 
 namespace heory
 {
 // clang-format off
-PitchTraining::PitchTraining( const Pitch lowest, const Pitch highest, SoundIO_Interface* io )
+PitchTraining::PitchTraining( const Pitch lowest, const Pitch highest, SoundIO_Interface* io, Random* random )
     : m_io(io),
+      m_random( random ),
       m_lowest( lowest ),
       m_highest( highest.AsMidi() > lowest.AsMidi() ? highest : lowest ),
       m_expectedPitch( lowest )
@@ -55,11 +57,8 @@ void PitchTraining::OnIncomingNote( PitchLifetime pitch )
 
 void PitchTraining::AssignNext()
 {
-    m_expectedPitch = m_expectedPitch.IncrementHalfStep();
-    if( m_expectedPitch.AsMidi() > m_highest.AsMidi() )
-    {
-        m_expectedPitch = m_lowest;
-    }
+    m_expectedPitch = Pitch::FromMidi(
+        m_random->GetNextFromNToMInclusive( m_lowest.AsMidi(), m_highest.AsMidi() ) );
 }
 
 void PitchTraining::MakeSound() const
