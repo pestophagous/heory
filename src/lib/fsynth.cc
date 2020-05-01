@@ -126,7 +126,7 @@ FsynthWrapper::FsynthWrapper( const CliOptions& /*options*/ ) : m_i( new Impl )
         // ALSA lib seq_hw.c:466:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or
         // directory fluidsynth: error: Error opening ALSA sequencer
 
-        // TODO: make dump_pre and dump_post optional on CLI flag
+        // TODO: make dump_pre and fluid_midi_dump_postrouter optional on CLI flag
         m_i->router = new_fluid_midi_router(
             m_i->settings, fluid_midi_dump_postrouter, static_cast<void*>( m_i->synth ) );
         FASSERT( m_i->router, "must be non-null" );
