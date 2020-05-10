@@ -7,6 +7,8 @@
 #ifndef PROJECT_LIB_FSYNTH_H
 #define PROJECT_LIB_FSYNTH_H
 
+#include <QObject>
+
 #include "src/lib/pitch.h"
 #include "src/lib/sound_io_interface.h"
 
@@ -18,8 +20,9 @@ namespace heory
 {
 class CliOptions;
 
-class FsynthWrapper : public SoundIO_Interface
+class FsynthWrapper : public QObject, public SoundIO_Interface
 {
+    Q_OBJECT
 public:
     struct Impl; // "effectively private" type, due to being opaque.
 
@@ -37,9 +40,11 @@ public:
     struct VoidDataPreRouter;
     friend struct VoidDataPreRouter;
 
-private:
+private slots:
     void NotifyIncomingPitch( int asMidi );
     void NotifyPitchTermination( int asMidi );
+
+private:
     void AddOneoffTerminationCallback( Pitch p, std::function<void()> callback );
     Impl* const m_i;
 

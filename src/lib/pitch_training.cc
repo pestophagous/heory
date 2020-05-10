@@ -1,5 +1,7 @@
 #include "pitch_training.h"
 
+#include <QDebug>
+
 #include "src/util/random.h"
 #include "util-assert.h"
 
@@ -33,6 +35,7 @@ void PitchTraining::Restart()
 
 void PitchTraining::Advance()
 {
+    qDebug() << "Advance";
     AssignNext();
     MakeSound();
 }
