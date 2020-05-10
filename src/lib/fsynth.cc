@@ -20,11 +20,35 @@ struct FsynthWrapper::VoidDataPreRouter
     }
     void OnNote( int asMidi )
     {
-        wrapper->NotifyIncomingPitch( asMidi );
+        // The next 3 lines guarantee that if someone edits NotifyIncomingPitch
+        // in a way that would break our 'invokeMethod' usage, we will CATCH IT
+        // AT COMPILE TIME.
+        using RequiredSlotType = void ( FsynthWrapper::* )( int );
+        RequiredSlotType requiredSlot = &FsynthWrapper::NotifyIncomingPitch;
+        (void) requiredSlot; // unused, but provides time-of-compilation
+                             // assurance of METHOD SIGNATURE
+
+        // clang-format off
+        QMetaObject::invokeMethod( wrapper, "NotifyIncomingPitch",
+            Qt::QueuedConnection,
+            Q_ARG( int, asMidi ));
+        // clang-format on
     }
     void OnNoteTermination( int asMidi )
     {
-        wrapper->NotifyPitchTermination( asMidi );
+        // The next 3 lines guarantee that if someone edits NotifyPitchTermination
+        // in a way that would break our 'invokeMethod' usage, we will CATCH IT
+        // AT COMPILE TIME.
+        using RequiredSlotType = void ( FsynthWrapper::* )( int );
+        RequiredSlotType requiredSlot = &FsynthWrapper::NotifyPitchTermination;
+        (void) requiredSlot; // unused, but provides time-of-compilation
+                             // assurance of METHOD SIGNATURE
+
+        // clang-format off
+        QMetaObject::invokeMethod( wrapper, "NotifyPitchTermination",
+            Qt::QueuedConnection,
+            Q_ARG( int, asMidi ));
+        // clang-format on
     }
 
     fluid_midi_router_t* const router = nullptr;
@@ -51,10 +75,12 @@ namespace
 
         if( NOTE_ON == event->type )
         {
+            qDebug() << "OnIncomingMidiEvent NOTE_ON";
             ourData->OnNote( event->param1 );
         }
         else if( NOTE_OFF == event->type )
         {
+            qDebug() << "OnIncomingMidiEvent NOTE_OFF";
             ourData->OnNoteTermination( event->param1 );
         }
 
