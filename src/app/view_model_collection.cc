@@ -19,9 +19,12 @@
 #include "src/lib/resources.h"
 #include "src/util/qml_message_interceptor.h"
 #include "src/util/random_concrete.h"
+#include "src/util/usage_log_t.hpp"
 
 namespace heory
 {
+using str = std::string;
+
 // clang-format off
 ViewModelCollection::ViewModelCollection( const QGuiApplication& app )
     : m_opts( std::make_unique<CliOptions>( app ) ),
@@ -42,18 +45,25 @@ ViewModelCollection::~ViewModelCollection() = default;
 
 void ViewModelCollection::ExportContextPropertiesToQml( QQmlApplicationEngine* engine )
 {
-    engine->rootContext()->setContextProperty( "versionInfoBuildDateString", BUILD_ON_DATE );
-    engine->rootContext()->setContextProperty( "versionInfoGitHash", GIT_HASH_WHEN_BUILT );
     fprintf( stderr, "GUI Build Info: %s %s\n", BUILD_ON_DATE, GIT_HASH_WHEN_BUILT );
 
-    m_logging->ExportContextPropertiesToQml( engine );
+    // Sort of a "silly" demo usage of project::Log<>
+    Log( str( "rootContext" ), engine )
+        ->rootContext()
+        ->setContextProperty( "versionInfoBuildDateString", BUILD_ON_DATE );
+    // Another sort of "silly" demo usage of project::Log<>
+    Log( str( "setContextProperty" ), engine->rootContext() )
+        ->setContextProperty( "versionInfoGitHash", GIT_HASH_WHEN_BUILT );
+
+    Log( str( "ExportContextPropertiesToQml" ), m_logging )
+        ->ExportContextPropertiesToQml( engine );
     ResourceHelper::ExportContextPropertiesToQml( engine );
 
     m_musicNotes->ExportContextPropertiesToQml( engine );
 
-    // Keep this at the END of the 'ExportContext...' method, so all view models are exported
-    // before any tests run
-    if( m_opts->RunningGuiTests() )
+    // Keep this at the END of the 'ExportContext...' method, so all view models are
+    // exported before any tests run
+    if( Log( str( "RunningGuiTests" ), m_opts )->RunningGuiTests() )
     {
         m_guiTests = std::make_unique<GuiTests>( *engine );
     }
