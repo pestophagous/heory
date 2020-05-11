@@ -6,10 +6,12 @@ TEMPLATE = lib
 CONFIG += shared
 
 SOURCES += \
+    every_so_often.cc \
     qml_message_interceptor.cc \
     random_concrete.cc
 
 HEADERS += \
+    every_so_often.h \
     qml_list_property_helper.h \
     qml_message_interceptor.h \
     random.h \
