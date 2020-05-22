@@ -31,7 +31,6 @@ QMAKE_CXXFLAGS += -isystem $$[QT_INSTALL_HEADERS]/QtQuickWidgets
 QMAKE_CXXFLAGS += -isystem $$[QT_INSTALL_HEADERS]/QtTest
 QMAKE_CXXFLAGS += -isystem $$[QT_INSTALL_HEADERS]/QtWidgets
 QMAKE_CXXFLAGS += -isystem $$[QT_INSTALL_HEADERS]/QtXml
-QMAKE_CXXFLAGS += -isystem $$[QT_INSTALL_HEADERS]/QtXmlPatterns
 
 unix:{
     # So the exe will launch if we put all our '*.so' dylibs side-by-side with it.

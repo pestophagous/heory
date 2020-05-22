@@ -16,7 +16,6 @@ SOURCES += \
     notation_strings.cc \
     pitch.cc \
     pitch_training.cc \
-    resource_helper.cc \
     resources.cc
 
 HEADERS += \
@@ -29,7 +28,6 @@ HEADERS += \
     notation_strings.h \
     pitch.h \
     pitch_training.h \
-    resource_helper.h \
     resources.h \
     sound_io_interface.h
 
