@@ -23,6 +23,21 @@
 
 namespace heory
 {
+namespace
+{
+    std::unique_ptr<Random> MakeRandomnessProvider( const bool testing )
+    {
+        if( testing )
+        {
+            return RandomConcrete::RandomConcreteForTests();
+        }
+        else
+        {
+            return RandomConcrete::RandomConcreteForProduction();
+        }
+    }
+} // namespace
+
 using str = std::string;
 
 // clang-format off
@@ -32,7 +47,7 @@ ViewModelCollection::ViewModelCollection( const QGuiApplication& app )
       m_qmlLogger( std::make_unique<QmlMessageInterceptor>( !m_opts->MaximumQtLogging() ) ),
       m_logging( std::make_unique<LoggingTags>( *m_opts ) ),
       m_fsynth( std::make_unique<FsynthWrapper>( *m_opts ) ),
-      m_random( std::make_unique<RandomConcrete>() )
+      m_random( MakeRandomnessProvider( m_opts->RunningGuiTests() ) )
 // clang-format on
 {
     heory::initLibResources();

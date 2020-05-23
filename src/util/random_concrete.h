@@ -16,12 +16,16 @@ namespace heory
 class RandomConcrete : public Random
 {
 public:
-    RandomConcrete();
+    static std::unique_ptr<RandomConcrete> RandomConcreteForProduction();
+    static std::unique_ptr<RandomConcrete> RandomConcreteForTests();
     ~RandomConcrete() override;
 
     int GetNextFromNToMInclusive( int n, int m ) override;
 
 private:
+    explicit RandomConcrete( bool repeatableSeed );
+
+    const bool m_usingRepeatableSeed;
     struct Impl;
     std::unique_ptr<Impl> m_impl;
 };
