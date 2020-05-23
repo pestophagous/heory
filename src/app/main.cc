@@ -15,7 +15,7 @@
 int main( int argc, char* argv[] )
 {
     qSetMessagePattern( QString( "[QT-%{type}][v-" ) + heory::GIT_HASH_WHEN_BUILT
-                        + "][thr:%{threadid}]%{if-category}%{category}: "
+                        + "][thr:%{threadid}]%{if-category}[%{category}]: "
                           "%{endif}%{file}(%{line}): %{message}" );
     QGuiApplication app( argc, argv );
 
