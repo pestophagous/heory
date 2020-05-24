@@ -9,6 +9,7 @@
 #include <QCoreApplication>
 #include <QTimer>
 
+#include "src/apptest/collection.h"
 #include "util-assert.h"
 
 namespace heory
@@ -22,18 +23,27 @@ namespace
     constexpr char EXPECTED_FIRST_LOADED_FILE[] = "main.qml";
 } // namespace
 
-GuiTests::GuiTests( const QQmlApplicationEngine& engine )
+GuiTests::GuiTests( const QQmlApplicationEngine& engine ) : m_engine( &engine )
 {
     connect( &engine, &QQmlApplicationEngine::objectCreated, [=]( QObject*, const QUrl& url ) {
         FASSERT( url.fileName() == QString( EXPECTED_FIRST_LOADED_FILE ),
             "something must have changed in loading behavior of QQmlApplicationEngine" );
 
-        // quit during next event-loop cycle
-        QTimer::singleShot(
-            1 /*milliseconds*/, QCoreApplication::instance(), QCoreApplication::quit );
+        // run tests during an upcoming event-loop cycle:
+        QTimer::singleShot( 50 /*milliseconds*/, [this]() { Go(); } );
     } );
 }
 
 GuiTests::~GuiTests() = default;
+
+void GuiTests::Go()
+{
+    tests::Collection tests( m_engine );
+    tests.Go();
+
+    // quit during next event-loop cycle
+    QTimer::singleShot(
+        1 /*milliseconds*/, QCoreApplication::instance(), QCoreApplication::quit );
+}
 
 } // namespace heory

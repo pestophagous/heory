@@ -21,6 +21,11 @@ public:
 
     GuiTests( const GuiTests& ) = delete;
     GuiTests& operator=( const GuiTests& ) = delete;
+
+private:
+    void Go();
+
+    const QQmlApplicationEngine* const m_engine;
 };
 
 } // namespace heory
