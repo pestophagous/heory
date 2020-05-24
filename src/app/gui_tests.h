@@ -12,11 +12,13 @@
 
 namespace heory
 {
+class Random;
+
 class GuiTests : public QObject
 {
     Q_OBJECT
 public:
-    explicit GuiTests( const QQmlApplicationEngine& qmlapp );
+    explicit GuiTests( const QQmlApplicationEngine& qmlapp, Random* random );
     ~GuiTests();
 
     GuiTests( const GuiTests& ) = delete;
@@ -26,6 +28,7 @@ private:
     void Go();
 
     const QQmlApplicationEngine* const m_engine;
+    Random* const m_random;
 };
 
 } // namespace heory

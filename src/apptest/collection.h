@@ -11,12 +11,14 @@
 
 namespace heory
 {
+class Random;
+
 namespace tests
 {
     class Collection
     {
     public:
-        explicit Collection( const QQmlApplicationEngine* qmlapp );
+        explicit Collection( const QQmlApplicationEngine* qmlapp, Random* random );
         ~Collection();
 
         Collection( const Collection& ) = delete;

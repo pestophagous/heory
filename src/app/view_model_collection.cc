@@ -80,7 +80,7 @@ void ViewModelCollection::ExportContextPropertiesToQml( QQmlApplicationEngine* e
     // exported before any tests run
     if( Log( str( "RunningGuiTests" ), m_opts )->RunningGuiTests() )
     {
-        m_guiTests = std::make_unique<GuiTests>( *engine );
+        m_guiTests = std::make_unique<GuiTests>( *engine, m_random.get() );
     }
 }
 
