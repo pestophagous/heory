@@ -43,7 +43,8 @@ private:
         explicit WrapQtTraceCategoryLazyInnards()
             : m_logger(
                   std::make_unique<QMessageLogger>( nullptr, 0, nullptr, log_func_human_tag ) )
-            , m_nullStream( std::make_unique<heory::NullStream>( qDebug() ) )
+            , m_dummyStreamSink( std::make_unique<QString>() )
+            , m_nullStream( std::make_unique<heory::NullStream>( m_dummyStreamSink.get() ) )
         {
             FASSERT( QCoreApplication::instance(),
                 "if you create this wrapper BEFORE the Qapp, "
@@ -64,6 +65,12 @@ private:
 
         QDebug stream()
         {
+            // We initialized NullStream with m_dummyStreamSink as the ultimate
+            // destination of all things logged. We never want to actually see
+            // anything (that is the point when using NullStream), so we can
+            // periodically clear the string sink to avoid it getting large.
+            m_dummyStreamSink->clear();
+
             if( log_func_preprocessor_symbol().isInfoEnabled() )
             {
                 return m_logger->info();
@@ -76,6 +83,7 @@ private:
 
     private:
         std::unique_ptr<QMessageLogger> m_logger;
+        std::unique_ptr<QString> m_dummyStreamSink;
         std::unique_ptr<heory::NullStream> m_nullStream;
     };
 
