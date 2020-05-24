@@ -8,7 +8,7 @@ namespace heory
 class NullStream : public QDebug
 {
 public:
-    NullStream( const QDebug& base ) : QDebug( base )
+    NullStream( QString* sink ) : QDebug( sink )
     {
     }
 
