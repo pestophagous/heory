@@ -1,12 +1,16 @@
 #include "pitch_training.h"
 
-#include <QDebug>
-
 #include "src/util/random.h"
 #include "util-assert.h"
 
+#define log_func_human_tag "heory.pitchtraining"
+#define log_func_preprocessor_symbol pttrace
+#include "src/util/wrap_qt_trace_category.h"
+
 namespace heory
 {
+WrapQtTraceCategory thisfiletrace; // OFF by default. try QT_LOGGING_RULES="*=true;qt*=false;"
+
 // clang-format off
 PitchTraining::PitchTraining( const Pitch lowest, const Pitch highest, SoundIO_Interface* io, Random* random )
     : m_io(io),
@@ -30,12 +34,13 @@ PitchTraining::~PitchTraining()
 
 void PitchTraining::Restart()
 {
+    thisfiletrace.stream() << "Restart";
     AssignNext();
 }
 
 void PitchTraining::Advance()
 {
-    qDebug() << "Advance";
+    thisfiletrace.stream() << "Advance";
     AssignNext();
     MakeSound();
 }
@@ -49,6 +54,7 @@ void PitchTraining::ProcessThisGuess( PitchLifetime guess )
 {
     if( guess.pitch.AsMidi() == CurrentlyExpecting().AsMidi() )
     {
+        thisfiletrace.stream() << "Guess matches expectation";
         guess.OnLifetimeComplete( [this]() { Advance(); } );
     }
 }
@@ -62,6 +68,7 @@ void PitchTraining::AssignNext()
 {
     m_expectedPitch = Pitch::FromMidi(
         m_random->GetNextFromNToMInclusive( m_lowest.AsMidi(), m_highest.AsMidi() ) );
+    thisfiletrace.stream() << "Next expectation:" << m_expectedPitch.AsMidi();
 }
 
 void PitchTraining::MakeSound() const

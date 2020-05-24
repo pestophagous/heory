@@ -7,8 +7,14 @@
 #include "src/lib/pitch_training.h"
 #include "util-assert.h"
 
+#define log_func_human_tag "heory.musicnotes"
+#define log_func_preprocessor_symbol mscnttrace
+#include "src/util/wrap_qt_trace_category.h"
+
 namespace heory
 {
+WrapQtTraceCategory thisfiletrace; // OFF by default. try QT_LOGGING_RULES="*=true;qt*=false;"
+
 PitchTrainerVM::PitchTrainerVM( SoundIO_Interface* io, Random* random )
     : m_training(
           std::make_unique<PitchTraining>( Pitch::MiddleC(), Pitch::C5(), io, random ) )
@@ -32,6 +38,7 @@ MusicNotes::~MusicNotes() = default;
 
 void MusicNotes::ExportContextPropertiesToQml( QQmlEngine* engine )
 {
+    thisfiletrace.stream() << "ExportContextProp";
     engine->rootContext()->setContextProperty( "musicNotesViewModel", this );
     engine->rootContext()->setContextProperty( "pitchTrainerViewModel", &m_pitchTrainerVM );
 }
