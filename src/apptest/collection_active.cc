@@ -3,6 +3,7 @@
 #include <QtQml/QQmlContext>
 
 #include "src/lib/music_notes.h"
+#include "src/util/random.h"
 #include "util-assert.h"
 
 namespace heory
@@ -12,11 +13,14 @@ namespace tests
     struct Collection::Impl
     {
         const QQmlApplicationEngine* engine;
+        Random* random;
     };
 
-    Collection::Collection( const QQmlApplicationEngine* qmlapp ) : m_( new Impl )
+    Collection::Collection( const QQmlApplicationEngine* qmlapp, Random* random )
+        : m_( new Impl )
     {
         m_->engine = qmlapp;
+        m_->random = random;
     }
 
     Collection::~Collection()
@@ -26,6 +30,8 @@ namespace tests
 
     void Collection::Go()
     {
+        m_->random->Reset();
+
         QVariant vm = m_->engine->rootContext()->contextProperty( "pitchTrainerViewModel" );
         const QString variantTypeName( vm.typeName() );
         FASSERT( variantTypeName.contains( "QObject*" ),
