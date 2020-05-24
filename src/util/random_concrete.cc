@@ -80,4 +80,8 @@ int RandomConcrete::GetNextFromNToMInclusive( const int n, const int m )
     }
 }
 
+void RandomConcrete::Reset()
+{
+    m_impl->m_distributions.clear();
+}
 } // namespace heory

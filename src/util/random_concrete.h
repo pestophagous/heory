@@ -21,6 +21,9 @@ public:
     ~RandomConcrete() override;
 
     int GetNextFromNToMInclusive( int n, int m ) override;
+    // For subtypes that use a repeatable seed (for testing), this will restart the
+    // random sequence, once again seeding it with the repeatable seed.
+    void Reset() override;
 
 private:
     explicit RandomConcrete( bool repeatableSeed );
