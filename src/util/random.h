@@ -16,6 +16,10 @@ public:
 
     virtual int GetNextFromNToMInclusive( int n, int m ) = 0;
 
+    // For subtypes that use a repeatable seed (for testing), this will restart the
+    // random sequence, once again seeding it with the repeatable seed.
+    virtual void Reset() = 0;
+
 private:
 };
 
