@@ -2,8 +2,11 @@
 
 #include <QtQml/QQmlContext>
 
-#include "src/lib/music_notes.h"
-#include "src/util/random.h"
+#include <algorithm>
+#include <vector>
+
+#include "src/apptest/interface.h"
+#include "src/apptest/test_pitch_train.h"
 #include "util-assert.h"
 
 namespace heory
@@ -15,6 +18,7 @@ namespace tests
         const QQmlApplicationEngine* engine;
         Random* random;
         QmlMessageInterceptor* messageInterceptor;
+        std::vector<std::unique_ptr<TestInterface>> tests;
     };
 
     Collection::Collection( const QQmlApplicationEngine* qmlapp, Random* random,
@@ -24,6 +28,8 @@ namespace tests
         m_->engine = qmlapp;
         m_->random = random;
         m_->messageInterceptor = messageIntercept;
+
+        m_->tests.push_back( std::make_unique<TestPitchTrain>() );
     }
 
     Collection::~Collection()
@@ -33,17 +39,12 @@ namespace tests
 
     void Collection::Go()
     {
-        m_->random->Reset();
+        std::random_shuffle( m_->tests.begin(), m_->tests.end() );
 
-        QVariant vm = m_->engine->rootContext()->contextProperty( "pitchTrainerViewModel" );
-        const QString variantTypeName( vm.typeName() );
-        FASSERT( variantTypeName.contains( "QObject*" ),
-            "this code operates on contextProperty(s) of object type" );
-
-        QObject* obj = qvariant_cast<QObject*>( vm );
-        PitchTrainerVM* trainer = dynamic_cast<PitchTrainerVM*>( obj );
-        fprintf( stderr, "class: %s\n", obj->metaObject()->className() );
-        fprintf( stderr, "after downcast: %p\n", reinterpret_cast<void*>( trainer ) );
+        for( auto& test : m_->tests )
+        {
+            test->Go( m_->engine, m_->random, m_->messageInterceptor );
+        }
     }
 
 } // namespace tests
