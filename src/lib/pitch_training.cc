@@ -52,7 +52,11 @@ Pitch PitchTraining::CurrentlyExpecting() const
 
 void PitchTraining::ProcessThisGuess( PitchLifetime guess )
 {
-    if( guess.pitch.AsMidi() == CurrentlyExpecting().AsMidi() )
+    if( guess.pitch.AsMidi() != CurrentlyExpecting().AsMidi() )
+    {
+        thisfiletrace.stream() << "Incorrect guess";
+    }
+    else
     {
         thisfiletrace.stream() << "Guess matches expectation";
         guess.OnLifetimeComplete( [this]() { Advance(); } );

@@ -26,7 +26,11 @@ namespace tests
         Collection( const Collection& ) = delete;
         Collection& operator=( const Collection& ) = delete;
 
-        void Go();
+        void Start();
+
+        // Acts as a timer tick so that test work can make progress.
+        // Return TRUE when all tests are done.
+        bool PollForDoneness();
 
     private:
         struct Impl;
