@@ -34,6 +34,10 @@ namespace tests
         virtual void Go( const QQmlApplicationEngine* qmlapp, Random* random,
             QmlMessageInterceptor* messageIntercept )
             = 0;
+
+        // Acts as a timer tick so that test work can make progress.
+        // Return TRUE when all tests are done.
+        virtual bool PollForDoneness() = 0;
     };
 
 } // namespace tests

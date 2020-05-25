@@ -9,6 +9,8 @@
 #include <QCoreApplication>
 #include <QTimer>
 
+#include <chrono>
+
 #include "src/apptest/collection.h"
 #include "util-assert.h"
 
@@ -40,12 +42,25 @@ GuiTests::~GuiTests() = default;
 
 void GuiTests::Go()
 {
-    tests::Collection tests( m_engine, m_random, m_messageIntercept );
-    tests.Go();
+    m_tests = std::make_unique<tests::Collection>( m_engine, m_random, m_messageIntercept );
+    m_tests->Start();
 
-    // quit during next event-loop cycle
-    QTimer::singleShot(
-        1 /*milliseconds*/, QCoreApplication::instance(), QCoreApplication::quit );
+    m_timer.setSingleShot( false );
+    m_timer.setInterval( std::chrono::milliseconds( 30 ) );
+
+    connect( &m_timer, &QTimer::timeout, [this]() { Poll(); } );
+    m_timer.start();
 }
 
+void GuiTests::Poll()
+{
+    const bool done = m_tests->PollForDoneness();
+
+    if( done )
+    {
+        // quit during next event-loop cycle
+        QTimer::singleShot(
+            1 /*milliseconds*/, QCoreApplication::instance(), QCoreApplication::quit );
+    }
+}
 } // namespace heory

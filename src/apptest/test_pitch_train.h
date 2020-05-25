@@ -23,6 +23,8 @@ namespace tests
         void Go( const QQmlApplicationEngine* qmlapp, Random* random,
             QmlMessageInterceptor* messageIntercept ) override;
 
+        bool PollForDoneness() override;
+
     private:
         void IncomingLog(
             QtMsgType type, const QMessageLogContext& context, const QString& message );

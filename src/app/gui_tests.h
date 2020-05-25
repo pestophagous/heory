@@ -8,12 +8,20 @@
 #define PROJECT_APP_GUI_TESTS_H
 
 #include <QQmlApplicationEngine>
+#include <QTimer>
 #include <QtCore/QObject>
+
+#include <memory>
 
 namespace heory
 {
 class QmlMessageInterceptor;
 class Random;
+
+namespace tests
+{
+    class Collection;
+} // namespace tests
 
 class GuiTests : public QObject
 {
@@ -28,10 +36,13 @@ public:
 
 private:
     void Go();
+    void Poll();
 
     const QQmlApplicationEngine* const m_engine;
     Random* const m_random;
     QmlMessageInterceptor* const m_messageIntercept;
+    std::unique_ptr<tests::Collection> m_tests;
+    QTimer m_timer;
 };
 
 } // namespace heory

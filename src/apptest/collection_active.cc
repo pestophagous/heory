@@ -19,6 +19,7 @@ namespace tests
         Random* random;
         QmlMessageInterceptor* messageInterceptor;
         std::vector<std::unique_ptr<TestInterface>> tests;
+        std::vector<std::unique_ptr<TestInterface>>::iterator testIter;
     };
 
     Collection::Collection( const QQmlApplicationEngine* qmlapp, Random* random,
@@ -37,14 +38,34 @@ namespace tests
         delete m_;
     }
 
-    void Collection::Go()
+    void Collection::Start()
     {
+        FASSERT( !m_->tests.empty(), "let us always be sure to have some tests here" );
         std::random_shuffle( m_->tests.begin(), m_->tests.end() );
 
-        for( auto& test : m_->tests )
+        m_->testIter = m_->tests.begin();
+        ( *m_->testIter )->Go( m_->engine, m_->random, m_->messageInterceptor );
+    }
+
+    // Acts as a timer tick so that test work can make progress.
+    // Return TRUE when all tests are done.
+    bool Collection::PollForDoneness()
+    {
+        bool allDone = false;
+        const bool done = ( *m_->testIter )->PollForDoneness();
+        if( done )
         {
-            test->Go( m_->engine, m_->random, m_->messageInterceptor );
+            m_->testIter++;
+            if( m_->testIter == m_->tests.end() )
+            {
+                allDone = true;
+            }
+            else
+            {
+                ( *m_->testIter )->Go( m_->engine, m_->random, m_->messageInterceptor );
+            }
         }
+        return allDone;
     }
 
 } // namespace tests
