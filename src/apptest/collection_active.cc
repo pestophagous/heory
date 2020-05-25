@@ -14,13 +14,16 @@ namespace tests
     {
         const QQmlApplicationEngine* engine;
         Random* random;
+        QmlMessageInterceptor* messageInterceptor;
     };
 
-    Collection::Collection( const QQmlApplicationEngine* qmlapp, Random* random )
+    Collection::Collection( const QQmlApplicationEngine* qmlapp, Random* random,
+        QmlMessageInterceptor* messageIntercept )
         : m_( new Impl )
     {
         m_->engine = qmlapp;
         m_->random = random;
+        m_->messageInterceptor = messageIntercept;
     }
 
     Collection::~Collection()

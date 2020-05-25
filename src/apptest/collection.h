@@ -11,6 +11,7 @@
 
 namespace heory
 {
+class QmlMessageInterceptor;
 class Random;
 
 namespace tests
@@ -18,7 +19,8 @@ namespace tests
     class Collection
     {
     public:
-        explicit Collection( const QQmlApplicationEngine* qmlapp, Random* random );
+        explicit Collection( const QQmlApplicationEngine* qmlapp, Random* random,
+            QmlMessageInterceptor* messageIntercept );
         ~Collection();
 
         Collection( const Collection& ) = delete;
