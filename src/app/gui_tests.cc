@@ -23,8 +23,9 @@ namespace
     constexpr char EXPECTED_FIRST_LOADED_FILE[] = "main.qml";
 } // namespace
 
-GuiTests::GuiTests( const QQmlApplicationEngine& engine, Random* random )
-    : m_engine( &engine ), m_random( random )
+GuiTests::GuiTests( const QQmlApplicationEngine& engine, Random* random,
+    QmlMessageInterceptor* messageIntercept )
+    : m_engine( &engine ), m_random( random ), m_messageIntercept( messageIntercept )
 {
     connect( &engine, &QQmlApplicationEngine::objectCreated, [=]( QObject*, const QUrl& url ) {
         FASSERT( url.fileName() == QString( EXPECTED_FIRST_LOADED_FILE ),
@@ -39,7 +40,7 @@ GuiTests::~GuiTests() = default;
 
 void GuiTests::Go()
 {
-    tests::Collection tests( m_engine, m_random );
+    tests::Collection tests( m_engine, m_random, m_messageIntercept );
     tests.Go();
 
     // quit during next event-loop cycle
