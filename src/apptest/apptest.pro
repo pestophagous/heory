@@ -10,10 +10,12 @@ TEMPLATE = lib
 CONFIG += shared
 
 SOURCES += \
-    collection.cc
+    collection.cc \
+    test_pitch_train.cc
 
 HEADERS += \
-    collection.h
+    collection.h \
+    test_pitch_train.h
 
 # 'pri' usage based on http://archive.is/https://www.toptal.com/qt/vital-guide-qmake
 !include(../lib/fluidsynth_linkonly.pri) { error() }
