@@ -53,6 +53,7 @@ if [[ -n ${XDISPLAY-} ]]; then
   sleep 4 # time to (probabilistically) ensure that Xvfb has started
 fi
 
+# TODO: we need to check if VirMIDI is ready and if 'amidi -phw:1,0' is correct.
 # run gui tests which execute the actual app binary:
 tools/gui_test/launch_gui_for_display.sh "${XDISPLAY}"
 

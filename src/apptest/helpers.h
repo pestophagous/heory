@@ -42,4 +42,4 @@ namespace tests
 } // namespace tests
 } // namespace heory
 
-#endif // PROJECT_APP_GUI_TESTS_INTERFACE_H
+#endif // PROJECT_APP_GUI_TESTS_HELPERS_H

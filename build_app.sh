@@ -46,9 +46,15 @@ source $DIR/path_to_qmake.bash
 cd build
 qmake "$DIR"
 
-# https://stackoverflow.com/questions/17578150/add-cflags-to-qmake-project-without-hard-coding-them-in-the-pro-file
-# https://stackoverflow.com/questions/7754218/qmake-how-to-add-and-use-a-variable-into-the-pro-file
-make CPPFLAGS_DEF_QSTYLE="HEORY_APPTEST"
+if [[ -n ${GITHUB_ACTIONS-} || -n ${BITBUCKET_REPO_OWNER-} || -n ${BITBUCKET_REPO_FULL_NAME-} ]];
+then
+  # we have to skip the apptest(s) on GitHub for now (alsa dummy module won't load)
+  make CPPFLAGS_DEF_QSTYLE="HEORY_APPTEST_SKIPTHIS"
+else
+  # https://stackoverflow.com/questions/17578150/add-cflags-to-qmake-project-without-hard-coding-them-in-the-pro-file
+  # https://stackoverflow.com/questions/7754218/qmake-how-to-add-and-use-a-variable-into-the-pro-file
+  make CPPFLAGS_DEF_QSTYLE="HEORY_APPTEST"
+fi
 
 make install # puts necessary items side-by-side with app exe
 

@@ -16,16 +16,6 @@ class Random;
 
 namespace tests
 {
-    // It's a bit sloppy to put all the 'using' in this header, but since this
-    // is only for 'namespace tests' and it saves us boilerplate in each test,
-    // we're allowing it.
-    using LogTeeFunctor
-        = std::function<void( QtMsgType, const QMessageLogContext&, const QString& )>;
-
-    using std::placeholders::_1;
-    using std::placeholders::_2;
-    using std::placeholders::_3;
-
     class TestInterface
     {
     public:

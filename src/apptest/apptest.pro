@@ -11,10 +11,16 @@ CONFIG += shared
 
 SOURCES += \
     collection.cc \
+    task.cc \
+    task_queue.cc \
+    task_runner.cc \
     test_pitch_train.cc
 
 HEADERS += \
     collection.h \
+    task.h \
+    task_queue.h \
+    task_runner.h \
     test_pitch_train.h
 
 # 'pri' usage based on http://archive.is/https://www.toptal.com/qt/vital-guide-qmake

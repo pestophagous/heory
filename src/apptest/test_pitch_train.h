@@ -15,10 +15,13 @@ namespace heory
 {
 namespace tests
 {
+    class TaskQueue;
+
     class TestPitchTrain : public TestInterface
     {
     public:
-        ~TestPitchTrain() override;
+        TestPitchTrain();
+        ~TestPitchTrain();
 
         void Go( const QQmlApplicationEngine* qmlapp, Random* random,
             QmlMessageInterceptor* messageIntercept ) override;
@@ -26,8 +29,7 @@ namespace tests
         bool PollForDoneness() override;
 
     private:
-        void IncomingLog(
-            QtMsgType type, const QMessageLogContext& context, const QString& message );
+        std::unique_ptr<TaskQueue> m_taskQueue;
     };
 
 } // namespace tests

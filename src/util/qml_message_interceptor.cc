@@ -87,7 +87,8 @@ namespace
 } // namespace
 
 QmlMessageInterceptor::QmlMessageInterceptor( const bool suppressDefaultLogWhenSinkIsPresent )
-    : m_pimpl( new Pimpl( this ) )
+    : m_threadId( std::this_thread::get_id() )
+    , m_pimpl( new Pimpl( this ) )
     , m_suppressDefaultLogWhenSinkIsPresent( suppressDefaultLogWhenSinkIsPresent )
 {
     FASSERT( original_handler == nullptr,
@@ -147,6 +148,14 @@ void QmlMessageInterceptor::DecoratorFunction(
 int QmlMessageInterceptor::TeeToSinks(
     QtMsgType type, const QMessageLogContext& context, const QString& message )
 {
+    if( m_threadId != std::this_thread::get_id() )
+    {
+        FFAIL( "TODO: do something smart if this happens. we must not call the tee(s) on "
+               "background threads" );
+        fprintf( stderr, "users were not expecting calls from a non-main/non-gui thread\n" );
+        return 0;
+    }
+
     int sinksThatWereLoggedTo = 0;
     for( auto& sink : m_sinks )
     {
