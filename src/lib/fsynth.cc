@@ -75,12 +75,10 @@ namespace
 
         if( NOTE_ON == event->type )
         {
-            qDebug() << "OnIncomingMidiEvent NOTE_ON";
             ourData->OnNote( event->param1 );
         }
         else if( NOTE_OFF == event->type )
         {
-            qDebug() << "OnIncomingMidiEvent NOTE_OFF";
             ourData->OnNoteTermination( event->param1 );
         }
 

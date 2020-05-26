@@ -58,6 +58,7 @@ void GuiTests::Poll()
 
     if( done )
     {
+        m_timer.stop();
         // quit during next event-loop cycle
         QTimer::singleShot(
             1 /*milliseconds*/, QCoreApplication::instance(), QCoreApplication::quit );

@@ -44,6 +44,9 @@ namespace tests
         std::random_shuffle( m_->tests.begin(), m_->tests.end() );
 
         m_->testIter = m_->tests.begin();
+        // TODO: put a hard cap on runtime of each test.
+        // TODO: if a test 'times out' (fails to end successfully in time limit), then
+        // choose a way to report this. (it could be that QT_LOGGING_RULES are not set right)
         ( *m_->testIter )->Go( m_->engine, m_->random, m_->messageInterceptor );
     }
 
