@@ -20,4 +20,5 @@ INCLUDEPATH += $${top_srcdir}/build/generated_files # for version.h
 !include(../lib_app/fluidsynth_linkonly.pri) { error() }
 !include(../lib_app/lib.pri) { error() }
 !include(../libstyles/libstyles.pri) { error() }
+!include(../minutil/minutil.pri) { error() }
 !include(../util/util.pri) { error() }
