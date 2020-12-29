@@ -18,8 +18,10 @@ CUR_GIT_ROOT=$(git rev-parse --show-toplevel)
 cd $CUR_GIT_ROOT
 rm -f gui_test.log # in C.I. there should never be a leftover file. but perhaps locally.
 
-# -g flag causes app to close when test is done:
-QT_LOGGING_RULES="*=true;qt*=false;" gdb -n -batch -return-child-result -ex "set args -g -v" -ex "run" -ex "bt" ${CUR_GIT_ROOT}/build/src/app/app 2>&1 |& tee gui_test.log
+# -g flag causes app to close when test is done.
+# "run, bt, run" is a workaround for a gdb behavior change between gdb 8 and gdb 9
+# for more info, see: https://sourceware.org/bugzilla/show_bug.cgi?id=27125
+QT_LOGGING_RULES="*=true;qt*=false;" gdb -n -batch -return-child-result -ex "set args -g -v" -ex "run" -ex "bt" -ex "run" ${CUR_GIT_ROOT}/build/src/app/app 2>&1 |& tee gui_test.log
 
 tools/gui_test/check_gui_test_log.py gui_test.log
 rm -f gui_test.log
