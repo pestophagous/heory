@@ -1,0 +1,7 @@
+digraph "source tree" {
+    overlap=scale;
+    size="12,18";
+    ratio="fill";
+    fontsize="16";
+    fontname="Helvetica";
+    clusterrank="local";

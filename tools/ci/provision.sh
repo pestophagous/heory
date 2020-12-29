@@ -27,9 +27,11 @@ sudo apt-get --assume-yes install \
   build-essential \
   clang-format-6.0 \
   cmake \
+  curl \
   fluid-soundfont-gm \
   gdb \
   git \
+  graphviz \
   libasound2-dev \
   libc-bin \
   libdbus-1-3 \
