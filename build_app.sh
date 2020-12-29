@@ -16,6 +16,9 @@ trap "popd" EXIT HUP INT QUIT TERM
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $DIR  # enter this script's directory. (in case called from root of repository)
 
+# adding this next line here (rather than in run_all_tests.sh), because we think
+# of the graph-generation as more of a "build" step than a "test":
+$DIR/sw_arch_doc/generate_graph.sh
 
 if [ -f build_qt_binaries/.git ]; then
   echo "Skipping any work in qt5 bin submodule. Looks done already."
