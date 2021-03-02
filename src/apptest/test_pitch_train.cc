@@ -10,7 +10,7 @@
 
 #include "src/apptest/helpers.h"
 #include "src/apptest/task_queue.h"
-#include "src/lib/music_notes.h"
+#include "src/lib_app/music_notes.h"
 #include "src/util/random.h"
 
 namespace heory

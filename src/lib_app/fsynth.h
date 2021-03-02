@@ -9,8 +9,8 @@
 
 #include <QObject>
 
-#include "src/lib/pitch.h"
-#include "src/lib/sound_io_interface.h"
+#include "src/lib_app/pitch.h"
+#include "src/lib_app/sound_io_interface.h"
 
 #include <functional>
 #include <map>

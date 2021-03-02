@@ -3,7 +3,7 @@
 
 #include <functional>
 
-#include "src/lib/pitch.h"
+#include "src/lib_app/pitch.h"
 #include "util-assert.h"
 
 namespace heory

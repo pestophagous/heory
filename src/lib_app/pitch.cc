@@ -2,7 +2,7 @@
 
 #include <cstring>
 
-#include "src/lib/notation_strings.h"
+#include "src/lib_app/notation_strings.h"
 #include "util-assert.h"
 
 namespace heory

@@ -10,7 +10,7 @@ SOURCES += \
 !include(../util/util.pri) { error() }
 !include(../libtests/libtestmain.pri) { error() }
 !include(../libstyles/libstyles.pri) { error() }
-!include(../lib/fluidsynth_linkonly.pri) { error() }
+!include(../lib_app/fluidsynth_linkonly.pri) { error() }
 !include(../../third_party/googletest-release-1.8.0/googletest/googletest.pri) { error() }
 !include(../../third_party/googletest-release-1.8.0/googlemock/googlemock.pri) { error() }
 
