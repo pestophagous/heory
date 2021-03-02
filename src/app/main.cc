@@ -15,14 +15,19 @@
 
 int main( int argc, char* argv[] )
 {
-    qSetMessagePattern( QString( "[QT-%{type}][v-" ) + heory::GIT_HASH_WHEN_BUILT
+    project::SetAppVersionStringForLogging( heory::GIT_HASH_WHEN_BUILT );
+
+    qSetMessagePattern( QString( "%{time yyyy-MM-dd hh:mm:ss} [QT-%{type}][v-" )
+                        + heory::GIT_HASH_WHEN_BUILT
                         + "][thr:%{threadid}]%{if-category}[%{category}]: "
                           "%{endif}%{file}(%{line}): %{message}" );
 
     // project::log used for DEMONSTRATION. Prefer Qt logging where available.
     project::log( "main.cc starting now %d", static_cast<int>( __LINE__ ) );
 
-    QGuiApplication app( argc, argv );
+    QGuiApplication app( argc, argv ); // ... note next line...
+    // QQuickStyle::setStyle( "Fusion" ); // <-- call setStyle after creating app (if style is
+    // needed)
 
     // ViewModels must OUTLIVE the qml engine, so create them first:
     heory::ViewModelCollection vms( app );
