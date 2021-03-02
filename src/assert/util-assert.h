@@ -14,6 +14,7 @@
 #endif
 
 #include <signal.h> // for raise
+#include <stdio.h> //  for stderr
 #include <stdlib.h> // for getenv
 #include <string.h>
 
@@ -23,6 +24,7 @@
 
 #if defined( __APPLE__ )
 #    include <CoreFoundation/CoreFoundation.h>
+#    include <TargetConditionals.h>
 #    define _putenv putenv
 #endif // defined(__APPLE__)
 
@@ -71,7 +73,7 @@ static inline void TrapDebug()
 #elif defined( __linux__ )
     raise( SIGTRAP );
 #else
-// TODO
+// FUTURE_PLATFORMS_TBD
 #endif // Win/Apple
 }
 
@@ -87,7 +89,7 @@ static inline void OptionToContinue( const char* title, const char* message,
     (void) line;
     (void) funcname;
 
-#elif defined( __APPLE__ )
+#elif defined( __APPLE__ ) && !( TARGET_OS_IPHONE )
 
     fprintf( stderr, "%s:\n", title );
     fprintf( stderr, "%s\n", funcname );
@@ -142,7 +144,7 @@ static inline void OptionToContinue( const char* title, const char* message,
             "ignoring opportunity to debug the FAIL (either due to inaction or ESC key)\n" );
     }
 
-#elif defined( __linux__ )
+#elif defined( __unix__ ) || TARGET_OS_IPHONE
 
     fprintf( stderr, "%s:\n", title );
     fprintf( stderr, "%s\n", funcname );
@@ -193,7 +195,7 @@ static inline void OptionToContinue( const char* title, const char* message,
     }
 
 #else
-// TODO
+// FUTURE_PLATFORMS_TBD
 #endif // Win/Apple
 }
 
@@ -237,6 +239,7 @@ static inline bool GetEnv_WinOnly( const char* name )
 #    ifdef _UNICODE
     wchar_t wtext[ 500 ];
     mbstowcs_s( &converted, wtext, 500, name, 480 );
+    LPCWSTR ptr = wtext;
 #    else
     LPCSTR ptr = name;
 #    endif
@@ -323,7 +326,7 @@ static inline bool GetEnv_WinOnly( const char* name )
 #        define FFAIL( msg ) Flex_Fail_Unix( msg, __FILE__, __LINE__, __func__ )
 
 #    else
-// TODO
+// FUTURE_PLATFORMS_TBD
 #    endif // Win/Apple
 
 #endif // #ifdef FLEX_DISABLE_ASSERT
