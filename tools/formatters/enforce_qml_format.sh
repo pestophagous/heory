@@ -26,12 +26,14 @@ check_format() {
   if [ $only_report != 0 ]; then
       while read filenames; do
         for fl in "$filenames"; do
+          echo checking format of "$fl"
           result=$("$qml_formatter" -l "$fl")
           if [[ ! -z "$result" ]]; then
               # https://stackoverflow.com/a/34066473/10278 (find string in bash array)
               if echo ${the_exclusions[@]} | grep -q -w "$fl"; then
                 echo "INTENTIONAL FORGIVENESS OF $fl"
               else
+                # If someone disables 'set -e', then explicitly fail here regardless:
                 echo "You need to qmlfmt this file:"
                 echo "$fl"
                 return -1
@@ -58,7 +60,7 @@ check_format() {
 }
 
 if [ -f "${THISDIR}/enforce_qml_format.exclusions" ]; then
-  readarray -t the_exclusions < "${THISDIR}/enforce_qml_format.exclusions"
+  the_exclusions=($(awk -F= '{print $0}' "${THISDIR}/enforce_qml_format.exclusions"))
 else
   the_exclusions=()
 fi
@@ -73,13 +75,13 @@ for dir in "${top_level_dirs[@]}"; do
       echo "Refusing to format ${dir} - you marked it .do_not_format"
   else
     # leaving the '-o' construct for future expansion guidance:
-    find ${dir} \
+    find ${dir%/} \
          \( -name '*.qml' \
          -o -name '*.qml' \) \
          | check_format
   fi
 done
 
-echo 'We assume this was run with '\''set -x'\'' (look at upper lines of this script).'
+echo 'We assume this was run with '\''set -e'\'' (look at upper lines of this script).'
 echo 'Assuming so, then getting here means:'
 echo 'SUCCESS'
