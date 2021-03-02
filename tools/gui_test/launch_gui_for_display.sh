@@ -26,6 +26,6 @@ QT_LOGGING_RULES="*=true;qt*=false;" gdb -n -batch -return-child-result -ex "set
 tools/gui_test/check_gui_test_log.py gui_test.log
 rm -f gui_test.log
 
-echo 'We assume this was run with '\''set -x'\'' (look at upper lines of this script).'
+echo 'We assume this was run with '\''set -e'\'' (look at upper lines of this script).'
 echo 'Assuming so, then getting here means:'
 echo 'launch_gui_for_display SUCCESS'
