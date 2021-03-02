@@ -17,7 +17,7 @@ INCLUDEPATH += $${top_srcdir}/build/generated_files # for version.h
 
 # 'pri' usage based on http://archive.is/https://www.toptal.com/qt/vital-guide-qmake
 !include(../apptest/apptest.pri) { error() }
-!include(../lib/fluidsynth_linkonly.pri) { error() }
-!include(../lib/lib.pri) { error() }
+!include(../lib_app/fluidsynth_linkonly.pri) { error() }
+!include(../lib_app/lib.pri) { error() }
 !include(../libstyles/libstyles.pri) { error() }
 !include(../util/util.pri) { error() }

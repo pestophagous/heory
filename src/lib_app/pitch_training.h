@@ -9,9 +9,9 @@
 
 #include <QString>
 
-#include "src/lib/incoming_pitch_listener_interface.h"
-#include "src/lib/pitch.h"
-#include "src/lib/sound_io_interface.h"
+#include "src/lib_app/incoming_pitch_listener_interface.h"
+#include "src/lib_app/pitch.h"
+#include "src/lib_app/sound_io_interface.h"
 
 namespace heory
 {

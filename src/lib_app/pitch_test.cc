@@ -2,7 +2,7 @@
 
 #include "pitch.h"
 
-#include "src/lib/notation_strings.h"
+#include "src/lib_app/notation_strings.h"
 
 namespace heory
 {

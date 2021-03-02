@@ -1,8 +1,8 @@
 #ifndef PROJECT_LIB_SOUND_IO_IFACE_H
 #define PROJECT_LIB_SOUND_IO_IFACE_H
 
-#include "src/lib/incoming_pitch_listener_interface.h"
-#include "src/lib/pitch.h"
+#include "src/lib_app/incoming_pitch_listener_interface.h"
+#include "src/lib_app/pitch.h"
 
 namespace heory
 {

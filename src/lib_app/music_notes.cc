@@ -3,8 +3,8 @@
 #include <QDebug>
 #include <QtQml/QQmlContext>
 
-#include "src/lib/fsynth.h"
-#include "src/lib/pitch_training.h"
+#include "src/lib_app/fsynth.h"
+#include "src/lib_app/pitch_training.h"
 #include "util-assert.h"
 
 #define log_func_human_tag "heory.musicnotes"

@@ -12,7 +12,7 @@ TEMPLATE = subdirs
 SUBDIRS = \
     app \
     apptest \
-    lib \
+    lib_app \
     lib_tests \
     libstyles \
     libtestmain \
@@ -22,8 +22,8 @@ SUBDIRS = \
 
 app.file = src/app/app.pro
 apptest.file = src/apptest/apptest.pro
-lib.file = src/lib/lib.pro
-lib_tests.file = src/lib/lib_tests.pro
+lib_app.file = src/lib_app/lib.pro
+lib_tests.file = src/lib_app/lib_tests.pro
 libstyles.file = src/libstyles/libstyles.pro
 libtestmain.file = src/libtests/libtestmain.pro
 util.file = src/util/util.pro
@@ -38,7 +38,7 @@ googletest.file = third_party/googletest-release-1.8.0/googletest/googletest.pro
 # contain') all these libraries.
 app.depends = \
     apptest \
-    lib \
+    lib_app \
     lib_tests \
     libstyles \
     libtestmain \
@@ -51,7 +51,7 @@ app.depends = \
 
 # NOTE: using 'CONFIG += ordered' is considered a bad practice—prefer using .depends instead.
 googlemock.depends = third_party/googletest-release-1.8.0/googletest
-apptest.depends = lib util
-lib.depends = libstyles util
-lib_tests.depends = lib util libtestmain third_party/googletest-release-1.8.0/googletest third_party/googletest-release-1.8.0/googlemock
+apptest.depends = lib_app util
+lib_app.depends = libstyles util
+lib_tests.depends = lib_app util libtestmain third_party/googletest-release-1.8.0/googletest third_party/googletest-release-1.8.0/googlemock
 libtestmain.depends = third_party/googletest-release-1.8.0/googletest third_party/googletest-release-1.8.0/googlemock
