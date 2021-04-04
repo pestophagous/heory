@@ -4,3 +4,6 @@
 [submodule "fluidsynth"]
 	path = fluidsynth
 	url = https://github.com/pestophagous/fluidsynth.git
+[submodule "oboe"]
+	path = oboe
+	url = https://github.com/google/oboe.git
