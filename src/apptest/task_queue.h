@@ -18,6 +18,7 @@
 
 namespace heory
 {
+class CliOptions;
 class QmlMessageInterceptor;
 
 namespace tests
@@ -25,8 +26,8 @@ namespace tests
     class TaskQueue
     {
     public:
-        explicit TaskQueue(
-            std::deque<Task>, const QStringList& logCategories, QmlMessageInterceptor* );
+        explicit TaskQueue( std::deque<Task>, const QStringList& logCategories,
+            QmlMessageInterceptor*, const CliOptions* );
 
         // Acts as a timer tick so that queue can make progress.
         // Return TRUE when all tasks are done.
@@ -39,6 +40,7 @@ namespace tests
         void IncomingLog(
             QtMsgType type, const QMessageLogContext& context, const QString& message );
 
+        const CliOptions* const m_options;
         const QStringList m_logCategories;
         std::deque<Task> m_tasks;
         std::shared_ptr<LogTeeFunctor> m_logSink;

@@ -11,6 +11,7 @@
 
 namespace heory
 {
+class CliOptions;
 class QmlMessageInterceptor;
 class Random;
 
@@ -20,7 +21,7 @@ namespace tests
     {
     public:
         explicit Collection( const QQmlApplicationEngine* qmlapp, Random* random,
-            QmlMessageInterceptor* messageIntercept );
+            QmlMessageInterceptor* messageIntercept, const CliOptions* options );
         ~Collection();
 
         Collection( const Collection& ) = delete;

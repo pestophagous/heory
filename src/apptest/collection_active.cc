@@ -16,6 +16,7 @@ namespace tests
     struct Collection::Impl
     {
         const QQmlApplicationEngine* engine;
+        const CliOptions* options;
         Random* random;
         QmlMessageInterceptor* messageInterceptor;
         std::vector<std::unique_ptr<TestInterface>> tests;
@@ -23,10 +24,11 @@ namespace tests
     };
 
     Collection::Collection( const QQmlApplicationEngine* qmlapp, Random* random,
-        QmlMessageInterceptor* messageIntercept )
+        QmlMessageInterceptor* messageIntercept, const CliOptions* opts )
         : m_( new Impl )
     {
         m_->engine = qmlapp;
+        m_->options = opts;
         m_->random = random;
         m_->messageInterceptor = messageIntercept;
 
@@ -47,7 +49,7 @@ namespace tests
         // TODO: put a hard cap on runtime of each test.
         // TODO: if a test 'times out' (fails to end successfully in time limit), then
         // choose a way to report this. (it could be that QT_LOGGING_RULES are not set right)
-        ( *m_->testIter )->Go( m_->engine, m_->random, m_->messageInterceptor );
+        ( *m_->testIter )->Go( m_->engine, m_->random, m_->messageInterceptor, m_->options );
     }
 
     // Acts as a timer tick so that test work can make progress.
@@ -65,7 +67,8 @@ namespace tests
             }
             else
             {
-                ( *m_->testIter )->Go( m_->engine, m_->random, m_->messageInterceptor );
+                ( *m_->testIter )
+                    ->Go( m_->engine, m_->random, m_->messageInterceptor, m_->options );
             }
         }
         return allDone;

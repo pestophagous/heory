@@ -13,7 +13,7 @@ namespace heory
 {
 namespace tests
 {
-    void RunTask( Task t );
+    void RunTask( Task t, const QString& amidiPortToken );
 } // namespace tests
 } // namespace heory
 

@@ -26,8 +26,11 @@ namespace
 } // namespace
 
 GuiTests::GuiTests( const QQmlApplicationEngine& engine, Random* random,
-    QmlMessageInterceptor* messageIntercept )
-    : m_engine( &engine ), m_random( random ), m_messageIntercept( messageIntercept )
+    QmlMessageInterceptor* messageIntercept, const CliOptions* options )
+    : m_engine( &engine )
+    , m_options( options )
+    , m_random( random )
+    , m_messageIntercept( messageIntercept )
 {
     connect( &engine, &QQmlApplicationEngine::objectCreated, [=]( QObject*, const QUrl& url ) {
         FASSERT( url.fileName() == QString( EXPECTED_FIRST_LOADED_FILE ),
@@ -42,7 +45,8 @@ GuiTests::~GuiTests() = default;
 
 void GuiTests::Go()
 {
-    m_tests = std::make_unique<tests::Collection>( m_engine, m_random, m_messageIntercept );
+    m_tests = std::make_unique<tests::Collection>(
+        m_engine, m_random, m_messageIntercept, m_options );
     m_tests->Start();
 
     m_timer.setSingleShot( false );

@@ -15,6 +15,7 @@
 
 namespace heory
 {
+class CliOptions;
 class QmlMessageInterceptor;
 class Random;
 
@@ -28,7 +29,7 @@ class GuiTests : public QObject
     Q_OBJECT
 public:
     explicit GuiTests( const QQmlApplicationEngine& qmlapp, Random* random,
-        QmlMessageInterceptor* messageIntercept );
+        QmlMessageInterceptor* messageIntercept, const CliOptions* opt );
     ~GuiTests();
 
     GuiTests( const GuiTests& ) = delete;
@@ -39,6 +40,7 @@ private:
     void Poll();
 
     const QQmlApplicationEngine* const m_engine;
+    const CliOptions* const m_options;
     Random* const m_random;
     QmlMessageInterceptor* const m_messageIntercept;
     std::unique_ptr<tests::Collection> m_tests;
