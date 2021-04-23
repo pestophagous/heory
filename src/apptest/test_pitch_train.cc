@@ -21,7 +21,7 @@ namespace tests
     TestPitchTrain::~TestPitchTrain() = default;
 
     void TestPitchTrain::Go( const QQmlApplicationEngine* qmlapp, Random* random,
-        QmlMessageInterceptor* messageIntercept )
+        QmlMessageInterceptor* messageIntercept, const CliOptions* options )
     {
         // clang-format off
         m_taskQueue = std::make_unique<TaskQueue>( std::deque<Task>
@@ -61,7 +61,8 @@ namespace tests
                 Task::Log("Guess matches expectation"),
             }
             , QStringList{ "heory.pitchtraining" }
-            , messageIntercept );
+            , messageIntercept
+            , options );
         // clang-format on
 
         random->Reset();

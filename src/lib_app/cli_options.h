@@ -22,10 +22,12 @@ public:
 
     bool RunningGuiTests() const;
     bool MaximumQtLogging() const;
+    QString AmidiPortToken() const;
 
 private:
     bool m_guiTests = false;
     bool m_maximumQtLogs = false;
+    QString m_amidiPortToken;
 };
 
 } // namespace heory

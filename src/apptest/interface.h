@@ -11,6 +11,7 @@
 
 namespace heory
 {
+class CliOptions;
 class QmlMessageInterceptor;
 class Random;
 
@@ -22,7 +23,7 @@ namespace tests
         virtual ~TestInterface() = default;
 
         virtual void Go( const QQmlApplicationEngine* qmlapp, Random* random,
-            QmlMessageInterceptor* messageIntercept )
+            QmlMessageInterceptor* messageIntercept, const CliOptions* options )
             = 0;
 
         // Acts as a timer tick so that test work can make progress.

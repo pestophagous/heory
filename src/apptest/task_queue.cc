@@ -4,6 +4,7 @@
 #include <memory>
 
 #include "src/apptest/task_runner.h"
+#include "src/lib_app/cli_options.h"
 #include "src/util/qml_message_interceptor.h"
 #include "util-assert.h"
 
@@ -16,8 +17,8 @@ namespace tests
     using std::placeholders::_3;
 
     TaskQueue::TaskQueue( std::deque<Task> tasks, const QStringList& logCategories,
-        QmlMessageInterceptor* messageIntercept )
-        : m_logCategories( logCategories ), m_tasks( tasks )
+        QmlMessageInterceptor* messageIntercept, const CliOptions* options )
+        : m_options( options ), m_logCategories( logCategories ), m_tasks( tasks )
     {
         m_logSink = std::make_shared<LogTeeFunctor>(
             std::bind( &TaskQueue::IncomingLog, this, _1, _2, _3 ) );
@@ -62,7 +63,7 @@ namespace tests
                 m_tasks.pop_front();
                 while( ( !m_tasks.empty() ) && m_tasks.front().IsActionable() )
                 {
-                    RunTask( m_tasks.front() );
+                    RunTask( m_tasks.front(), m_options->AmidiPortToken() );
                     m_tasks.pop_front();
                 }
             }
