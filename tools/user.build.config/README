@@ -1,0 +1,14 @@
+Individual software engineers may use this folder to store small scripts that
+perform machine-specific environment setup (to prepare their own local machines
+for building this project).
+
+While these scripts are expected to _NOT_ "just work" on any other engineer's
+machine, there is some benefit to keeping them checked in with git.
+
+Benefits include:
+
+- Other teammates might "take inspiration" or adapt these scripts for their own
+  local use.
+- By committing these in git, we can all still use 'git clean' commands without
+  risking that we will accidentally delete one of our favorite local helper
+  scripts.
