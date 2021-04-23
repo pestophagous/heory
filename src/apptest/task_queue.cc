@@ -48,6 +48,11 @@ namespace tests
             return;
         }
 
+        // REMINDER: if you are trying to manually run some GUI tests, and you
+        // notice that you don't seem to be making any progress through the
+        // TaskQueue, you probably did not enable the right QLoggingCategory!
+        // To find some of the categories and how we use them, search for:
+        //     #define log_func_human_tag "heory. ....
         if( context.category && m_logCategories.contains( QString( context.category ) ) )
         {
             // if front 'log' item matches:
