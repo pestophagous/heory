@@ -32,6 +32,17 @@ else
   git submodule update --init --recursive oboe
 fi
 
+if [ -f prefab/.git ]; then
+  echo "Skipping any work in prefab submodule. Looks done already."
+else
+  git submodule update --init --recursive prefab
+fi
+# get prefab on the PATH
+pushd prefab >& /dev/null
+  ./gradlew installDist
+popd >& /dev/null
+export PATH="$PWD/prefab/cli/build/install/prefab/bin/:$PATH"
+
 if [ -f fluidsynth/.git ]; then
   echo "Skipping any work in fluidsynth submodule. Looks done already."
 else
