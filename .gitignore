@@ -1,4 +1,11 @@
+dl_third_party
 build
 AppImage_staging
 linuxdeployqt-6-x86_64.AppImage
 gui_test.log
+
+# https://github.com/miurahr/aqtinstall
+aqtinstall.log
+
+# mac:
+**/.DS_Store

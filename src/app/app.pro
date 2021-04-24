@@ -1,6 +1,6 @@
 !include($$top_srcdir/compiler_flags.pri) { error() }
 
-QT += core qml
+QT += core qml quick svg widgets quickcontrols2
 
 SOURCES += \
     event_filter.cc \
@@ -22,3 +22,16 @@ INCLUDEPATH += $${top_srcdir}/build/generated_files # for version.h
 !include(../libstyles/libstyles.pri) { error() }
 !include(../minutil/minutil.pri) { error() }
 !include(../util/util.pri) { error() }
+
+# QML_ROOT_PATH needed for the android deployment to scan ALL our qml files
+QML_ROOT_PATH += \
+    $${top_srcdir}/src
+
+android {
+    QT += androidextras
+
+    DISTFILES += \
+        $$top_srcdir/src/lib_app/android/AndroidManifest.xml
+
+    ANDROID_PACKAGE_SOURCE_DIR = $$top_srcdir/src/lib_app/android
+}

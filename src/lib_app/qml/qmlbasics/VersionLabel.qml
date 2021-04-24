@@ -5,7 +5,20 @@ import libstyles 1.0
 import ".."
 
 Label {
+  property bool verBool_: versionInfoGitHash
+  property string ver_: (!!verBool_) ? versionInfoGitHash : "$git-info-here$"
+
+  property bool builddateBool_: versionInfoBuildDateString
+  property string builddate_: {
+    if (!!builddateBool_) {
+      versionInfoBuildDateString
+    } else {
+      Qt.formatDateTime(new Date(), "yyyy-MM-dd")
+    }
+  }
+
   font: Theme.basicFont
-  color: Theme.neutralMediumLight
-  text: versionInfoGitHash + " - Built on: " + versionInfoBuildDateString
+  text: ver_ + " - Built on: " + builddate_
+  horizontalAlignment: Text.AlignHCenter
+  verticalAlignment: Text.AlignVCenter
 }

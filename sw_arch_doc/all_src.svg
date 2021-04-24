@@ -5,435 +5,465 @@
  -->
 <!-- Title: source tree Pages: 1 -->
 <svg width="864pt" height="1293pt"
- viewBox="0.00 0.00 864.00 1292.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(.6794 .6794) rotate(0) translate(4 1898.5)">
+ viewBox="0.00 0.00 864.00 1293.02" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(.5451 .5451) rotate(0) translate(4 2368)">
 <title>source tree</title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-1898.5 1267.7434,-1898.5 1267.7434,4 -4,4"/>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-2368 1580.9827,-2368 1580.9827,4 -4,4"/>
 <!-- collection_active -->
 <g id="node1" class="node">
 <title>collection_active</title>
-<ellipse fill="none" stroke="#000000" cx="727.5963" cy="-1831" rx="70.6878" ry="18"/>
-<text text-anchor="middle" x="727.5963" y="-1827.3" font-family="Times,serif" font-size="14.00" fill="#000000">collection_active</text>
+<ellipse fill="none" stroke="#000000" cx="727.5963" cy="-2285" rx="70.6878" ry="18"/>
+<text text-anchor="middle" x="727.5963" y="-2281.3" font-family="Times,serif" font-size="14.00" fill="#000000">collection_active</text>
 </g>
 <!-- collection -->
 <g id="node2" class="node">
 <title>collection</title>
-<ellipse fill="none" stroke="#000000" cx="1160.5963" cy="-1074" rx="45.4919" ry="18"/>
-<text text-anchor="middle" x="1160.5963" y="-1070.3" font-family="Times,serif" font-size="14.00" fill="#000000">collection</text>
+<ellipse fill="none" stroke="#000000" cx="1160.5963" cy="-1340" rx="45.4919" ry="18"/>
+<text text-anchor="middle" x="1160.5963" y="-1336.3" font-family="Times,serif" font-size="14.00" fill="#000000">collection</text>
 </g>
 <!-- collection_active&#45;&gt;collection -->
 <g id="edge1" class="edge">
 <title>collection_active&#45;&gt;collection</title>
-<path fill="none" stroke="#000000" d="M747.5484,-1813.6883C793.9131,-1777.8085 909.3758,-1690.8122 984.5963,-1597 1064.8541,-1496.9054 1085.3313,-1466.4583 1123.5963,-1344 1150.1786,-1258.9296 1152.7665,-1152.1951 1155.9332,-1102.2345"/>
-<polygon fill="#000000" stroke="#000000" points="1159.4296,-1102.4084 1156.6493,-1092.1848 1152.4473,-1101.9107 1159.4296,-1102.4084"/>
+<path fill="none" stroke="#000000" d="M742.7713,-2267.2636C785.7928,-2223.6433 908.4173,-2106.0736 984.5963,-1988 1067.5569,-1859.4153 1085.7777,-1821.2776 1123.5963,-1673 1151.6815,-1562.8848 1153.1808,-1426.3253 1156.3674,-1368.2545"/>
+<polygon fill="#000000" stroke="#000000" points="1159.8756,-1368.2334 1157.0121,-1358.0328 1152.8894,-1367.7927 1159.8756,-1368.2334"/>
 </g>
 <!-- interface -->
 <g id="node3" class="node">
 <title>interface</title>
-<ellipse fill="none" stroke="#000000" cx="41.5963" cy="-1326" rx="41.6928" ry="18"/>
-<text text-anchor="middle" x="41.5963" y="-1322.3" font-family="Times,serif" font-size="14.00" fill="#000000">interface</text>
+<ellipse fill="none" stroke="#000000" cx="41.5963" cy="-1655" rx="41.6928" ry="18"/>
+<text text-anchor="middle" x="41.5963" y="-1651.3" font-family="Times,serif" font-size="14.00" fill="#000000">interface</text>
 </g>
 <!-- collection_active&#45;&gt;interface -->
 <g id="edge2" class="edge">
 <title>collection_active&#45;&gt;interface</title>
-<path fill="none" stroke="#000000" d="M676.4892,-1818.4047C577.329,-1791.8564 355.9981,-1722.0617 212.5963,-1597 131.2584,-1526.0646 74.9975,-1407.0139 52.5162,-1353.5071"/>
-<polygon fill="#000000" stroke="#000000" points="55.6455,-1351.9152 48.5927,-1344.0089 49.1757,-1354.5877 55.6455,-1351.9152"/>
+<path fill="none" stroke="#000000" d="M685.955,-2270.4352C590.9708,-2235.3982 355.4966,-2138.0362 212.5963,-1988 123.1944,-1894.1337 69.2982,-1744.3853 49.8524,-1682.8182"/>
+<polygon fill="#000000" stroke="#000000" points="53.1273,-1681.5615 46.8232,-1673.0463 46.4411,-1683.6342 53.1273,-1681.5615"/>
 </g>
 <!-- test_pitch_train -->
 <g id="node4" class="node">
 <title>test_pitch_train</title>
-<ellipse fill="none" stroke="#000000" cx="287.5963" cy="-1579" rx="65.7887" ry="18"/>
-<text text-anchor="middle" x="287.5963" y="-1575.3" font-family="Times,serif" font-size="14.00" fill="#000000">test_pitch_train</text>
+<ellipse fill="none" stroke="#000000" cx="287.5963" cy="-1970" rx="65.7887" ry="18"/>
+<text text-anchor="middle" x="287.5963" y="-1966.3" font-family="Times,serif" font-size="14.00" fill="#000000">test_pitch_train</text>
 </g>
 <!-- collection_active&#45;&gt;test_pitch_train -->
 <g id="edge3" class="edge">
 <title>collection_active&#45;&gt;test_pitch_train</title>
-<path fill="none" stroke="#000000" d="M698.7267,-1814.4656C621.6197,-1770.3043 410.8903,-1649.6138 324.8916,-1600.36"/>
-<polygon fill="#000000" stroke="#000000" points="326.4173,-1597.2005 316.0002,-1595.2677 322.9383,-1603.2748 326.4173,-1597.2005"/>
+<path fill="none" stroke="#000000" d="M703.6275,-2267.8405C629.4218,-2214.716 403.4255,-2052.9232 319.4554,-1992.8082"/>
+<polygon fill="#000000" stroke="#000000" points="321.4869,-1989.9581 311.3184,-1986.9828 317.4121,-1995.6499 321.4869,-1989.9581"/>
 </g>
 <!-- collection&#45;&gt;collection_active -->
 <g id="edge4" class="edge">
 <title>collection&#45;&gt;collection_active</title>
-<path fill="none" stroke="#000000" d="M1165.6742,-1092.1848C1171.017,-1136.4151 1170.1291,-1252.6875 1141.5963,-1344 1103.3313,-1466.4583 1082.8541,-1496.9054 1002.5963,-1597 930.4998,-1686.9162 821.434,-1770.5708 764.6159,-1808.9567"/>
-<polygon fill="#000000" stroke="#000000" points="762.671,-1806.0468 756.2908,-1814.5052 766.5531,-1811.8717 762.671,-1806.0468"/>
+<path fill="none" stroke="#000000" d="M1165.2875,-1358.0328C1171.2636,-1408.6132 1171.4916,-1555.7879 1141.5963,-1673 1103.7777,-1821.2776 1085.5569,-1859.4153 1002.5963,-1988 929.6305,-2101.0933 814.0547,-2213.7243 758.744,-2261.3547"/>
+<polygon fill="#000000" stroke="#000000" points="756.3899,-2258.7621 751.0329,-2267.9029 760.9209,-2264.0978 756.3899,-2258.7621"/>
 </g>
 <!-- collection_inert -->
 <g id="node5" class="node">
 <title>collection_inert</title>
-<ellipse fill="none" stroke="#000000" cx="1183.5963" cy="-821" rx="65.7887" ry="18"/>
-<text text-anchor="middle" x="1183.5963" y="-817.3" font-family="Times,serif" font-size="14.00" fill="#000000">collection_inert</text>
+<ellipse fill="none" stroke="#000000" cx="1183.5963" cy="-1024" rx="65.7887" ry="18"/>
+<text text-anchor="middle" x="1183.5963" y="-1020.3" font-family="Times,serif" font-size="14.00" fill="#000000">collection_inert</text>
 </g>
 <!-- collection&#45;&gt;collection_inert -->
 <g id="edge5" class="edge">
 <title>collection&#45;&gt;collection_inert</title>
-<path fill="none" stroke="#000000" d="M1158.5475,-1055.8049C1158.7123,-1012.1331 1168.5613,-901.1417 1176.6301,-848.9408"/>
-<polygon fill="#000000" stroke="#000000" points="1180.0905,-849.4673 1178.2687,-839.0303 1173.1843,-848.3254 1180.0905,-849.4673"/>
+<path fill="none" stroke="#000000" d="M1158.5566,-1321.6446C1158.1467,-1268.7239 1169.0679,-1115.5871 1177.5014,-1052.0948"/>
+<polygon fill="#000000" stroke="#000000" points="1180.9923,-1052.4059 1178.9374,-1042.0123 1174.0622,-1051.4188 1180.9923,-1052.4059"/>
 </g>
 <!-- test_pitch_train&#45;&gt;interface -->
-<g id="edge33" class="edge">
+<g id="edge35" class="edge">
 <title>test_pitch_train&#45;&gt;interface</title>
-<path fill="none" stroke="#000000" d="M270.2981,-1561.2095C227.0237,-1516.7038 114.0417,-1400.5069 64.9421,-1350.0101"/>
-<polygon fill="#000000" stroke="#000000" points="67.3843,-1347.5011 57.9037,-1342.7714 62.3656,-1352.3809 67.3843,-1347.5011"/>
+<path fill="none" stroke="#000000" d="M273.6654,-1952.1617C232.2147,-1899.0846 109.5617,-1742.0289 61.3631,-1680.3111"/>
+<polygon fill="#000000" stroke="#000000" points="63.9859,-1677.9831 55.0724,-1672.256 58.4689,-1682.2916 63.9859,-1677.9831"/>
 </g>
 <!-- music_notes -->
-<g id="node16" class="node">
+<g id="node18" class="node">
 <title>music_notes</title>
-<ellipse fill="none" stroke="#000000" cx="807.5963" cy="-1326" rx="55.4913" ry="18"/>
-<text text-anchor="middle" x="807.5963" y="-1322.3" font-family="Times,serif" font-size="14.00" fill="#000000">music_notes</text>
+<ellipse fill="none" stroke="#000000" cx="807.5963" cy="-1655" rx="55.4913" ry="18"/>
+<text text-anchor="middle" x="807.5963" y="-1651.3" font-family="Times,serif" font-size="14.00" fill="#000000">music_notes</text>
 </g>
 <!-- test_pitch_train&#45;&gt;music_notes -->
-<g id="edge34" class="edge">
+<g id="edge36" class="edge">
 <title>test_pitch_train&#45;&gt;music_notes</title>
-<path fill="none" stroke="#000000" d="M320.1246,-1563.1737C411.1298,-1518.8962 668.1547,-1393.8437 767.6073,-1345.4562"/>
-<polygon fill="#000000" stroke="#000000" points="769.268,-1348.5405 776.7289,-1341.0182 766.2055,-1342.246 769.268,-1348.5405"/>
+<path fill="none" stroke="#000000" d="M314.8216,-1953.5077C402.1621,-1900.5996 675.2769,-1735.1551 772.6653,-1676.1601"/>
+<polygon fill="#000000" stroke="#000000" points="774.5218,-1679.1277 781.2615,-1670.9528 770.8949,-1673.1405 774.5218,-1679.1277"/>
 </g>
 <!-- random -->
-<g id="node21" class="node">
+<g id="node23" class="node">
 <title>random</title>
-<ellipse fill="none" stroke="#000000" cx="474.5963" cy="-821" rx="38.1938" ry="18"/>
-<text text-anchor="middle" x="474.5963" y="-817.3" font-family="Times,serif" font-size="14.00" fill="#000000">random</text>
+<ellipse fill="none" stroke="#000000" cx="474.5963" cy="-1024" rx="38.1938" ry="18"/>
+<text text-anchor="middle" x="474.5963" y="-1020.3" font-family="Times,serif" font-size="14.00" fill="#000000">random</text>
 </g>
 <!-- test_pitch_train&#45;&gt;random -->
-<g id="edge35" class="edge">
+<g id="edge37" class="edge">
 <title>test_pitch_train&#45;&gt;random</title>
-<path fill="none" stroke="#000000" d="M288.5946,-1560.9972C293.6939,-1469.0328 316.5963,-1056 316.5963,-1056 345.6196,-969.4801 415.6246,-884.8758 451.9203,-844.8984"/>
-<polygon fill="#000000" stroke="#000000" points="454.5196,-847.2425 458.7079,-837.5106 449.3649,-842.5065 454.5196,-847.2425"/>
+<path fill="none" stroke="#000000" d="M288.4013,-1951.7098C293.0297,-1846.59 316.0636,-1323.9544 316.5963,-1322 346.3059,-1213.008 420.9642,-1099.0548 455.9545,-1049.5128"/>
+<polygon fill="#000000" stroke="#000000" points="458.8541,-1051.4749 461.8098,-1041.3007 453.1545,-1047.4111 458.8541,-1051.4749"/>
 </g>
 <!-- task_queue -->
-<g id="node23" class="node">
+<g id="node26" class="node">
 <title>task_queue</title>
-<ellipse fill="none" stroke="#000000" cx="151.5963" cy="-1326" rx="50.0912" ry="18"/>
-<text text-anchor="middle" x="151.5963" y="-1322.3" font-family="Times,serif" font-size="14.00" fill="#000000">task_queue</text>
+<ellipse fill="none" stroke="#000000" cx="151.5963" cy="-1655" rx="50.0912" ry="18"/>
+<text text-anchor="middle" x="151.5963" y="-1651.3" font-family="Times,serif" font-size="14.00" fill="#000000">task_queue</text>
 </g>
 <!-- test_pitch_train&#45;&gt;task_queue -->
-<g id="edge36" class="edge">
+<g id="edge38" class="edge">
 <title>test_pitch_train&#45;&gt;task_queue</title>
-<path fill="none" stroke="#000000" d="M277.8155,-1560.8049C254.1355,-1516.753 193.6349,-1404.2042 165.8903,-1352.591"/>
-<polygon fill="#000000" stroke="#000000" points="168.9248,-1350.8439 161.1072,-1343.6931 162.7592,-1354.1583 168.9248,-1350.8439"/>
+<path fill="none" stroke="#000000" d="M279.6965,-1951.7027C256.8264,-1898.7315 190.4681,-1745.034 163.351,-1682.2258"/>
+<polygon fill="#000000" stroke="#000000" points="166.5256,-1680.7488 159.3484,-1672.9552 160.099,-1683.5235 166.5256,-1680.7488"/>
 </g>
 <!-- helpers -->
-<g id="node27" class="node">
+<g id="node30" class="node">
 <title>helpers</title>
-<ellipse fill="none" stroke="#000000" cx="255.5963" cy="-1326" rx="36.2938" ry="18"/>
-<text text-anchor="middle" x="255.5963" y="-1322.3" font-family="Times,serif" font-size="14.00" fill="#000000">helpers</text>
+<ellipse fill="none" stroke="#000000" cx="255.5963" cy="-1655" rx="36.2938" ry="18"/>
+<text text-anchor="middle" x="255.5963" y="-1651.3" font-family="Times,serif" font-size="14.00" fill="#000000">helpers</text>
 </g>
 <!-- test_pitch_train&#45;&gt;helpers -->
-<g id="edge32" class="edge">
+<g id="edge34" class="edge">
 <title>test_pitch_train&#45;&gt;helpers</title>
-<path fill="none" stroke="#000000" d="M285.2949,-1560.8049C279.7828,-1517.2243 265.7914,-1406.6049 259.1718,-1354.2685"/>
-<polygon fill="#000000" stroke="#000000" points="262.6041,-1353.512 257.8768,-1344.0303 255.6594,-1354.3904 262.6041,-1353.512"/>
+<path fill="none" stroke="#000000" d="M285.7375,-1951.7027C280.3911,-1899.0736 264.9439,-1747.0151 258.4869,-1683.4541"/>
+<polygon fill="#000000" stroke="#000000" points="261.953,-1682.9428 257.4602,-1673.3478 254.9889,-1683.6503 261.953,-1682.9428"/>
 </g>
 <!-- collection_inert&#45;&gt;collection -->
 <g id="edge6" class="edge">
 <title>collection_inert&#45;&gt;collection</title>
-<path fill="none" stroke="#000000" d="M1185.6457,-839.0303C1185.5054,-882.532 1175.6663,-993.5125 1167.593,-1045.8614"/>
-<polygon fill="#000000" stroke="#000000" points="1164.1271,-1045.3686 1165.9534,-1055.8049 1171.0338,-1046.5076 1164.1271,-1045.3686"/>
+<path fill="none" stroke="#000000" d="M1185.6332,-1042.0123C1186.0924,-1094.4971 1175.1904,-1247.6101 1166.7462,-1311.4906"/>
+<polygon fill="#000000" stroke="#000000" points="1163.245,-1311.2526 1165.308,-1321.6446 1170.1759,-1312.2343 1163.245,-1311.2526"/>
 </g>
 <!-- event_filter -->
 <g id="node6" class="node">
 <title>event_filter</title>
-<ellipse fill="none" stroke="#000000" cx="969.5963" cy="-1326" rx="51.1914" ry="18"/>
-<text text-anchor="middle" x="969.5963" y="-1322.3" font-family="Times,serif" font-size="14.00" fill="#000000">event_filter</text>
+<ellipse fill="none" stroke="#000000" cx="969.5963" cy="-1655" rx="51.1914" ry="18"/>
+<text text-anchor="middle" x="969.5963" y="-1651.3" font-family="Times,serif" font-size="14.00" fill="#000000">event_filter</text>
 </g>
 <!-- every_so_often -->
 <g id="node7" class="node">
 <title>every_so_often</title>
-<ellipse fill="none" stroke="#000000" cx="1032.5963" cy="-1074" rx="64.9885" ry="18"/>
-<text text-anchor="middle" x="1032.5963" y="-1070.3" font-family="Times,serif" font-size="14.00" fill="#000000">every_so_often</text>
+<ellipse fill="none" stroke="#000000" cx="1032.5963" cy="-1340" rx="64.9885" ry="18"/>
+<text text-anchor="middle" x="1032.5963" y="-1336.3" font-family="Times,serif" font-size="14.00" fill="#000000">every_so_often</text>
 </g>
 <!-- event_filter&#45;&gt;every_so_often -->
 <g id="edge7" class="edge">
 <title>event_filter&#45;&gt;every_so_often</title>
-<path fill="none" stroke="#000000" d="M974.1271,-1307.8768C985.0019,-1264.3777 1012.6401,-1153.825 1025.6387,-1101.8304"/>
-<polygon fill="#000000" stroke="#000000" points="1029.0766,-1102.5093 1028.1066,-1091.959 1022.2856,-1100.8115 1029.0766,-1102.5093"/>
+<path fill="none" stroke="#000000" d="M973.2558,-1636.7027C983.7816,-1584.0736 1014.1933,-1432.0151 1026.9055,-1368.4541"/>
+<polygon fill="#000000" stroke="#000000" points="1030.3975,-1368.84 1028.9268,-1358.3478 1023.5335,-1367.4672 1030.3975,-1368.84"/>
 </g>
 <!-- fsynth -->
 <g id="node8" class="node">
 <title>fsynth</title>
-<ellipse fill="none" stroke="#000000" cx="917.5963" cy="-1074" rx="32.4942" ry="18"/>
-<text text-anchor="middle" x="917.5963" y="-1070.3" font-family="Times,serif" font-size="14.00" fill="#000000">fsynth</text>
+<ellipse fill="none" stroke="#000000" cx="917.5963" cy="-1340" rx="32.4942" ry="18"/>
+<text text-anchor="middle" x="917.5963" y="-1336.3" font-family="Times,serif" font-size="14.00" fill="#000000">fsynth</text>
 </g>
 <!-- pitch -->
 <g id="node9" class="node">
 <title>pitch</title>
-<ellipse fill="none" stroke="#000000" cx="1070.5963" cy="-316" rx="28.6953" ry="18"/>
-<text text-anchor="middle" x="1070.5963" y="-312.3" font-family="Times,serif" font-size="14.00" fill="#000000">pitch</text>
+<ellipse fill="none" stroke="#000000" cx="1070.5963" cy="-394" rx="28.6953" ry="18"/>
+<text text-anchor="middle" x="1070.5963" y="-390.3" font-family="Times,serif" font-size="14.00" fill="#000000">pitch</text>
 </g>
 <!-- fsynth&#45;&gt;pitch -->
 <g id="edge8" class="edge">
 <title>fsynth&#45;&gt;pitch</title>
-<path fill="none" stroke="#000000" d="M925.0922,-1056.3303C941.2743,-1017.6023 979.8514,-922.0622 1002.5963,-839 1032.8235,-728.6135 1035.6783,-699.4739 1050.5963,-586 1062.1305,-498.2655 1067.5164,-393.5519 1069.5592,-344.2797"/>
-<polygon fill="#000000" stroke="#000000" points="1073.0644,-344.2147 1069.9665,-334.0829 1066.07,-343.9352 1073.0644,-344.2147"/>
+<path fill="none" stroke="#000000" d="M923.577,-1322.0616C938.7347,-1276.0286 979.1163,-1149.7607 1002.5963,-1042 1032.7457,-903.6305 1035.669,-867.8272 1050.5963,-727 1062.5255,-614.4577 1067.8962,-479.7061 1069.7702,-422.2213"/>
+<polygon fill="#000000" stroke="#000000" points="1073.2725,-422.2017 1070.0898,-412.0963 1066.276,-421.9808 1073.2725,-422.2017"/>
 </g>
 <!-- sound_io_interface -->
 <g id="node10" class="node">
 <title>sound_io_interface</title>
-<ellipse fill="none" stroke="#000000" cx="915.5963" cy="-821" rx="77.9862" ry="18"/>
-<text text-anchor="middle" x="915.5963" y="-817.3" font-family="Times,serif" font-size="14.00" fill="#000000">sound_io_interface</text>
+<ellipse fill="none" stroke="#000000" cx="915.5963" cy="-1024" rx="77.9862" ry="18"/>
+<text text-anchor="middle" x="915.5963" y="-1020.3" font-family="Times,serif" font-size="14.00" fill="#000000">sound_io_interface</text>
 </g>
 <!-- fsynth&#45;&gt;sound_io_interface -->
 <g id="edge9" class="edge">
 <title>fsynth&#45;&gt;sound_io_interface</title>
-<path fill="none" stroke="#000000" d="M917.4525,-1055.8049C917.108,-1012.2243 916.2335,-901.6049 915.8198,-849.2685"/>
-<polygon fill="#000000" stroke="#000000" points="919.3179,-849.0023 915.7388,-839.0303 912.3181,-849.0577 919.3179,-849.0023"/>
+<path fill="none" stroke="#000000" d="M917.4801,-1321.6446C917.1452,-1268.7239 916.176,-1115.5871 915.7741,-1052.0948"/>
+<polygon fill="#000000" stroke="#000000" points="919.2736,-1051.9899 915.7103,-1042.0123 912.2738,-1052.0342 919.2736,-1051.9899"/>
 </g>
 <!-- notation_strings -->
-<g id="node19" class="node">
+<g id="node21" class="node">
 <title>notation_strings</title>
-<ellipse fill="none" stroke="#000000" cx="1098.5963" cy="-63" rx="67.6881" ry="18"/>
-<text text-anchor="middle" x="1098.5963" y="-59.3" font-family="Times,serif" font-size="14.00" fill="#000000">notation_strings</text>
+<ellipse fill="none" stroke="#000000" cx="1098.5963" cy="-79" rx="67.6881" ry="18"/>
+<text text-anchor="middle" x="1098.5963" y="-75.3" font-family="Times,serif" font-size="14.00" fill="#000000">notation_strings</text>
 </g>
 <!-- pitch&#45;&gt;notation_strings -->
-<g id="edge17" class="edge">
+<g id="edge18" class="edge">
 <title>pitch&#45;&gt;notation_strings</title>
-<path fill="none" stroke="#000000" d="M1072.61,-297.8049C1077.4331,-254.2243 1089.6756,-143.6049 1095.4678,-91.2685"/>
-<polygon fill="#000000" stroke="#000000" points="1098.9795,-91.3546 1096.6009,-81.0303 1092.022,-90.5846 1098.9795,-91.3546"/>
+<path fill="none" stroke="#000000" d="M1072.2227,-375.7027C1076.9009,-323.0736 1090.4172,-171.0151 1096.0671,-107.4541"/>
+<polygon fill="#000000" stroke="#000000" points="1099.5662,-107.6184 1096.9654,-97.3478 1092.5937,-106.9986 1099.5662,-107.6184"/>
 </g>
 <!-- sound_io_interface&#45;&gt;pitch -->
-<g id="edge27" class="edge">
+<g id="edge29" class="edge">
 <title>sound_io_interface&#45;&gt;pitch</title>
-<path fill="none" stroke="#000000" d="M927.1354,-802.9709C951.0465,-764.6874 1005.9877,-671.7502 1032.5963,-586 1059.1283,-500.4968 1067.1979,-393.9689 1069.6033,-344.1459"/>
-<polygon fill="#000000" stroke="#000000" points="1073.1012,-344.27 1070.0464,-334.1251 1066.108,-343.9607 1073.1012,-344.27"/>
+<path fill="none" stroke="#000000" d="M924.7306,-1005.7937C947.1845,-960.1612 1005.2347,-836.6942 1032.5963,-727 1060.1145,-616.6778 1067.7633,-480.7571 1069.8424,-422.5945"/>
+<polygon fill="#000000" stroke="#000000" points="1073.3488,-422.455 1070.1788,-412.3455 1066.3526,-422.2253 1073.3488,-422.455"/>
 </g>
 <!-- incoming_pitch_listener_interface -->
 <g id="node12" class="node">
 <title>incoming_pitch_listener_interface</title>
-<ellipse fill="none" stroke="#000000" cx="891.5963" cy="-568" rx="131.8766" ry="18"/>
-<text text-anchor="middle" x="891.5963" y="-564.3" font-family="Times,serif" font-size="14.00" fill="#000000">incoming_pitch_listener_interface</text>
+<ellipse fill="none" stroke="#000000" cx="891.5963" cy="-709" rx="131.8766" ry="18"/>
+<text text-anchor="middle" x="891.5963" y="-705.3" font-family="Times,serif" font-size="14.00" fill="#000000">incoming_pitch_listener_interface</text>
 </g>
 <!-- sound_io_interface&#45;&gt;incoming_pitch_listener_interface -->
-<g id="edge26" class="edge">
+<g id="edge28" class="edge">
 <title>sound_io_interface&#45;&gt;incoming_pitch_listener_interface</title>
-<path fill="none" stroke="#000000" d="M913.8703,-802.8049C909.7362,-759.2243 899.2426,-648.6049 894.2779,-596.2685"/>
-<polygon fill="#000000" stroke="#000000" points="897.7355,-595.655 893.3067,-586.0303 890.7668,-596.3161 897.7355,-595.655"/>
+<path fill="none" stroke="#000000" d="M914.2022,-1005.7027C910.1924,-953.0736 898.607,-801.0151 893.7642,-737.4541"/>
+<polygon fill="#000000" stroke="#000000" points="897.2439,-737.053 892.9942,-727.3478 890.2641,-737.5848 897.2439,-737.053"/>
 </g>
 <!-- gui_tests -->
 <g id="node11" class="node">
 <title>gui_tests</title>
-<ellipse fill="none" stroke="#000000" cx="1081.5963" cy="-1326" rx="42.4939" ry="18"/>
-<text text-anchor="middle" x="1081.5963" y="-1322.3" font-family="Times,serif" font-size="14.00" fill="#000000">gui_tests</text>
+<ellipse fill="none" stroke="#000000" cx="1081.5963" cy="-1655" rx="42.4939" ry="18"/>
+<text text-anchor="middle" x="1081.5963" y="-1651.3" font-family="Times,serif" font-size="14.00" fill="#000000">gui_tests</text>
 </g>
 <!-- gui_tests&#45;&gt;collection -->
 <g id="edge10" class="edge">
 <title>gui_tests&#45;&gt;collection</title>
-<path fill="none" stroke="#000000" d="M1087.2778,-1307.8768C1100.9429,-1264.2869 1135.7166,-1153.3631 1151.9735,-1101.5055"/>
-<polygon fill="#000000" stroke="#000000" points="1155.3146,-1102.5481 1154.9663,-1091.959 1148.6351,-1100.4541 1155.3146,-1102.5481"/>
+<path fill="none" stroke="#000000" d="M1086.1851,-1636.7027C1099.4153,-1583.9495 1137.6995,-1431.2973 1153.5726,-1368.0059"/>
+<polygon fill="#000000" stroke="#000000" points="1157.0554,-1368.5063 1156.0932,-1357.9552 1150.2657,-1366.8034 1157.0554,-1368.5063"/>
 </g>
 <!-- incoming_pitch_listener_interface&#45;&gt;pitch -->
 <g id="edge11" class="edge">
 <title>incoming_pitch_listener_interface&#45;&gt;pitch</title>
-<path fill="none" stroke="#000000" d="M904.4695,-549.8768C935.9282,-505.5886 1016.76,-391.7919 1052.7962,-341.0593"/>
-<polygon fill="#000000" stroke="#000000" points="1055.8448,-342.8113 1058.7824,-332.6319 1050.138,-338.7577 1055.8448,-342.8113"/>
+<path fill="none" stroke="#000000" d="M901.9938,-690.7027C932.2988,-637.3727 1020.6199,-481.9473 1055.8432,-419.9622"/>
+<polygon fill="#000000" stroke="#000000" points="1058.9353,-421.6049 1060.8329,-411.1814 1052.8493,-418.1465 1058.9353,-421.6049"/>
+</g>
+<!-- lib -->
+<g id="node13" class="node">
+<title>lib</title>
+<ellipse fill="none" stroke="#000000" cx="1423.5963" cy="-2285" rx="27" ry="18"/>
+<text text-anchor="middle" x="1423.5963" y="-2281.3" font-family="Times,serif" font-size="14.00" fill="#000000">lib</text>
+</g>
+<!-- quarantined_awaiting_warning_fixes -->
+<g id="node14" class="node">
+<title>quarantined_awaiting_warning_fixes</title>
+<ellipse fill="none" stroke="#000000" cx="1423.5963" cy="-1970" rx="141.8751" ry="18"/>
+<text text-anchor="middle" x="1423.5963" y="-1966.3" font-family="Times,serif" font-size="14.00" fill="#000000">quarantined_awaiting_warning_fixes</text>
+</g>
+<!-- lib&#45;&gt;quarantined_awaiting_warning_fixes -->
+<g id="edge12" class="edge">
+<title>lib&#45;&gt;quarantined_awaiting_warning_fixes</title>
+<path fill="none" stroke="#000000" d="M1423.5963,-2266.7027C1423.5963,-2214.0736 1423.5963,-2062.0151 1423.5963,-1998.4541"/>
+<polygon fill="#000000" stroke="#000000" points="1427.0964,-1998.3478 1423.5963,-1988.3478 1420.0964,-1998.3478 1427.0964,-1998.3478"/>
+</g>
+<!-- sample_header_exempt_from_warnings -->
+<g id="node24" class="node">
+<title>sample_header_exempt_from_warnings</title>
+<ellipse fill="none" stroke="#000000" cx="1423.5963" cy="-1655" rx="153.2729" ry="18"/>
+<text text-anchor="middle" x="1423.5963" y="-1651.3" font-family="Times,serif" font-size="14.00" fill="#000000">sample_header_exempt_from_warnings</text>
+</g>
+<!-- quarantined_awaiting_warning_fixes&#45;&gt;sample_header_exempt_from_warnings -->
+<g id="edge26" class="edge">
+<title>quarantined_awaiting_warning_fixes&#45;&gt;sample_header_exempt_from_warnings</title>
+<path fill="none" stroke="#000000" d="M1423.5963,-1951.7027C1423.5963,-1899.0736 1423.5963,-1747.0151 1423.5963,-1683.4541"/>
+<polygon fill="#000000" stroke="#000000" points="1427.0964,-1683.3478 1423.5963,-1673.3478 1420.0964,-1683.3478 1427.0964,-1683.3478"/>
 </g>
 <!-- main -->
-<g id="node13" class="node">
+<g id="node15" class="node">
 <title>main</title>
-<ellipse fill="none" stroke="#000000" cx="1060.5963" cy="-1831" rx="28.6953" ry="18"/>
-<text text-anchor="middle" x="1060.5963" y="-1827.3" font-family="Times,serif" font-size="14.00" fill="#000000">main</text>
+<ellipse fill="none" stroke="#000000" cx="1060.5963" cy="-2285" rx="28.6953" ry="18"/>
+<text text-anchor="middle" x="1060.5963" y="-2281.3" font-family="Times,serif" font-size="14.00" fill="#000000">main</text>
 </g>
 <!-- logger -->
-<g id="node14" class="node">
+<g id="node16" class="node">
 <title>logger</title>
-<ellipse fill="none" stroke="#000000" cx="1230.5963" cy="-1579" rx="33.2948" ry="18"/>
-<text text-anchor="middle" x="1230.5963" y="-1575.3" font-family="Times,serif" font-size="14.00" fill="#000000">logger</text>
+<ellipse fill="none" stroke="#000000" cx="1230.5963" cy="-1970" rx="33.2948" ry="18"/>
+<text text-anchor="middle" x="1230.5963" y="-1966.3" font-family="Times,serif" font-size="14.00" fill="#000000">logger</text>
 </g>
 <!-- main&#45;&gt;logger -->
-<g id="edge12" class="edge">
+<g id="edge13" class="edge">
 <title>main&#45;&gt;logger</title>
-<path fill="none" stroke="#000000" d="M1072.0145,-1814.0743C1101.1595,-1770.8711 1178.4518,-1656.2966 1213.2208,-1604.7567"/>
-<polygon fill="#000000" stroke="#000000" points="1216.313,-1606.4313 1219.004,-1596.1839 1210.51,-1602.5165 1216.313,-1606.4313"/>
+<path fill="none" stroke="#000000" d="M1069.9784,-2267.6155C1098.2492,-2215.2314 1182.7389,-2058.6769 1216.4651,-1996.1844"/>
+<polygon fill="#000000" stroke="#000000" points="1219.5739,-1997.7932 1221.2432,-1987.3307 1213.4138,-1994.4687 1219.5739,-1997.7932"/>
 </g>
 <!-- view_model_collection -->
-<g id="node15" class="node">
+<g id="node17" class="node">
 <title>view_model_collection</title>
-<ellipse fill="none" stroke="#000000" cx="890.5963" cy="-1579" rx="93.6835" ry="18"/>
-<text text-anchor="middle" x="890.5963" y="-1575.3" font-family="Times,serif" font-size="14.00" fill="#000000">view_model_collection</text>
+<ellipse fill="none" stroke="#000000" cx="890.5963" cy="-1970" rx="93.6835" ry="18"/>
+<text text-anchor="middle" x="890.5963" y="-1966.3" font-family="Times,serif" font-size="14.00" fill="#000000">view_model_collection</text>
 </g>
 <!-- main&#45;&gt;view_model_collection -->
-<g id="edge13" class="edge">
+<g id="edge14" class="edge">
 <title>main&#45;&gt;view_model_collection</title>
-<path fill="none" stroke="#000000" d="M1049.1782,-1814.0743C1020.1136,-1770.9903 943.167,-1656.9283 908.2606,-1605.1847"/>
-<polygon fill="#000000" stroke="#000000" points="911.136,-1603.1886 902.642,-1596.8559 905.333,-1607.1033 911.136,-1603.1886"/>
+<path fill="none" stroke="#000000" d="M1051.2142,-2267.6155C1023.0759,-2215.4768 939.2439,-2060.1411 905.2048,-1997.0687"/>
+<polygon fill="#000000" stroke="#000000" points="908.2,-1995.2491 900.3706,-1988.1111 902.0398,-1998.5736 908.2,-1995.2491"/>
 </g>
 <!-- view_model_collection&#45;&gt;event_filter -->
-<g id="edge37" class="edge">
+<g id="edge39" class="edge">
 <title>view_model_collection&#45;&gt;event_filter</title>
-<path fill="none" stroke="#000000" d="M896.2778,-1560.8049C909.9429,-1517.042 944.7166,-1405.678 960.9735,-1353.6147"/>
-<polygon fill="#000000" stroke="#000000" points="964.3265,-1354.619 963.9663,-1344.0303 957.6447,-1352.5325 964.3265,-1354.619"/>
+<path fill="none" stroke="#000000" d="M895.1851,-1951.7027C908.4153,-1898.9495 946.6995,-1746.2973 962.5726,-1683.0059"/>
+<polygon fill="#000000" stroke="#000000" points="966.0554,-1683.5063 965.0932,-1672.9552 959.2657,-1681.8034 966.0554,-1683.5063"/>
 </g>
 <!-- view_model_collection&#45;&gt;fsynth -->
-<g id="edge38" class="edge">
+<g id="edge40" class="edge">
 <title>view_model_collection&#45;&gt;fsynth</title>
-<path fill="none" stroke="#000000" d="M891.5732,-1560.7284C895.6292,-1484.8666 911.159,-1194.402 916.0866,-1102.2364"/>
-<polygon fill="#000000" stroke="#000000" points="919.5817,-1102.4196 916.6207,-1092.247 912.5917,-1102.0458 919.5817,-1102.4196"/>
+<path fill="none" stroke="#000000" d="M891.3752,-1951.8248C895.1704,-1863.2723 911.729,-1476.9033 916.3783,-1368.4195"/>
+<polygon fill="#000000" stroke="#000000" points="919.8827,-1368.3897 916.8142,-1358.249 912.8891,-1368.0899 919.8827,-1368.3897"/>
 </g>
 <!-- view_model_collection&#45;&gt;gui_tests -->
-<g id="edge39" class="edge">
+<g id="edge41" class="edge">
 <title>view_model_collection&#45;&gt;gui_tests</title>
-<path fill="none" stroke="#000000" d="M904.3326,-1560.8049C937.808,-1516.4631 1023.6773,-1402.7199 1062.2849,-1351.58"/>
-<polygon fill="#000000" stroke="#000000" points="1065.2597,-1353.4485 1068.4916,-1343.3586 1059.673,-1349.2308 1065.2597,-1353.4485"/>
+<path fill="none" stroke="#000000" d="M901.6908,-1951.7027C933.9517,-1898.4976 1027.8284,-1743.6748 1065.5892,-1681.3992"/>
+<polygon fill="#000000" stroke="#000000" points="1068.7529,-1682.932 1070.9449,-1672.5664 1062.7672,-1679.3026 1068.7529,-1682.932"/>
 </g>
 <!-- view_model_collection&#45;&gt;music_notes -->
-<g id="edge40" class="edge">
+<g id="edge42" class="edge">
 <title>view_model_collection&#45;&gt;music_notes</title>
-<path fill="none" stroke="#000000" d="M884.6272,-1560.8049C870.2702,-1517.042 833.7357,-1405.678 816.6557,-1353.6147"/>
-<polygon fill="#000000" stroke="#000000" points="819.9542,-1352.441 813.5114,-1344.0303 813.303,-1354.6231 819.9542,-1352.441"/>
+<path fill="none" stroke="#000000" d="M885.7751,-1951.7027C871.8751,-1898.9495 831.6524,-1746.2973 814.9756,-1683.0059"/>
+<polygon fill="#000000" stroke="#000000" points="818.2599,-1681.7334 812.3274,-1672.9552 811.4909,-1683.517 818.2599,-1681.7334"/>
 </g>
 <!-- random_concrete -->
-<g id="node22" class="node">
+<g id="node25" class="node">
 <title>random_concrete</title>
-<ellipse fill="none" stroke="#000000" cx="619.5963" cy="-1074" rx="72.2875" ry="18"/>
-<text text-anchor="middle" x="619.5963" y="-1070.3" font-family="Times,serif" font-size="14.00" fill="#000000">random_concrete</text>
+<ellipse fill="none" stroke="#000000" cx="619.5963" cy="-1340" rx="72.2875" ry="18"/>
+<text text-anchor="middle" x="619.5963" y="-1336.3" font-family="Times,serif" font-size="14.00" fill="#000000">random_concrete</text>
 </g>
 <!-- view_model_collection&#45;&gt;random_concrete -->
-<g id="edge42" class="edge">
+<g id="edge44" class="edge">
 <title>view_model_collection&#45;&gt;random_concrete</title>
-<path fill="none" stroke="#000000" d="M878.1455,-1560.8977C851.7139,-1522.0981 788.7243,-1427.6462 743.5963,-1344 697.0821,-1257.7845 651.3378,-1150.8926 630.8205,-1101.4514"/>
-<polygon fill="#000000" stroke="#000000" points="634.0005,-1099.9822 626.9471,-1092.0765 627.5309,-1102.6552 634.0005,-1099.9822"/>
+<path fill="none" stroke="#000000" d="M880.8107,-1951.8889C856.1846,-1905.9747 790.2819,-1780.9952 743.5963,-1673 695.548,-1561.8526 648.2833,-1425.3826 628.847,-1367.7622"/>
+<polygon fill="#000000" stroke="#000000" points="632.051,-1366.3088 625.5477,-1357.9447 625.4156,-1368.5387 632.051,-1366.3088"/>
 </g>
 <!-- qml_message_interceptor -->
-<g id="node24" class="node">
+<g id="node27" class="node">
 <title>qml_message_interceptor</title>
-<ellipse fill="none" stroke="#000000" cx="427.5963" cy="-1074" rx="102.0819" ry="18"/>
-<text text-anchor="middle" x="427.5963" y="-1070.3" font-family="Times,serif" font-size="14.00" fill="#000000">qml_message_interceptor</text>
+<ellipse fill="none" stroke="#000000" cx="427.5963" cy="-1340" rx="102.0819" ry="18"/>
+<text text-anchor="middle" x="427.5963" y="-1336.3" font-family="Times,serif" font-size="14.00" fill="#000000">qml_message_interceptor</text>
 </g>
 <!-- view_model_collection&#45;&gt;qml_message_interceptor -->
-<g id="edge41" class="edge">
+<g id="edge43" class="edge">
 <title>view_model_collection&#45;&gt;qml_message_interceptor</title>
-<path fill="none" stroke="#000000" d="M874.1179,-1561.0268C804.2981,-1484.8734 532.7095,-1188.6483 450.9881,-1099.5137"/>
-<polygon fill="#000000" stroke="#000000" points="453.4562,-1097.0265 444.1184,-1092.0208 448.2965,-1101.7571 453.4562,-1097.0265"/>
+<path fill="none" stroke="#000000" d="M877.4854,-1952.1601C812.4289,-1863.6383 524.3234,-1471.6156 446.8394,-1366.1838"/>
+<polygon fill="#000000" stroke="#000000" points="449.5558,-1363.9699 440.8136,-1357.9846 443.9153,-1368.1153 449.5558,-1363.9699"/>
 </g>
 <!-- music_notes&#45;&gt;fsynth -->
-<g id="edge14" class="edge">
+<g id="edge15" class="edge">
 <title>music_notes&#45;&gt;fsynth</title>
-<path fill="none" stroke="#000000" d="M815.5072,-1307.8768C834.6205,-1264.09 883.3916,-1152.3599 905.895,-1100.8066"/>
-<polygon fill="#000000" stroke="#000000" points="909.1108,-1102.1883 909.9037,-1091.6231 902.6953,-1099.3878 909.1108,-1102.1883"/>
+<path fill="none" stroke="#000000" d="M813.9858,-1636.7027C832.4457,-1583.8405 885.9351,-1430.6661 907.9531,-1367.6147"/>
+<polygon fill="#000000" stroke="#000000" points="911.3337,-1368.5501 911.3262,-1357.9552 904.725,-1366.2423 911.3337,-1368.5501"/>
 </g>
 <!-- pitch_training -->
-<g id="node17" class="node">
+<g id="node19" class="node">
 <title>pitch_training</title>
-<ellipse fill="none" stroke="#000000" cx="807.5963" cy="-1074" rx="59.5901" ry="18"/>
-<text text-anchor="middle" x="807.5963" y="-1070.3" font-family="Times,serif" font-size="14.00" fill="#000000">pitch_training</text>
+<ellipse fill="none" stroke="#000000" cx="807.5963" cy="-1340" rx="59.5901" ry="18"/>
+<text text-anchor="middle" x="807.5963" y="-1336.3" font-family="Times,serif" font-size="14.00" fill="#000000">pitch_training</text>
 </g>
 <!-- music_notes&#45;&gt;pitch_training -->
-<g id="edge15" class="edge">
+<g id="edge16" class="edge">
 <title>music_notes&#45;&gt;pitch_training</title>
-<path fill="none" stroke="#000000" d="M807.5963,-1307.8768C807.5963,-1264.5739 807.5963,-1154.8207 807.5963,-1102.5374"/>
-<polygon fill="#000000" stroke="#000000" points="811.0964,-1102.2976 807.5963,-1092.2976 804.0964,-1102.2976 811.0964,-1102.2976"/>
+<path fill="none" stroke="#000000" d="M807.5963,-1636.7027C807.5963,-1584.0736 807.5963,-1432.0151 807.5963,-1368.4541"/>
+<polygon fill="#000000" stroke="#000000" points="811.0964,-1368.3478 807.5963,-1358.3478 804.0964,-1368.3478 811.0964,-1368.3478"/>
 </g>
 <!-- wrap_qt_trace_category -->
-<g id="node18" class="node">
+<g id="node20" class="node">
 <title>wrap_qt_trace_category</title>
-<ellipse fill="none" stroke="#000000" cx="626.5963" cy="-821" rx="95.5831" ry="18"/>
-<text text-anchor="middle" x="626.5963" y="-817.3" font-family="Times,serif" font-size="14.00" fill="#000000">wrap_qt_trace_category</text>
+<ellipse fill="none" stroke="#000000" cx="626.5963" cy="-1024" rx="95.5831" ry="18"/>
+<text text-anchor="middle" x="626.5963" y="-1020.3" font-family="Times,serif" font-size="14.00" fill="#000000">wrap_qt_trace_category</text>
 </g>
 <!-- music_notes&#45;&gt;wrap_qt_trace_category -->
-<g id="edge16" class="edge">
+<g id="edge17" class="edge">
 <title>music_notes&#45;&gt;wrap_qt_trace_category</title>
-<path fill="none" stroke="#000000" d="M801.1544,-1308.0268C774.0795,-1232.4863 669.392,-940.4023 636.5265,-848.7059"/>
-<polygon fill="#000000" stroke="#000000" points="639.7241,-847.2536 633.0553,-839.0208 633.1346,-849.6154 639.7241,-847.2536"/>
+<path fill="none" stroke="#000000" d="M802.3745,-1636.7959C776.8795,-1547.9155 665.4595,-1159.4842 634.5648,-1051.7797"/>
+<polygon fill="#000000" stroke="#000000" points="637.8742,-1050.6228 631.7525,-1041.9755 631.1455,-1052.5529 637.8742,-1050.6228"/>
 </g>
 <!-- pitch_training&#45;&gt;pitch -->
-<g id="edge21" class="edge">
+<g id="edge22" class="edge">
 <title>pitch_training&#45;&gt;pitch</title>
-<path fill="none" stroke="#000000" d="M803.0405,-1056.041C782.8149,-974.778 704.1555,-641.4926 750.5963,-550 811.6116,-429.7943 966.5845,-356.5482 1036.0224,-328.7704"/>
-<polygon fill="#000000" stroke="#000000" points="1037.5951,-331.9132 1045.6253,-325.0018 1035.0378,-325.397 1037.5951,-331.9132"/>
+<path fill="none" stroke="#000000" d="M803.6568,-1321.7394C783.9709,-1228.8726 699.2111,-808.7985 750.5963,-691 811.0896,-552.3213 971.7999,-449.3365 1039.6637,-410.6963"/>
+<polygon fill="#000000" stroke="#000000" points="1041.5992,-413.6235 1048.6032,-405.674 1038.1706,-407.5206 1041.5992,-413.6235"/>
 </g>
 <!-- pitch_training&#45;&gt;sound_io_interface -->
-<g id="edge23" class="edge">
+<g id="edge24" class="edge">
 <title>pitch_training&#45;&gt;sound_io_interface</title>
-<path fill="none" stroke="#000000" d="M815.3634,-1055.8049C834.0837,-1011.9508 881.7818,-900.2137 903.9468,-848.29"/>
-<polygon fill="#000000" stroke="#000000" points="907.1925,-849.6015 907.8996,-839.0303 900.7545,-846.8532 907.1925,-849.6015"/>
+<path fill="none" stroke="#000000" d="M813.8697,-1321.6446C831.9939,-1268.6146 884.5108,-1114.9539 906.1284,-1051.7024"/>
+<polygon fill="#000000" stroke="#000000" points="909.518,-1052.6068 909.4402,-1042.0123 902.8942,-1050.3429 909.518,-1052.6068"/>
 </g>
 <!-- pitch_training&#45;&gt;incoming_pitch_listener_interface -->
-<g id="edge20" class="edge">
+<g id="edge21" class="edge">
 <title>pitch_training&#45;&gt;incoming_pitch_listener_interface</title>
-<path fill="none" stroke="#000000" d="M807.8508,-1055.7804C808.7137,-1011.9337 812.4641,-897.1875 828.5963,-803 841.6674,-726.6847 868.3202,-639.1725 882.4032,-595.6254"/>
-<polygon fill="#000000" stroke="#000000" points="885.76,-596.6205 885.5344,-586.0281 879.1052,-594.4493 885.76,-596.6205"/>
+<path fill="none" stroke="#000000" d="M807.8074,-1321.805C808.5929,-1271.3928 812.2225,-1125.7349 828.5963,-1006 842.2596,-906.0859 870.6873,-789.6316 884.1801,-737.1633"/>
+<polygon fill="#000000" stroke="#000000" points="887.6268,-737.8147 886.7464,-727.2565 880.8505,-736.0593 887.6268,-737.8147"/>
 </g>
 <!-- pitch_training&#45;&gt;wrap_qt_trace_category -->
-<g id="edge24" class="edge">
+<g id="edge25" class="edge">
 <title>pitch_training&#45;&gt;wrap_qt_trace_category</title>
-<path fill="none" stroke="#000000" d="M794.8687,-1056.2095C763.5291,-1012.4033 682.5,-899.1416 645.5113,-847.4392"/>
-<polygon fill="#000000" stroke="#000000" points="648.2171,-845.206 639.5521,-839.1095 642.524,-849.2789 648.2171,-845.206"/>
+<path fill="none" stroke="#000000" d="M797.3464,-1322.1051C767.1151,-1269.3256 678.1789,-1114.0558 642.0841,-1051.0394"/>
+<polygon fill="#000000" stroke="#000000" points="644.9656,-1049.0281 636.9582,-1042.0903 638.8914,-1052.5073 644.9656,-1049.0281"/>
 </g>
 <!-- pitch_training&#45;&gt;random -->
-<g id="edge22" class="edge">
+<g id="edge23" class="edge">
 <title>pitch_training&#45;&gt;random</title>
-<path fill="none" stroke="#000000" d="M785.4894,-1057.204C726.9618,-1012.7372 568.0237,-891.9824 502.9521,-842.5436"/>
-<polygon fill="#000000" stroke="#000000" points="504.8525,-839.5919 494.7725,-836.3291 500.6177,-845.1656 504.8525,-839.5919"/>
+<path fill="none" stroke="#000000" d="M789.2185,-1322.5604C732.9939,-1269.2061 563.2513,-1108.1291 499.3158,-1047.4575"/>
+<polygon fill="#000000" stroke="#000000" points="501.3731,-1044.5847 491.71,-1040.2401 496.5546,-1049.6624 501.3731,-1044.5847"/>
 </g>
 <!-- null_stream -->
-<g id="node28" class="node">
+<g id="node31" class="node">
 <title>null_stream</title>
-<ellipse fill="none" stroke="#000000" cx="626.5963" cy="-568" rx="52.7911" ry="18"/>
-<text text-anchor="middle" x="626.5963" y="-564.3" font-family="Times,serif" font-size="14.00" fill="#000000">null_stream</text>
+<ellipse fill="none" stroke="#000000" cx="626.5963" cy="-709" rx="52.7911" ry="18"/>
+<text text-anchor="middle" x="626.5963" y="-705.3" font-family="Times,serif" font-size="14.00" fill="#000000">null_stream</text>
 </g>
 <!-- wrap_qt_trace_category&#45;&gt;null_stream -->
-<g id="edge43" class="edge">
+<g id="edge45" class="edge">
 <title>wrap_qt_trace_category&#45;&gt;null_stream</title>
-<path fill="none" stroke="#000000" d="M626.5963,-802.8049C626.5963,-759.2243 626.5963,-648.6049 626.5963,-596.2685"/>
-<polygon fill="#000000" stroke="#000000" points="630.0964,-596.0302 626.5963,-586.0303 623.0964,-596.0303 630.0964,-596.0302"/>
+<path fill="none" stroke="#000000" d="M626.5963,-1005.7027C626.5963,-953.0736 626.5963,-801.0151 626.5963,-737.4541"/>
+<polygon fill="#000000" stroke="#000000" points="630.0964,-737.3478 626.5963,-727.3478 623.0964,-737.3478 630.0964,-737.3478"/>
 </g>
 <!-- pitch_test -->
-<g id="node20" class="node">
+<g id="node22" class="node">
 <title>pitch_test</title>
-<ellipse fill="none" stroke="#000000" cx="1162.5963" cy="-568" rx="44.6926" ry="18"/>
-<text text-anchor="middle" x="1162.5963" y="-564.3" font-family="Times,serif" font-size="14.00" fill="#000000">pitch_test</text>
+<ellipse fill="none" stroke="#000000" cx="1162.5963" cy="-709" rx="44.6926" ry="18"/>
+<text text-anchor="middle" x="1162.5963" y="-705.3" font-family="Times,serif" font-size="14.00" fill="#000000">pitch_test</text>
 </g>
 <!-- pitch_test&#45;&gt;pitch -->
-<g id="edge19" class="edge">
+<g id="edge20" class="edge">
 <title>pitch_test&#45;&gt;pitch</title>
-<path fill="none" stroke="#000000" d="M1155.9799,-549.8768C1140.0275,-506.1811 1099.3734,-394.8242 1080.5005,-343.129"/>
-<polygon fill="#000000" stroke="#000000" points="1083.7474,-341.8164 1077.0301,-333.6231 1077.1719,-344.217 1083.7474,-341.8164"/>
+<path fill="none" stroke="#000000" d="M1157.2523,-690.7027C1141.8132,-637.8405 1097.0766,-484.6661 1078.6616,-421.6147"/>
+<polygon fill="#000000" stroke="#000000" points="1082.0036,-420.573 1075.8404,-411.9552 1075.2843,-422.5355 1082.0036,-420.573"/>
 </g>
 <!-- pitch_test&#45;&gt;notation_strings -->
-<g id="edge18" class="edge">
+<g id="edge19" class="edge">
 <title>pitch_test&#45;&gt;notation_strings</title>
-<path fill="none" stroke="#000000" d="M1160.2807,-549.7284C1150.6665,-473.8666 1113.8552,-183.402 1102.1748,-91.2364"/>
-<polygon fill="#000000" stroke="#000000" points="1105.6384,-90.7276 1100.9088,-81.247 1098.6939,-91.6077 1105.6384,-90.7276"/>
+<path fill="none" stroke="#000000" d="M1160.7499,-690.8248C1151.7541,-602.2723 1112.5039,-215.9033 1101.4834,-107.4195"/>
+<polygon fill="#000000" stroke="#000000" points="1104.943,-106.844 1100.4502,-97.249 1097.9789,-107.5516 1104.943,-106.844"/>
 </g>
 <!-- random_concrete&#45;&gt;random -->
-<g id="edge25" class="edge">
+<g id="edge27" class="edge">
 <title>random_concrete&#45;&gt;random</title>
-<path fill="none" stroke="#000000" d="M609.1683,-1055.8049C583.9211,-1011.753 519.4169,-899.2042 489.8362,-847.591"/>
-<polygon fill="#000000" stroke="#000000" points="492.7457,-845.6288 484.7366,-838.6931 486.6725,-849.1095 492.7457,-845.6288"/>
+<path fill="none" stroke="#000000" d="M611.385,-1322.1051C587.1595,-1269.31 515.8774,-1113.9643 486.9781,-1050.9838"/>
+<polygon fill="#000000" stroke="#000000" points="490.0692,-1049.3278 482.7175,-1041.6987 483.707,-1052.2472 490.0692,-1049.3278"/>
 </g>
 <!-- task_queue&#45;&gt;qml_message_interceptor -->
-<g id="edge28" class="edge">
+<g id="edge30" class="edge">
 <title>task_queue&#45;&gt;qml_message_interceptor</title>
-<path fill="none" stroke="#000000" d="M170.134,-1309.0743C217.8087,-1265.5452 344.8357,-1149.564 400.6522,-1098.6012"/>
-<polygon fill="#000000" stroke="#000000" points="403.0149,-1101.1833 408.0398,-1091.8559 398.295,-1096.0139 403.0149,-1101.1833"/>
+<path fill="none" stroke="#000000" d="M166.8284,-1637.6155C212.7933,-1585.1556 350.2958,-1428.2234 404.8911,-1365.9136"/>
+<polygon fill="#000000" stroke="#000000" points="407.7699,-1367.939 411.7275,-1358.1111 402.5049,-1363.3259 407.7699,-1367.939"/>
 </g>
 <!-- task -->
-<g id="node25" class="node">
+<g id="node28" class="node">
 <title>task</title>
-<ellipse fill="none" stroke="#000000" cx="133.5963" cy="-821" rx="27" ry="18"/>
-<text text-anchor="middle" x="133.5963" y="-817.3" font-family="Times,serif" font-size="14.00" fill="#000000">task</text>
+<ellipse fill="none" stroke="#000000" cx="133.5963" cy="-1024" rx="27" ry="18"/>
+<text text-anchor="middle" x="133.5963" y="-1020.3" font-family="Times,serif" font-size="14.00" fill="#000000">task</text>
 </g>
 <!-- task_queue&#45;&gt;task -->
-<g id="edge29" class="edge">
+<g id="edge31" class="edge">
 <title>task_queue&#45;&gt;task</title>
-<path fill="none" stroke="#000000" d="M147.5335,-1307.9234C138.9741,-1268.8052 119.3224,-1173.2692 112.5963,-1092 105.2533,-1003.2766 120.1378,-898.1455 128.4769,-848.974"/>
-<polygon fill="#000000" stroke="#000000" points="131.932,-849.5341 130.1955,-839.0825 125.0353,-848.3358 131.932,-849.5341"/>
+<path fill="none" stroke="#000000" d="M148.3976,-1637.0009C140.3762,-1590.8386 119.5512,-1464.3835 112.5963,-1358 105.1898,-1244.7096 121.3255,-1109.7693 129.3789,-1052.2372"/>
+<polygon fill="#000000" stroke="#000000" points="132.8769,-1052.4992 130.8268,-1042.1046 125.9473,-1051.5089 132.8769,-1052.4992"/>
 </g>
 <!-- task_runner -->
-<g id="node26" class="node">
+<g id="node29" class="node">
 <title>task_runner</title>
-<ellipse fill="none" stroke="#000000" cx="173.5963" cy="-1074" rx="51.9908" ry="18"/>
-<text text-anchor="middle" x="173.5963" y="-1070.3" font-family="Times,serif" font-size="14.00" fill="#000000">task_runner</text>
+<ellipse fill="none" stroke="#000000" cx="173.5963" cy="-1340" rx="51.9908" ry="18"/>
+<text text-anchor="middle" x="173.5963" y="-1336.3" font-family="Times,serif" font-size="14.00" fill="#000000">task_runner</text>
 </g>
 <!-- task_queue&#45;&gt;task_runner -->
-<g id="edge30" class="edge">
+<g id="edge32" class="edge">
 <title>task_queue&#45;&gt;task_runner</title>
-<path fill="none" stroke="#000000" d="M153.1785,-1307.8768C156.9589,-1264.5739 166.5405,-1154.8207 171.1049,-1102.5374"/>
-<polygon fill="#000000" stroke="#000000" points="174.6158,-1102.5641 171.9989,-1092.2976 167.6424,-1101.9553 174.6158,-1102.5641"/>
+<path fill="none" stroke="#000000" d="M152.8742,-1636.7027C156.5499,-1584.0736 167.1699,-1432.0151 171.609,-1368.4541"/>
+<polygon fill="#000000" stroke="#000000" points="175.1096,-1368.5674 172.3149,-1358.3478 168.1266,-1368.0796 175.1096,-1368.5674"/>
 </g>
 <!-- task_runner&#45;&gt;task -->
-<g id="edge31" class="edge">
+<g id="edge33" class="edge">
 <title>task_runner&#45;&gt;task</title>
-<path fill="none" stroke="#000000" d="M170.7196,-1055.8049C163.815,-1012.1331 146.2669,-901.1417 138.0138,-848.9408"/>
-<polygon fill="#000000" stroke="#000000" points="141.4657,-848.361 136.4469,-839.0303 134.5516,-849.4542 141.4657,-848.361"/>
+<path fill="none" stroke="#000000" d="M171.2728,-1321.6446C164.574,-1268.7239 145.1896,-1115.5871 137.1526,-1052.0948"/>
+<polygon fill="#000000" stroke="#000000" points="140.6045,-1051.4935 135.8763,-1042.0123 133.6599,-1052.3726 140.6045,-1051.4935"/>
 </g>
 </g>
 </svg>
