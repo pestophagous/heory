@@ -11,7 +11,7 @@ export ANDROID_NDK=${CUR_GIT_ROOT}/dl_third_party/android_kits/ndk-bundle
 
 pushd ${CUR_GIT_ROOT}/oboe >& /dev/null
   cmake --version # to print the version to CI logs.
-  ./build_all_android.sh
+  ./prefab_build.sh
 popd >& /dev/null
 
 
