@@ -19,7 +19,16 @@ then
    # end workaround
 fi
 
+sudo dpkg --add-architecture i386
+
 sudo apt-get update
+
+# handling libc6:i386 all by itself, and right up front, seems to
+# workaround some kind of recurring ubuntu apt issue. see:
+# https://bugs.launchpad.net/ubuntu-cdimage/+bug/1871268
+# https://github.com/openjdk/jdk/pull/2128/files
+sudo apt-get --assume-yes install libc6:i386 libc6-dev:i386
+
 sudo apt-get --assume-yes install \
   alsa-base \
   alsa-oss \
@@ -31,6 +40,7 @@ sudo apt-get --assume-yes install \
   fluid-soundfont-gm \
   gdb \
   git \
+  gnupg \
   graphviz \
   libasound2-dev \
   libc-bin \
@@ -38,6 +48,7 @@ sudo apt-get --assume-yes install \
   libdouble-conversion1 \
   libfontconfig1 \
   libfuse2 \
+  libgcc1:i386 \
   libgl1-mesa-dev \
   libgl1-mesa-glx \
   libglib2.0-0 \
@@ -47,15 +58,19 @@ sudo apt-get --assume-yes install \
   libharfbuzz0b \
   libicu60 \
   libjpeg8 \
+  libncurses5:i386 \
   libpcaudio-dev \
   libpcaudio0 \
   libpulse-dev \
   libreadline-dev \
+  libsdl1.2debian:i386 \
   libsndfile1-dev \
+  libstdc++6:i386 \
   libtiff5 \
   libxcb-icccm4 \
   libxcb-image0 \
   libxcb-keysyms1 \
+  libxcb-randr0 \
   libxcb-render-util0 \
   libxcb-render0 \
   libxcb-xinerama0 \
@@ -65,10 +80,20 @@ sudo apt-get --assume-yes install \
   linux-modules-$(uname -r) \
   linux-modules-extra-$(uname -r) \
   mesa-common-dev \
+  openjdk-8-jdk \
+  openjdk-8-jre \
+  p7zip-full \
   pkgconf \
   psmisc \
   python3 \
+  python3-pip \
+  unzip \
   wget \
-  xvfb
+  xvfb \
+  zlib1g:i386
 
 sudo usermod -a -G audio $USER
+
+CUR_GIT_ROOT=$(git rev-parse --show-toplevel)
+
+${CUR_GIT_ROOT}/tools/ci/get_qt_libs.sh

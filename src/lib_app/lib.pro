@@ -18,6 +18,13 @@ SOURCES += \
     pitch_training.cc \
     resources.cc
 
+android {
+    QT += androidextras
+
+    SOURCES += \
+        android/intent_to_email.cc
+}
+
 HEADERS += \
     cli_options.h \
     fsynth.h \
@@ -35,6 +42,8 @@ HEADERS += \
 !include(../libstyles/libstyles.pri) { error() }
 !include(../util/util.pri) { error() }
 !include(fluidsynth.pri) { error() }
+
+TARGET = appimpl
 
 target.path = $$top_exe_dir
 INSTALLS += target

@@ -5,17 +5,10 @@
 // THIS FILE IS "OWNED" BY AN AUTOMATED SCRIPT.
 //
 // If you would like to define utility functions that operate on these
-// constants, please add them to this package by adding a NEW FILE in this
+// constants, please add them to a relevant package by adding a NEW FILE in your
 // package. Same advice applies if you wish to define compound vars that
 // concatenate any of these strings: do it in another file. Let's keep this file
 // dirt simple to avoid any complications or errors in our scripts.
-
-// You don't need to commit the changes to this file with every commit, but it
-// is harmless if you go ahead and keep committing it.
-//
-// A possibly less-annoying (to yourself) way to deal with it is:
-//      git update-index --assume-unchanged src/util/version.h
-// (Then git won't ever show you the file as "dirty" and needing to be committed.)
 namespace heory
 {
 constexpr char BUILD_ON_DATE[] = "yyyy-mm-dd";
