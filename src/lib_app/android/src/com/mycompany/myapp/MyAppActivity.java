@@ -49,13 +49,13 @@ public class MyAppActivity extends QtActivity
       }
     }
     Log.d("MyAppActivity","logByteArray " + builder.toString());
-    MyJavaNatives.onIncomingMidi(value, offset, count);
   }
 
   class MyDirectReceiver extends MidiReceiver {
     @Override
     public void onSend(byte[] data, int offset, int count,
                        long timestamp) throws IOException {
+      MyJavaNatives.onIncomingMidi(data, offset, count);
       String prefix = String.format("0x%08X, ", timestamp);
       logByteArray(prefix, data, offset, count);
     }
