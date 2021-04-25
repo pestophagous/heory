@@ -3,14 +3,21 @@
 #include <QDebug>
 
 #include <fluidsynth.h>
+extern "C"
+{
 #include <fluidsynth/fluid_midi.h>
+}
 #include <fluidsynth/version.h>
 
 #include <algorithm>
 #include <stdlib.h>
 
-#include "src/lib_app/android/native_onIncomingMidi.cc"
 #include "util-assert.h"
+
+namespace
+{
+heory::FsynthWrapper::VoidDataPreRouter* g_preRouter = nullptr; // can this be atomic?
+} // namespace
 
 namespace heory
 {
@@ -18,7 +25,14 @@ struct FsynthWrapper::VoidDataPreRouter
 {
     VoidDataPreRouter( fluid_midi_router_t* r, FsynthWrapper* w ) : router( r ), wrapper( w )
     {
+        g_preRouter = this;
     }
+
+    ~VoidDataPreRouter()
+    {
+        g_preRouter = nullptr;
+    }
+
     void OnNote( int asMidi )
     {
         // The next 3 lines guarantee that if someone edits NotifyIncomingPitch
@@ -71,8 +85,15 @@ namespace
 
     int OnIncomingMidiEvent( void* data, fluid_midi_event_t* event )
     {
-        FsynthWrapper::VoidDataPreRouter* ourData
-            = static_cast<FsynthWrapper::VoidDataPreRouter*>( data );
+        if( !data )
+        {
+            qCritical() << "cannot work with NULL void data. we require a valid "
+                           "pointer-to-FsynthWrapper::VoidDataPreRouter";
+            return FLUID_FAILED;
+        }
+
+        heory::FsynthWrapper::VoidDataPreRouter* ourData
+            = static_cast<heory::FsynthWrapper::VoidDataPreRouter*>( data );
 
         if( NOTE_ON == event->type )
         {
@@ -89,7 +110,13 @@ namespace
     }
 
 } // namespace
+} // namespace heory
 
+// INSERTING SOME ANDROID-ONLY CODE HERE:
+#include "src/lib_app/android/native_onIncomingMidi.cc"
+
+namespace heory
+{
 struct FsynthWrapper::Impl
 {
     Impl() : test_lacking_alsa( IsRunningOnGithubRuner() )
