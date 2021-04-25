@@ -18,6 +18,7 @@ Label {
   }
 
   font: Theme.basicFont
+  color: Theme.neutralMediumLight
   text: ver_ + " - Built on: " + builddate_
   horizontalAlignment: Text.AlignHCenter
   verticalAlignment: Text.AlignVCenter
