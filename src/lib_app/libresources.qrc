@@ -11,5 +11,6 @@
     <file>qml/qmlbasics/StyledButton.qml</file>
     <file>qml/qmlbasics/VersionLabel.qml</file>
     <file>qml/qmldir</file>
+    <file>resource/FluidR3_GM_yamaha_grand_piano.sf2</file>
   </qresource>
 </RCC>
