@@ -8,12 +8,14 @@
 #define PROJECT_LIB_FSYNTH_H
 
 #include <QObject>
+#include <QTemporaryFile>
 
 #include "src/lib_app/pitch.h"
 #include "src/lib_app/sound_io_interface.h"
 
 #include <functional>
 #include <map>
+#include <memory>
 #include <vector>
 
 namespace heory
@@ -53,6 +55,8 @@ private:
     std::vector<IncomingPitchListener_Interface*> m_pitchListeners;
 
     std::map<int, std::vector<std::function<void()>>> m_activePitches;
+
+    std::unique_ptr<QTemporaryFile> m_tempFile;
 };
 
 } // namespace heory
