@@ -11,4 +11,5 @@
   - By https://volcanomobile.net/
 - https://dev.to/atsushieno/fluidsynth-hack-continued-oboe-driver-10fg
   - By https://github.com/atsushieno
-- https://github.com/philburk/android-midisuite
+- https://play.google.com/store/apps/details?id=com.mobileer.example.midiscope
+  - By https://github.com/philburk/android-midisuite
