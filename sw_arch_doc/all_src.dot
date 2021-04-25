@@ -12,6 +12,7 @@ digraph "source tree" {
 	"collection" -> "collection_inert"
 	"collection_inert" -> "collection"
 	"event_filter" -> "every_so_often"
+	"fsynth" -> "native_onIncomingMidi"
 	"fsynth" -> "pitch"
 	"fsynth" -> "sound_io_interface"
 	"gui_tests" -> "collection"

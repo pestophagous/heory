@@ -13,3 +13,4 @@
   - By https://github.com/atsushieno
 - https://play.google.com/store/apps/details?id=com.mobileer.example.midiscope
   - By https://github.com/philburk/android-midisuite
+- https://www.kdab.com/qt-android-episode-5/

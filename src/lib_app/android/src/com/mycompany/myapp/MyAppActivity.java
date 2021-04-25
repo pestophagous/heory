@@ -22,6 +22,12 @@ import java.io.IOException;
 
 import org.qtproject.qt5.android.bindings.QtActivity;
 
+class MyJavaNatives
+{
+    // declare the native method
+    public static native void onIncomingMidi(int n);
+}
+
 public class MyAppActivity extends QtActivity
 {
   private static MyAppActivity s_activity = null;
@@ -43,6 +49,7 @@ public class MyAppActivity extends QtActivity
       }
     }
     Log.d("MyAppActivity","logByteArray " + builder.toString());
+    MyJavaNatives.onIncomingMidi(2);
   }
 
   class MyDirectReceiver extends MidiReceiver {

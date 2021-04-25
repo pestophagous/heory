@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <stdlib.h>
 
+#include "src/lib_app/android/native_onIncomingMidi.cc"
 #include "util-assert.h"
 
 namespace heory
