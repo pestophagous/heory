@@ -4,17 +4,26 @@
 #    include <jni.h>
 
 // https://www.kdab.com/qt-android-episode-5/
-static void handleIncomingMidi( JNIEnv* /*env*/, jobject /*obj*/, jint n )
+static void handleIncomingMidi(
+    JNIEnv* /*env*/, jobject /*obj*/, jbyte* value, jint offset, jint count )
 {
     __android_log_print(
         ANDROID_LOG_INFO, "sometag", "MyAppActivity: (native) handleIncomingMidi" );
+    char* incomingString = reinterpret_cast<char*>( value );
+    char* iter = incomingString + offset;
+    for( int i = 0; i < count; i++ )
+    {
+        __android_log_print( ANDROID_LOG_INFO, "sometag", "MyAppActivity: %d of %d is %c", i,
+            static_cast<int>( count ), *iter );
+        iter++;
+    }
 }
 
 // Tip: use javap to find/confirm correct signatures. Like so:
 //   javap -s classes/com/mycompany/myapp/MyJavaNatives.class
 static JNINativeMethod ourJNINativeMethods[] = {{
     "onIncomingMidi", // const char* function name;
-    "(I)V", // const char* function signature
+    "([BII)V", // const char* function signature
     (void*) handleIncomingMidi // function pointer
 }};
 

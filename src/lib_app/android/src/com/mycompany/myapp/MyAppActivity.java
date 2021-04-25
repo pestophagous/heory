@@ -25,7 +25,7 @@ import org.qtproject.qt5.android.bindings.QtActivity;
 class MyJavaNatives
 {
     // declare the native method
-    public static native void onIncomingMidi(int n);
+    public static native void onIncomingMidi(byte[] value, int offset, int count);
 }
 
 public class MyAppActivity extends QtActivity
@@ -49,7 +49,7 @@ public class MyAppActivity extends QtActivity
       }
     }
     Log.d("MyAppActivity","logByteArray " + builder.toString());
-    MyJavaNatives.onIncomingMidi(2);
+    MyJavaNatives.onIncomingMidi(value, offset, count);
   }
 
   class MyDirectReceiver extends MidiReceiver {
