@@ -14,7 +14,7 @@ namespace heory
 class CliOptions
 {
 public:
-    explicit CliOptions( const QCoreApplication& app );
+    explicit CliOptions( bool dummyObject, const QCoreApplication& app );
     ~CliOptions();
 
     CliOptions( const CliOptions& ) = delete;

@@ -12,4 +12,8 @@ source $CUR_GIT_ROOT/path_to_qmake.bash # path to qmake is also path to qmlscene
 # In order that all the qml 'import' statements for our supporting libraries can
 # successfully load, you must feed some additional paths to qmlscene like so:
 
-qmlscene -I ../../libstyles/imports/ -style fusion "$@"
+# To use the 'normal' qmlscene provided by Qt:
+#qmlscene -I ../../libstyles/imports/ -style fusion "$@"
+
+# To use the 'lightly hacked' and 'project aware' locally-built qmlscene:
+$CUR_GIT_ROOT/build/src/app/qmlscene -I ../../libstyles/imports/ -style fusion "$@"

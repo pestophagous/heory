@@ -30,7 +30,7 @@ int main( int argc, char* argv[] )
     // needed)
 
     // ViewModels must OUTLIVE the qml engine, so create them first:
-    heory::ViewModelCollection vms( app );
+    heory::ViewModelCollection vms( false /*do NOT skipTheOpts*/, app );
 
     // For antialiasing: https://stackoverflow.com/a/49576756/10278
     // QSurfaceFormat format;

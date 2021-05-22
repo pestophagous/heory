@@ -20,7 +20,7 @@ namespace tests
     TestPitchTrain::TestPitchTrain() = default;
     TestPitchTrain::~TestPitchTrain() = default;
 
-    void TestPitchTrain::Go( const QQmlApplicationEngine* qmlapp, Random* random,
+    void TestPitchTrain::Go( const QQmlEngine* qmlapp, Random* random,
         QmlMessageInterceptor* messageIntercept, const CliOptions* options )
     {
         // clang-format off

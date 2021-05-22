@@ -21,24 +21,29 @@ namespace
     // Don't let this discourage us from ever renaming our qml filenames. This
     // isn't for the purpose of enforcing the precise NAME. Rather, this is used
     // only to give confirmation that we understand what the
-    // QQmlApplicationEngine creates/loads when the app is run.
+    // QQmlEngine creates/loads when the app is run.
     constexpr char EXPECTED_FIRST_LOADED_FILE[] = "main.qml";
 } // namespace
 
-GuiTests::GuiTests( const QQmlApplicationEngine& engine, Random* random,
+GuiTests::GuiTests( const QQmlEngine& engine, Random* random,
     QmlMessageInterceptor* messageIntercept, const CliOptions* options )
     : m_engine( &engine )
     , m_options( options )
     , m_random( random )
     , m_messageIntercept( messageIntercept )
 {
-    connect( &engine, &QQmlApplicationEngine::objectCreated, [=]( QObject*, const QUrl& url ) {
-        FASSERT( url.fileName() == QString( EXPECTED_FIRST_LOADED_FILE ),
-            "something must have changed in loading behavior of QQmlApplicationEngine" );
+    const QQmlApplicationEngine* appEngine
+        = dynamic_cast<const QQmlApplicationEngine*>( &engine );
+    FASSERT( appEngine, "not null. downcast must succeed." );
 
-        // run tests during an upcoming event-loop cycle:
-        QTimer::singleShot( 50 /*milliseconds*/, [this]() { Go(); } );
-    } );
+    connect(
+        appEngine, &QQmlApplicationEngine::objectCreated, [=]( QObject*, const QUrl& url ) {
+            FASSERT( url.fileName() == QString( EXPECTED_FIRST_LOADED_FILE ),
+                "something must have changed in loading behavior of QQmlEngine" );
+
+            // run tests during an upcoming event-loop cycle:
+            QTimer::singleShot( 50 /*milliseconds*/, [this]() { Go(); } );
+        } );
 }
 
 GuiTests::~GuiTests() = default;

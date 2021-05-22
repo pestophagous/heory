@@ -19,8 +19,7 @@ namespace heory
 namespace tests
 {
     template <class ViewModelType>
-    ViewModelType* GetViewModel(
-        const QQmlApplicationEngine* engine, const QString& viewModelName )
+    ViewModelType* GetViewModel( const QQmlEngine* engine, const QString& viewModelName )
     {
         QVariant vm = engine->rootContext()->contextProperty( viewModelName );
         const QString variantTypeName( vm.typeName() );

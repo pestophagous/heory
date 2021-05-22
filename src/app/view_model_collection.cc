@@ -41,8 +41,8 @@ namespace
 using str = std::string;
 
 // clang-format off
-ViewModelCollection::ViewModelCollection( const QGuiApplication& app )
-    : m_opts( std::make_unique<CliOptions>( app ) ),
+ViewModelCollection::ViewModelCollection( bool skipTheOpts, const QGuiApplication& app )
+    : m_opts( std::make_unique<CliOptions>( skipTheOpts, app ) ),
       m_eventFilter( std::make_unique<EventFilter>() ),
       m_qmlLogger( std::make_unique<QmlMessageInterceptor>( !m_opts->MaximumQtLogging() ) ),
       m_logging( std::make_unique<LoggingTags>( *m_opts ) ),
@@ -58,27 +58,21 @@ ViewModelCollection::ViewModelCollection( const QGuiApplication& app )
 
 ViewModelCollection::~ViewModelCollection() = default;
 
-void ViewModelCollection::ExportContextPropertiesToQml( QQmlApplicationEngine* engine )
+void ViewModelCollection::ExportContextPropertiesToQml( QQmlEngine* engine )
 {
     fprintf( stderr, "GUI Build Info: %s %s\n", BUILD_ON_DATE, GIT_HASH_WHEN_BUILT );
 
-    // Sort of a "silly" demo usage of project::Log<>
-    Log( str( "rootContext" ), engine )
-        ->rootContext()
-        ->setContextProperty( "versionInfoBuildDateString", BUILD_ON_DATE );
-    // Another sort of "silly" demo usage of project::Log<>
-    Log( str( "setContextProperty" ), engine->rootContext() )
-        ->setContextProperty( "versionInfoGitHash", GIT_HASH_WHEN_BUILT );
+    engine->rootContext()->setContextProperty( "versionInfoBuildDateString", BUILD_ON_DATE );
+    engine->rootContext()->setContextProperty( "versionInfoGitHash", GIT_HASH_WHEN_BUILT );
 
-    Log( str( "ExportContextPropertiesToQml" ), m_logging )
-        ->ExportContextPropertiesToQml( engine );
+    m_logging->ExportContextPropertiesToQml( engine );
     ResourceHelper::ExportContextPropertiesToQml( engine );
 
     m_musicNotes->ExportContextPropertiesToQml( engine );
 
     // Keep this at the END of the 'ExportContext...' method, so all view models are
     // exported before any tests run
-    if( Log( str( "RunningGuiTests" ), m_opts )->RunningGuiTests() )
+    if( m_opts->RunningGuiTests() )
     {
         m_guiTests = std::make_unique<GuiTests>(
             *engine, m_random.get(), m_qmlLogger.get(), m_opts.get() );
