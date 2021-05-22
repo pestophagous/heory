@@ -7,6 +7,7 @@ extern "C"
 {
 #include <fluidsynth/fluid_midi.h>
 }
+#include <fluidsynth/log.h>
 #include <fluidsynth/version.h>
 
 #include <algorithm>
@@ -109,6 +110,36 @@ namespace
         // return fluid_midi_router_handle_midi_event( ourData->router, event );
     }
 
+    // If we need to request that fluidsynth pass back the 'data', it would pass
+    // whatever we asked it to at our call to fluid_set_log_function.
+    void HandleFluidSynthLogs( int level, const char* message, void* /*data*/ )
+    {
+        if( level == fluid_log_level::FLUID_PANIC )
+        {
+            qCritical() << "fluid_log_level::FLUID_PANIC" << message;
+        }
+        else if( level == fluid_log_level::FLUID_ERR )
+        {
+            qCritical() << "fluid_log_level::FLUID_ERR" << message;
+        }
+        else if( level == fluid_log_level::FLUID_WARN )
+        {
+            qWarning() << "fluid_log_level::FLUID_WARN" << message;
+        }
+        else if( level == fluid_log_level::FLUID_INFO )
+        {
+            qInfo() << "fluid_log_level::FLUID_INFO" << message;
+        }
+        else if( level == fluid_log_level::FLUID_DBG )
+        {
+            qDebug() << "fluid_log_level::FLUID_DBG" << message;
+        }
+        else
+        {
+            qCritical() << "Unrecognized fluid_log_level" << level;
+            qCritical() << "fluid message of unknown level:" << message;
+        }
+    }
 } // namespace
 } // namespace heory
 
@@ -155,6 +186,12 @@ void FsynthWrapper::Impl::ShutdownFsynth()
 
 FsynthWrapper::FsynthWrapper( const CliOptions& /*options*/ ) : m_i( new Impl )
 {
+    fluid_set_log_function( FLUID_PANIC, HandleFluidSynthLogs, nullptr );
+    fluid_set_log_function( FLUID_ERR, HandleFluidSynthLogs, nullptr );
+    fluid_set_log_function( FLUID_WARN, HandleFluidSynthLogs, nullptr );
+    fluid_set_log_function( FLUID_INFO, HandleFluidSynthLogs, nullptr );
+    fluid_set_log_function( FLUID_DBG, HandleFluidSynthLogs, nullptr );
+
     m_i->settings = new_fluid_settings();
     FASSERT( m_i->settings, "must be non-null" );
 
