@@ -20,7 +20,7 @@ namespace tests
     class Collection
     {
     public:
-        explicit Collection( const QQmlApplicationEngine* qmlapp, Random* random,
+        explicit Collection( const QQmlEngine* qmlapp, Random* random,
             QmlMessageInterceptor* messageIntercept, const CliOptions* options );
         ~Collection();
 

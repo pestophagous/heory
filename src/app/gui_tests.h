@@ -28,7 +28,7 @@ class GuiTests : public QObject
 {
     Q_OBJECT
 public:
-    explicit GuiTests( const QQmlApplicationEngine& qmlapp, Random* random,
+    explicit GuiTests( const QQmlEngine& qmlapp, Random* random,
         QmlMessageInterceptor* messageIntercept, const CliOptions* opt );
     ~GuiTests();
 
@@ -39,7 +39,7 @@ private:
     void Go();
     void Poll();
 
-    const QQmlApplicationEngine* const m_engine;
+    const QQmlEngine* const m_engine;
     const CliOptions* const m_options;
     Random* const m_random;
     QmlMessageInterceptor* const m_messageIntercept;

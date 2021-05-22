@@ -27,13 +27,13 @@ class Random;
 class ViewModelCollection
 {
 public:
-    explicit ViewModelCollection( const QGuiApplication& app );
+    explicit ViewModelCollection( bool skipTheOpts, const QGuiApplication& app );
     ~ViewModelCollection();
 
     ViewModelCollection( const ViewModelCollection& ) = delete;
     ViewModelCollection& operator=( const ViewModelCollection& ) = delete;
 
-    void ExportContextPropertiesToQml( QQmlApplicationEngine* engine );
+    void ExportContextPropertiesToQml( QQmlEngine* engine );
 
     void SetRootObject( QObject* object );
 

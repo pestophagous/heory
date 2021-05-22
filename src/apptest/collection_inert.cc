@@ -5,7 +5,7 @@ namespace heory
 namespace tests
 {
     Collection::Collection(
-        const QQmlApplicationEngine*, Random*, QmlMessageInterceptor*, const CliOptions* )
+        const QQmlEngine*, Random*, QmlMessageInterceptor*, const CliOptions* )
     {
     }
 

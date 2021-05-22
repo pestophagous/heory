@@ -14,8 +14,13 @@ constexpr char GUI_TEST_CLI_OPT[] = "guitest";
 constexpr char MAX_QT_LOGGING_CLI_OPT[] = "maxlogs";
 constexpr char GUI_TEST_AMIDI_PORT_OPTSTRING[] = "argforamidi";
 
-CliOptions::CliOptions( const QCoreApplication& app )
+CliOptions::CliOptions( bool dummyObject, const QCoreApplication& app )
 {
+    if( dummyObject )
+    {
+        return;
+    }
+
     QCommandLineParser parser;
     parser.addHelpOption();
 

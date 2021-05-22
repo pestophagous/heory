@@ -22,7 +22,7 @@ namespace tests
     public:
         virtual ~TestInterface() = default;
 
-        virtual void Go( const QQmlApplicationEngine* qmlapp, Random* random,
+        virtual void Go( const QQmlEngine* qmlapp, Random* random,
             QmlMessageInterceptor* messageIntercept, const CliOptions* options )
             = 0;
 

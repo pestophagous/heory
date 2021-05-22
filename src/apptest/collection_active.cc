@@ -15,7 +15,7 @@ namespace tests
 {
     struct Collection::Impl
     {
-        const QQmlApplicationEngine* engine;
+        const QQmlEngine* engine;
         const CliOptions* options;
         Random* random;
         QmlMessageInterceptor* messageInterceptor;
@@ -23,7 +23,7 @@ namespace tests
         std::vector<std::unique_ptr<TestInterface>>::iterator testIter;
     };
 
-    Collection::Collection( const QQmlApplicationEngine* qmlapp, Random* random,
+    Collection::Collection( const QQmlEngine* qmlapp, Random* random,
         QmlMessageInterceptor* messageIntercept, const CliOptions* opts )
         : m_( new Impl )
     {

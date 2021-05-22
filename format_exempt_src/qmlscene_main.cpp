@@ -60,6 +60,8 @@
 #include <QtCore/QTranslator>
 #include <QtCore/QLibraryInfo>
 
+#include "src/app/view_model_collection.h"
+
 #ifdef QML_RUNTIME_TESTING
 class RenderStatistics
 {
@@ -527,6 +529,9 @@ int main(int argc, char ** argv)
 #endif
     if (app.isNull())
         app.reset(new QGuiApplication(argc, argv));
+
+    heory::ViewModelCollection vms( true /*skipTheOpts*/, *app.get() );
+
     QCoreApplication::setApplicationName(QStringLiteral("QtQmlViewer"));
     QCoreApplication::setOrganizationName(QStringLiteral("QtProject"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("qt-project.org"));
@@ -629,6 +634,7 @@ int main(int argc, char ** argv)
             // TODO: as soon as the engine construction completes, the debug service is
             // listening for connections.  But actually we aren't ready to debug anything.
             QQmlEngine engine;
+            vms.ExportContextPropertiesToQml( &engine );
             QQmlFileSelector* selector = new QQmlFileSelector(&engine, &engine);
             selector->setExtraSelectors(customSelectors);
             QPointer<QQmlComponent> component = new QQmlComponent(&engine);

@@ -23,7 +23,7 @@ namespace tests
         TestPitchTrain();
         ~TestPitchTrain();
 
-        void Go( const QQmlApplicationEngine* qmlapp, Random* random,
+        void Go( const QQmlEngine* qmlapp, Random* random,
             QmlMessageInterceptor* messageIntercept, const CliOptions* options ) override;
 
         bool PollForDoneness() override;
