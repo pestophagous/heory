@@ -11,6 +11,7 @@ TEMPLATE = subdirs
 
 SUBDIRS = \
     app \
+    qmlscene \
     apptest \
     lib_app \
     lib_tests \
@@ -22,6 +23,7 @@ SUBDIRS = \
     util
 
 app.file = src/app/app.pro
+qmlscene.file = src/app/qmlscene.pro
 apptest.file = src/apptest/apptest.pro
 lib_app.file = src/lib_app/lib.pro
 lib_tests.file = src/lib_app/lib_tests.pro
@@ -39,6 +41,7 @@ googletest.file = third_party/googletest-release-1.8.0/googletest/googletest.pro
 # that "the install directory of app" indeed depends on (aka 'wishes to
 # contain') all these libraries.
 app.depends = \
+    qmlscene \
     apptest \
     lib_app \
     lib_tests \
@@ -55,6 +58,7 @@ app.depends = \
 # NOTE: using 'CONFIG += ordered' is considered a bad practice—prefer using .depends instead.
 googlemock.depends = third_party/googletest-release-1.8.0/googletest
 apptest.depends = lib_app util
+qmlscene.depends = lib_app libstyles
 lib_app.depends = libstyles util
 lib_tests.depends = lib_app util libtestmain third_party/googletest-release-1.8.0/googletest third_party/googletest-release-1.8.0/googlemock
 libtestmain.depends = third_party/googletest-release-1.8.0/googletest third_party/googletest-release-1.8.0/googlemock
