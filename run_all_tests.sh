@@ -40,7 +40,10 @@ fi
 tools/formatters/enforce_clang_format.sh check_only
 tools/formatters/enforce_qml_format.sh check_only
 
-./build_app.sh
+./build_desktop_app.sh
+if [[ -n ${MYAPP_TEMPLATE_BUILD_ANDROID-} ]]; then
+  ./build_android_app.sh
+fi
 
 # run all test binaries that got built in the expected dir:
 tools/auto_test/run_cpp_auto_tests.sh

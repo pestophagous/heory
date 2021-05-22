@@ -34,7 +34,7 @@ post.](https://www.219design.com/hello-world-template-toolchain/)
    the github docker instance prior to running the continuous integration
    build-and-test routines)
 
-3. In a terminal, run `build_app.sh`
+3. In a terminal, run `build_desktop_app.sh`
 
 4. Assuming step (3) was successful, you can launch the app at
    `./build/src/app/app`
