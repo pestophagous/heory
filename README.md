@@ -54,17 +54,13 @@ post.](https://www.219design.com/hello-world-template-toolchain/)
 
 ### Notes About Qt Version
 
-This project includes pre-built Qt modules via a git submodule. This is one way to
-satisfy projects that:
- - require building Qt from source (for any reason)
- - require excluding various Qt modules. (e.g. we have skipped qtpurchasing, qtspeech)
- - require assurance that all teammembers have precisely the same Qt binaries
+The build scripts of this project download pre-built Qt modules using
+[aqtinstall](https://github.com/miurahr/aqtinstall) on Linux and a local copy of
+the [script provided by Qbs](https://github.com/qbs/qbs/blob/495d7767af8/scripts/install-qt.sh)
+on Mac OS X.
 
-Git submodules are not the only way to meet those requirements. It is simply the
-approach employed here.
-
-Because the Qt modules are included via submodule, you do not need to install Qt
-before using this repository. Just follow "How to build" above.
+Because the Qt modules are downloaded during the build, you do not need to
+install Qt before using this repository. Just follow "How to build" above.
 
 ### To Use Your Own Qt Version Instead
 
