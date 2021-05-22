@@ -61,6 +61,7 @@ for dir in "${top_level_dirs[@]}"; do
     # variable nor a filename); it should cause clang-format to use
     # '.clang-format' from our git root.
     find ${dir} \
+         -type f \
          \( -name '*.c' \
          -o -name '*.cc' \
          -o -name '*.cpp' \
