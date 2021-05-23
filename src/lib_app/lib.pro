@@ -10,7 +10,6 @@ RESOURCES = libresources.qrc
 SOURCES += \
     cli_options.cc \
     fsynth.cc \
-    lib.cc \
     logging_tags.cc \
     music_notes.cc \
     notation_strings.cc \
@@ -29,7 +28,6 @@ HEADERS += \
     cli_options.h \
     fsynth.h \
     incoming_pitch_listener_interface.h \
-    lib.h \
     logging_tags.h \
     music_notes.h \
     notation_strings.h \
