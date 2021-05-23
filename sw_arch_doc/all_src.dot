@@ -1,16 +1,11 @@
 digraph "source tree" {
     overlap=scale;
-    ratio=0.7;
+    ratio=0.8;
     fontsize="16";
     fontname="Helvetica";
     clusterrank="local";
-	"collection_active" -> "collection"
-	"collection_active" -> "interface"
-	"collection_active" -> "test_pitch_train"
-	"collection" -> "collection_active"
-	"collection" -> "collection_inert"
-	"collection_inert" -> "collection"
-	"fsynth" -> "native_onIncomingMidi"
+	"collection" -> "test_interface"
+	"collection" -> "test_pitch_train"
 	"fsynth" -> "pitch"
 	"fsynth" -> "sound_io_interface"
 	"gui_tests" -> "collection"
@@ -38,11 +33,10 @@ digraph "source tree" {
 	"task_queue" -> "task"
 	"task_queue" -> "task_runner"
 	"task_runner" -> "task"
-	"test_pitch_train" -> "helpers"
-	"test_pitch_train" -> "interface"
 	"test_pitch_train" -> "music_notes"
 	"test_pitch_train" -> "random"
 	"test_pitch_train" -> "task_queue"
+	"test_pitch_train" -> "test_interface"
 	"view_model_collection" -> "fsynth"
 	"view_model_collection" -> "gui_tests"
 	"view_model_collection" -> "music_notes"

@@ -49,10 +49,13 @@ rm sorted_edges.tmp # remove our temp file
 #     "div" -> "stringclass"
 "${THESED}" -i "/\"\bam_i_inside_debugger\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\bcli_options\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
+"${THESED}" -i "/\"\bcollection_inert\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\bevent_filter\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\bevery_so_often\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
+"${THESED}" -i "/\"\bhelpers\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\blogger\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\blogging_tags\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
+"${THESED}" -i "/\"\bnative_onIncomingMidi\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\bresource_helper\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\bresources\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\busage_log_t\b\"/d" ${ARCH_DOC_DIR}/all_src.dot

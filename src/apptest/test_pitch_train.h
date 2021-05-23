@@ -9,7 +9,7 @@
 
 #include <memory>
 
-#include "src/apptest/interface.h"
+#include "src/apptest/test_interface.h"
 
 namespace heory
 {
