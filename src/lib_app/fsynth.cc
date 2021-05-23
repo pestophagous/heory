@@ -67,6 +67,11 @@ struct FsynthWrapper::VoidDataPreRouter
         // clang-format on
     }
 
+    // The primary reason we instantiate a router is so that we have SOME PLACE
+    // TO SEND the fluid_midi_event_t(s) TO so that they become AUDIBLE after we
+    // receive an incoming event. Otherwise, we could examine incoming
+    // fluid_midi_event_t(s) to evaluate their properties, but the events would
+    // not be HEARD coming out of our synthesizer.
     fluid_midi_router_t* const router = nullptr;
     FsynthWrapper* const wrapper = nullptr;
 };
@@ -106,7 +111,8 @@ namespace
         }
 
         // TODO: make dump_pre and dump_post optional on CLI flag
-        return fluid_midi_dump_prerouter( ourData->router, event );
+        return fluid_midi_dump_prerouter(
+            ourData->router, event ); // this audibly plays the event/note
         // return fluid_midi_router_handle_midi_event( ourData->router, event );
     }
 
@@ -221,7 +227,13 @@ FsynthWrapper::FsynthWrapper( const CliOptions& /*options*/ ) : m_i( new Impl )
         // ALSA lib seq_hw.c:466:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or
         // directory fluidsynth: error: Error opening ALSA sequencer
 
-        // TODO: make dump_pre and dump_post optional on CLI flag
+        // TODO: make dump_pre and dump_post optional on CLI flag.
+
+        // The primary reason we instantiate a router is so that we have SOME
+        // PLACE TO SEND the fluid_midi_event_t(s) TO so that they become
+        // AUDIBLE after we receive an incoming event. Otherwise, we could
+        // examine incoming fluid_midi_event_t(s) to evaluate their properties,
+        // but the events would not be HEARD coming out of our synthesizer.
         m_i->router = new_fluid_midi_router(
             m_i->settings, fluid_midi_dump_postrouter, static_cast<void*>( m_i->synth ) );
         FASSERT( m_i->router, "must be non-null" );
