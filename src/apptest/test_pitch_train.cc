@@ -12,6 +12,7 @@
 #include "src/apptest/task_queue.h"
 #include "src/lib_app/music_notes.h"
 #include "src/util/random.h"
+#include "util-assert.h"
 
 namespace heory
 {
@@ -23,6 +24,8 @@ namespace tests
     void TestPitchTrain::Go( const QQmlEngine* qmlapp, Random* random,
         QmlMessageInterceptor* messageIntercept, const CliOptions* options )
     {
+        m_qmlEngine = qmlapp;
+
         // clang-format off
         m_taskQueue = std::make_unique<TaskQueue>( std::deque<Task>
             {
@@ -68,14 +71,25 @@ namespace tests
         random->Reset();
 
         PitchTrainerVM* viewModel
-            = GetViewModel<PitchTrainerVM>( qmlapp, "pitchTrainerViewModel" );
+            = GetViewModel<PitchTrainerVM>( m_qmlEngine, "pitchTrainerViewModel" );
 
         viewModel->testing();
     }
 
     bool TestPitchTrain::PollForDoneness()
     {
-        return m_taskQueue->PollForDoneness();
+        const bool isDone = m_taskQueue->PollForDoneness();
+        if( isDone )
+        {
+            FASSERT( m_qmlEngine,
+                "if 'Go' was called first (as we always expect it to be), then we"
+                " should have stored a non-null qml engine pointer by now!" );
+            PitchTrainerVM* viewModel
+                = GetViewModel<PitchTrainerVM>( m_qmlEngine, "pitchTrainerViewModel" );
+            viewModel->setActive( false );
+        }
+
+        return isDone;
     }
 
 } // namespace tests

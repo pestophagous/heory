@@ -44,10 +44,14 @@ ApplicationWindow {
       }
 
       PitchTrain {
+        id: pt
         anchors.fill: parent
         visible: front.whichScreen == 1
         onGotoHome: {
           front.whichScreen = 0
+        }
+        onVisibleChanged: {
+          pitchTrainerViewModel.setActive(pt.visible)
         }
       }
     }

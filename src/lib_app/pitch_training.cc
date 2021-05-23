@@ -11,14 +11,13 @@ namespace heory
 {
 WrapQtTraceCategory thisfiletrace; // OFF by default. try QT_LOGGING_RULES="*=true;qt*=false;"
 
-// clang-format off
-PitchTraining::PitchTraining( const Pitch lowest, const Pitch highest, SoundIO_Interface* io, Random* random )
-    : m_io(io),
-      m_random( random ),
-      m_lowest( lowest ),
-      m_highest( highest.AsMidi() > lowest.AsMidi() ? highest : lowest ),
-      m_expectedPitch( lowest )
-// clang-format on
+PitchTraining::PitchTraining(
+    const Pitch lowest, const Pitch highest, SoundIO_Interface* io, Random* random )
+    : m_io( io )
+    , m_random( random )
+    , m_lowest( lowest )
+    , m_highest( highest.AsMidi() > lowest.AsMidi() ? highest : lowest )
+    , m_expectedPitch( lowest )
 {
     FASSERT( m_io, "cannot be null" );
     FASSERT( highest.AsMidi() > lowest.AsMidi(),
@@ -30,6 +29,12 @@ PitchTraining::PitchTraining( const Pitch lowest, const Pitch highest, SoundIO_I
 PitchTraining::~PitchTraining()
 {
     m_io->UnsubscribeToIncomingPitches( this );
+}
+
+void PitchTraining::SetEnabled( const bool enabled )
+{
+    thisfiletrace.stream() << "SetEnabled:" << enabled;
+    m_enabled = enabled;
 }
 
 void PitchTraining::Restart()
@@ -65,6 +70,10 @@ void PitchTraining::ProcessThisGuess( PitchLifetime guess )
 
 void PitchTraining::OnIncomingNote( PitchLifetime pitch )
 {
+    if( !m_enabled )
+    {
+        return; // BAILING OUT!
+    }
     ProcessThisGuess( pitch );
 }
 
