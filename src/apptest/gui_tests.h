@@ -24,11 +24,16 @@ namespace tests
     class Collection;
 } // namespace tests
 
+namespace apptesting
+{
+    class NotePlayer;
+} // namespace apptesting
+
 class GuiTests : public QObject
 {
     Q_OBJECT
 public:
-    explicit GuiTests( const QQmlEngine& qmlapp, Random* random,
+    explicit GuiTests( QQmlEngine& qmlapp, Random* random,
         QmlMessageInterceptor* messageIntercept, const CliOptions* opt );
     ~GuiTests();
 
@@ -43,6 +48,7 @@ private:
     const CliOptions* const m_options;
     Random* const m_random;
     QmlMessageInterceptor* const m_messageIntercept;
+    std::unique_ptr<apptesting::NotePlayer> m_notePlayerForQmlscene;
     std::unique_ptr<tests::Collection> m_tests;
     QTimer m_timer;
 };

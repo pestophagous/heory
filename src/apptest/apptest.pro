@@ -11,6 +11,7 @@ CONFIG += shared
 
 SOURCES += \
     collection.cc \
+    gui_tests.cc \
     note_player.cc \
     task.cc \
     task_queue.cc \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     collection.h \
+    gui_tests.h \
     note_player.h \
     task.h \
     task_queue.h \

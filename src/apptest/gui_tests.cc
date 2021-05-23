@@ -12,6 +12,8 @@
 #include <chrono>
 
 #include "src/apptest/collection.h"
+#include "src/apptest/note_player.h"
+#include "src/lib_app/cli_options.h"
 #include "util-assert.h"
 
 namespace heory
@@ -25,25 +27,32 @@ namespace
     constexpr char EXPECTED_FIRST_LOADED_FILE[] = "main.qml";
 } // namespace
 
-GuiTests::GuiTests( const QQmlEngine& engine, Random* random,
+GuiTests::GuiTests( QQmlEngine& engine, Random* random,
     QmlMessageInterceptor* messageIntercept, const CliOptions* options )
     : m_engine( &engine )
     , m_options( options )
     , m_random( random )
     , m_messageIntercept( messageIntercept )
+    , m_notePlayerForQmlscene( std::make_unique<apptesting::NotePlayer>( options ) )
 {
-    const QQmlApplicationEngine* appEngine
-        = dynamic_cast<const QQmlApplicationEngine*>( &engine );
-    FASSERT( appEngine, "not null. downcast must succeed." );
+    // Intended for use when ViewModelCollection is used by qmlscene_main
+    m_notePlayerForQmlscene->ExportContextPropertiesToQml( &engine );
 
-    connect(
-        appEngine, &QQmlApplicationEngine::objectCreated, [=]( QObject*, const QUrl& url ) {
-            FASSERT( url.fileName() == QString( EXPECTED_FIRST_LOADED_FILE ),
-                "something must have changed in loading behavior of QQmlEngine" );
+    if( m_options->RunningGuiTests() )
+    {
+        const QQmlApplicationEngine* appEngine
+            = dynamic_cast<const QQmlApplicationEngine*>( &engine );
+        FASSERT( appEngine, "not null. downcast must succeed." );
 
-            // run tests during an upcoming event-loop cycle:
-            QTimer::singleShot( 50 /*milliseconds*/, [this]() { Go(); } );
-        } );
+        connect( appEngine, &QQmlApplicationEngine::objectCreated,
+            [=]( QObject*, const QUrl& url ) {
+                FASSERT( url.fileName() == QString( EXPECTED_FIRST_LOADED_FILE ),
+                    "something must have changed in loading behavior of QQmlEngine" );
+
+                // run tests during an upcoming event-loop cycle:
+                QTimer::singleShot( 50 /*milliseconds*/, [this]() { Go(); } );
+            } );
+    }
 }
 
 GuiTests::~GuiTests() = default;

@@ -4,13 +4,11 @@ QT += core qml quick svg widgets quickcontrols2
 
 SOURCES += \
     event_filter.cc \
-    gui_tests.cc \
     main.cc \
     view_model_collection.cc
 
 HEADERS += \
     event_filter.h \
-    gui_tests.h \
     view_model_collection.h
 
 INCLUDEPATH += $${top_srcdir}/build/generated_files # for version.h
