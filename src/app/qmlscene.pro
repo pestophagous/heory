@@ -13,13 +13,11 @@ DEFINES += QML_RUNTIME_TESTING
 
 SOURCES += \
     event_filter.cc \
-    gui_tests.cc \
     qmlscene_main.cpp \
     view_model_collection.cc
 
 HEADERS += \
     event_filter.h \
-    gui_tests.h \
     view_model_collection.h
 
 INCLUDEPATH += $${top_srcdir}
