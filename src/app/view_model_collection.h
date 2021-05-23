@@ -24,6 +24,11 @@ class MusicNotes;
 class QmlMessageInterceptor;
 class Random;
 
+namespace apptesting
+{
+    class NotePlayer;
+} // namespace apptesting
+
 class ViewModelCollection
 {
 public:
@@ -47,6 +52,7 @@ private:
 
     std::unique_ptr<MusicNotes> m_musicNotes;
 
+    std::unique_ptr<apptesting::NotePlayer> m_notePlayerForQmlscene;
     std::unique_ptr<GuiTests> m_guiTests;
 };
 
