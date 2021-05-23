@@ -22,6 +22,8 @@ namespace tests
     //   https://tldp.org/HOWTO/MIDI-HOWTO-10.html
     void RunTask( Task t, const QString& amidiPortToken )
     {
+        // TODO: use more conditional compilation in apptest subdir (#ifdef HEORY_APPTEST)
+        //       (because we do not want this 'amidi' stuff inside the Android app)
         FASSERT( t.type == TaskType::PlayNoteBasic, "(for now) we only handle 1 type" );
         FASSERT( t.midiPitch > 0 && t.midiPitch < 255, "only small ints please" );
 
