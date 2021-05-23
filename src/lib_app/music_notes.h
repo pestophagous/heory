@@ -35,6 +35,7 @@ public:
     ~PitchTrainerVM() override;
 
     Q_INVOKABLE void testing();
+    Q_INVOKABLE void setActive( bool active );
 
 private:
     std::unique_ptr<PitchTraining> m_training;

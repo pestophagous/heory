@@ -25,8 +25,13 @@ PitchTrainerVM::~PitchTrainerVM() = default;
 
 void PitchTrainerVM::testing()
 {
-    // m_training->MakeSound();
+    m_training->SetEnabled( true );
     m_training->Advance();
+}
+
+void PitchTrainerVM::setActive( const bool active )
+{
+    m_training->SetEnabled( active );
 }
 
 MusicNotes::MusicNotes( FsynthWrapper* fsynth, Random* random )

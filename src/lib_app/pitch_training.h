@@ -27,17 +27,18 @@ public:
     PitchTraining& operator=( const PitchTraining& ) = delete;
 
     void Restart();
-
     void Advance();
 
+    void OnIncomingNote( PitchLifetime pitch ) override;
+
+    void SetEnabled( bool enabled );
+
+private:
     Pitch CurrentlyExpecting() const;
     void MakeSound() const;
 
     void ProcessThisGuess( PitchLifetime guess );
 
-    void OnIncomingNote( PitchLifetime pitch ) override;
-
-private:
     void AssignNext();
 
     SoundIO_Interface* const m_io;
@@ -46,6 +47,7 @@ private:
     const Pitch m_highest;
 
     Pitch m_expectedPitch;
+    bool m_enabled = false;
 };
 
 } // namespace heory

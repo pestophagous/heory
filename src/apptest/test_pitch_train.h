@@ -29,6 +29,7 @@ namespace tests
         bool PollForDoneness() override;
 
     private:
+        const QQmlEngine* m_qmlEngine = nullptr;
         std::unique_ptr<TaskQueue> m_taskQueue;
     };
 
