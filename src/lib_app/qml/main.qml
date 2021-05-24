@@ -41,6 +41,9 @@ ApplicationWindow {
         onGotoPitchTrain: {
           front.whichScreen = 1
         }
+        onGotoKeySigTrain: {
+          front.whichScreen = 2
+        }
       }
 
       PitchTrain {
@@ -52,6 +55,18 @@ ApplicationWindow {
         }
         onVisibleChanged: {
           pitchTrainerViewModel.setActive(pt.visible)
+        }
+      }
+
+      KeySigTrain {
+        id: ks
+        anchors.fill: parent
+        visible: front.whichScreen == 2
+        onGotoHome: {
+          front.whichScreen = 0
+        }
+        onVisibleChanged: {
+          console.log('key sig', ks.visible)
         }
       }
     }

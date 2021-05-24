@@ -2,13 +2,16 @@
   <qresource prefix="">
     <!-- PLEASE OBEY ALPHABETICAL ORDER -->
     <file>qml/FramedSubScreen.qml</file>
+    <file>qml/KeySigTrain.qml</file>
     <file>qml/LogTags.qml</file>
     <file>qml/MainMenu.qml</file>
     <file>qml/PitchTrain.qml</file>
     <file>qml/main.qml</file>
+    <file>qml/qmlbasics/CustomTimeout.qml</file>
     <file>qml/qmlbasics/DebugRectangle.qml</file>
     <file>qml/qmlbasics/ImageSvgHelper.qml</file>
     <file>qml/qmlbasics/StyledButton.qml</file>
+    <file>qml/qmlbasics/StyledLabel.qml</file>
     <file>qml/qmlbasics/VersionLabel.qml</file>
     <file>qml/qmldir</file>
     <file>resource/FluidR3_GM_yamaha_grand_piano.sf2</file>
