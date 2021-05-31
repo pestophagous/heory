@@ -6,6 +6,6 @@ import libstyles 1.0
 
 QtObject {
   property string tonalityLabel: "major"
-  property string svgFile: "images/smile.svg"
+  property string svgFile: "images/key_sig/treble_signature_2_flats.svg"
   property string progressCueLabel: Fonts.fa_regular_bell
 }

@@ -9,6 +9,21 @@
     <file>images/blacknwhite.png</file>
     <file>images/home.png</file>
     <file>images/smile.svg</file>
+    <file>images/key_sig/treble_signature_1_flat.svg</file>
+    <file>images/key_sig/treble_signature_1_sharp.svg</file>
+    <file>images/key_sig/treble_signature_2_flats.svg</file>
+    <file>images/key_sig/treble_signature_2_sharps.svg</file>
+    <file>images/key_sig/treble_signature_3_flats.svg</file>
+    <file>images/key_sig/treble_signature_3_sharps.svg</file>
+    <file>images/key_sig/treble_signature_4_flats.svg</file>
+    <file>images/key_sig/treble_signature_4_sharps.svg</file>
+    <file>images/key_sig/treble_signature_5_flats.svg</file>
+    <file>images/key_sig/treble_signature_5_sharps.svg</file>
+    <file>images/key_sig/treble_signature_6_flats.svg</file>
+    <file>images/key_sig/treble_signature_6_sharps.svg</file>
+    <file>images/key_sig/treble_signature_7_flats.svg</file>
+    <file>images/key_sig/treble_signature_7_sharps.svg</file>
+    <file>images/key_sig/treble_signature_empty.svg</file>
     <file>qmldir</file>
   </qresource>
 </RCC>
