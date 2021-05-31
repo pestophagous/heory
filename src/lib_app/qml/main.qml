@@ -66,7 +66,7 @@ ApplicationWindow {
           front.whichScreen = 0
         }
         onVisibleChanged: {
-          console.log('key sig', ks.visible)
+          keySigTrainerViewModel.setActive(ks.visible)
         }
       }
     }

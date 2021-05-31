@@ -46,7 +46,10 @@ FramedSubScreen {
         Layout.minimumWidth: subroot.width
         Layout.maximumWidth: Layout.minimumWidth
 
-        source: resourceHelper.imageSourcePrefix + keySigTrainerViewModel.svgFile
+        Binding on source {
+          when: (keySigTrainerViewModel.svgFile.length > 0)
+          value: resourceHelper.imageSourcePrefix + keySigTrainerViewModel.svgFile
+        }
         fillMode: Image.PreserveAspectFit
       }
 
@@ -69,7 +72,7 @@ FramedSubScreen {
 
           function cancelTheCue() {
             console.log('Clearing the cue label')
-            cueLabel.text = ""
+            keySigTrainerViewModel.cancelCueLabel()
           }
 
           CustomTimeout {

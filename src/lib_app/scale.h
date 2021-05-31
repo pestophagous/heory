@@ -36,6 +36,7 @@ public:
 
     QString AsAlphabeticNoOctave( const QString& separator ) const;
     QString Name() const;
+    TonalityLabel GetTonalityLabel() const;
 
     bool IsExactAuditoryMatch( const Scale& rhs ) const;
     // CSharp would fuzzy-match DFlat. Pitches are normalized to C4 octave.

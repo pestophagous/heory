@@ -15,6 +15,8 @@
 namespace heory
 {
 class FsynthWrapper;
+class KeySignatureDrill;
+class KeySignatureDrillGuiState;
 class PitchTraining;
 class Random;
 class SoundIO_Interface;
@@ -22,13 +24,6 @@ class SoundIO_Interface;
 class PitchTrainerVM : public QObject
 {
     Q_OBJECT
-
-    // clang-format off
-
-    // Q_PROPERTY( QString
-    //             READ
-    //             NOTIFY  )
-    // clang-format on
 
 public:
     explicit PitchTrainerVM( SoundIO_Interface* io, Random* random );
@@ -41,16 +36,53 @@ private:
     std::unique_ptr<PitchTraining> m_training;
 };
 
-class MusicNotes : public QObject
+class KeySigVM : public QObject
 {
     Q_OBJECT
 
     // clang-format off
 
-    // Q_PROPERTY( QString
-    //             READ
-    //             NOTIFY  )
+    Q_PROPERTY( QString tonalityLabel
+                READ GetTonalityLabel
+                NOTIFY SignalAll )
+
+    Q_PROPERTY( QString svgFile
+                READ GetSvgFile
+                NOTIFY SignalAll )
+
+    Q_PROPERTY( QString progressCueLabel
+                READ GetProgressCueLabel
+                NOTIFY SignalAll )
+
     // clang-format on
+
+public:
+    explicit KeySigVM( SoundIO_Interface* io, Random* random );
+    ~KeySigVM() override;
+
+    Q_INVOKABLE void setActive( bool active );
+
+    Q_INVOKABLE void cancelCueLabel();
+
+    QString GetTonalityLabel() const;
+    QString GetSvgFile() const;
+    QString GetProgressCueLabel() const;
+
+    void OnNewGuiState( KeySignatureDrillGuiState state );
+signals:
+    void SignalAll();
+
+private:
+    QString m_tonalityLabel;
+    QString m_svgFile;
+    QString m_progressCueLabel;
+
+    std::unique_ptr<KeySignatureDrill> m_drill;
+};
+
+class MusicNotes : public QObject
+{
+    Q_OBJECT
 
 public:
     explicit MusicNotes( FsynthWrapper* fsynth, Random* random );
@@ -68,6 +100,7 @@ private:
     FsynthWrapper* const m_fsynth;
 
     PitchTrainerVM m_pitchTrainerVM;
+    KeySigVM m_keySigVM;
 };
 
 } // namespace heory

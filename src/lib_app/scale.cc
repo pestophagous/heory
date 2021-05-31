@@ -235,6 +235,11 @@ QString Scale::Name() const
     return "";
 }
 
+TonalityLabel Scale::GetTonalityLabel() const
+{
+    return m_ton;
+}
+
 bool Scale::IsExactAuditoryMatch( const Scale& rhs ) const
 {
     return m_length == rhs.m_length && m_scale == rhs.m_scale;

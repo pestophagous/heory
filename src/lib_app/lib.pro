@@ -10,6 +10,7 @@ RESOURCES = libresources.qrc
 SOURCES += \
     cli_options.cc \
     fsynth.cc \
+    key_signature_drill.cc \
     logging_tags.cc \
     music_enums.cc \
     music_notes.cc \
@@ -30,6 +31,7 @@ HEADERS += \
     cli_options.h \
     fsynth.h \
     incoming_pitch_listener_interface.h \
+    key_signature_drill.h \
     logging_tags.h \
     music_enums.h \
     music_notes.h \
