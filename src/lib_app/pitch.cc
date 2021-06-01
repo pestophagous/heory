@@ -37,6 +37,8 @@ Pitch::Pitch( int midi )
 {
 }
 
+Pitch::~Pitch() = default;
+
 Pitch& Pitch::operator=( const Pitch& rhs )
 {
     // check for self-assignment
@@ -62,7 +64,15 @@ bool Pitch::operator!=( const Pitch& rhs ) const
     return !( *this == rhs );
 }
 
-Pitch::~Pitch() = default;
+bool Pitch::IsFuzzyMatch( const Pitch& rhs ) const
+{
+    return NormalizeToC4() == rhs.NormalizeToC4();
+}
+
+bool Pitch::IsFuzzyMatchForMidi( int midi ) const
+{
+    return NormalizeToC4() == Pitch::FromMidi( midi ).NormalizeToC4();
+}
 
 int Pitch::AsMidi() const
 {

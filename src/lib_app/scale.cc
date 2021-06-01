@@ -245,7 +245,7 @@ bool Scale::IsFuzzyMatch( const Scale& rhs ) const
 {
     for( int i = 0; i < 7; i++ )
     {
-        if( Index( i ).NormalizeToC4() != rhs.Index( i ).NormalizeToC4() )
+        if( !Index( i ).IsFuzzyMatch( rhs.Index( i ) ) )
         {
             return false;
         }
@@ -261,7 +261,7 @@ bool Scale::IsFuzzyMatch( const Scale& rhs ) const
 
         FASSERT( Length() == 8, "this was written when only 7 and 8 were possible" );
         // Same length, length is 8 for both, so now we compare the final items:
-        return Index( 7 ).NormalizeToC4() == rhs.Index( 7 ).NormalizeToC4();
+        return Index( 7 ).IsFuzzyMatch( rhs.Index( 7 ) );
     }
 
     // If we get here, we have scales of different lengths
@@ -269,13 +269,13 @@ bool Scale::IsFuzzyMatch( const Scale& rhs ) const
     {
         // Different lengths are ok, as long as in the case of the longer scale
         // the last note matches the first:
-        return Index( 0 ).NormalizeToC4() == Index( 7 ).NormalizeToC4();
+        return Index( 0 ).IsFuzzyMatch( Index( 7 ) );
     }
 
     FASSERT( rhs.Length() == 8, "mustn't exactly one be length 8?" );
     // Different lengths are ok, as long as in the case of the longer scale
     // the last note matches the first:
-    return rhs.Index( 0 ).NormalizeToC4() == rhs.Index( 7 ).NormalizeToC4();
+    return rhs.Index( 0 ).IsFuzzyMatch( rhs.Index( 7 ) );
 }
 
 bool Scale::FlatOrSharpSignatureBothPossible() const
@@ -294,7 +294,7 @@ bool Scale::FlatOrSharpSignatureBothPossible() const
         };
         for( const auto val : ambiguous )
         {
-            if( m_midiTonic.NormalizeToC4().AsMidi() == val )
+            if( m_midiTonic.IsFuzzyMatchForMidi( val ) )
             {
                 return true;
             }
@@ -310,7 +310,7 @@ bool Scale::FlatOrSharpSignatureBothPossible() const
     };
     for( const auto val : ambiguous )
     {
-        if( m_midiTonic.NormalizeToC4().AsMidi() == val )
+        if( m_midiTonic.IsFuzzyMatchForMidi( val ) )
         {
             return true;
         }
@@ -332,7 +332,7 @@ bool Scale::OnlySharpSignaturePossible() const
         };
         for( const auto val : sharped )
         {
-            if( m_midiTonic.NormalizeToC4().AsMidi() == val )
+            if( m_midiTonic.IsFuzzyMatchForMidi( val ) )
             {
                 return true;
             }
@@ -346,7 +346,7 @@ bool Scale::OnlySharpSignaturePossible() const
     };
     for( const auto val : sharped )
     {
-        if( m_midiTonic.NormalizeToC4().AsMidi() == val )
+        if( m_midiTonic.IsFuzzyMatchForMidi( val ) )
         {
             return true;
         }
