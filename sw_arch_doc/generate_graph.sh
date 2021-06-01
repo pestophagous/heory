@@ -56,8 +56,10 @@ rm sorted_edges.tmp # remove our temp file
 "${THESED}" -i "/\"\blogger\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\blogging_tags\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\bnative_onIncomingMidi\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
+"${THESED}" -i "/\"\bpitch_test\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\bresource_helper\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\bresources\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
+"${THESED}" -i "/\"\bscale_test\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 "${THESED}" -i "/\"\busage_log_t\b\"/d" ${ARCH_DOC_DIR}/all_src.dot
 
 dot -Tsvg < ${ARCH_DOC_DIR}/all_src.dot > ${ARCH_DOC_DIR}/all_src.svg

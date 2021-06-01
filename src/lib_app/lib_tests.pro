@@ -3,7 +3,8 @@
 QT += core
 
 SOURCES += \
-    pitch_test.cc
+    pitch_test.cc \
+    scale_test.cc
 
 # 'pri' usage based on http://archive.is/https://www.toptal.com/qt/vital-guide-qmake
 !include(./lib.pri) { error() }

@@ -50,6 +50,18 @@ Pitch& Pitch::operator=( const Pitch& rhs )
     return *this;
 }
 
+bool Pitch::operator==( const Pitch& rhs ) const
+{
+    // clang-format off
+    return m_midi == rhs.m_midi;
+    // clang-format on
+}
+
+bool Pitch::operator!=( const Pitch& rhs ) const
+{
+    return !( *this == rhs );
+}
+
 Pitch::~Pitch() = default;
 
 int Pitch::AsMidi() const
@@ -99,5 +111,15 @@ int Pitch::OctaveNumber() const
 Pitch Pitch::IncrementHalfStep() const
 {
     return FromMidi( m_midi + 1 );
+}
+
+Pitch Pitch::IncrementWholeStep() const
+{
+    return IncrementHalfStep().IncrementHalfStep();
+}
+
+Pitch Pitch::NormalizeToC4() const
+{
+    return FromMidi( ( m_midi % 12 ) + Pitch::MiddleC().AsMidi() );
 }
 } // namespace heory

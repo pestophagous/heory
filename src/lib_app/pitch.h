@@ -9,12 +9,16 @@
 
 #include <QString>
 
+#include <array>
+
 namespace heory
 {
 // middle C is C4 and the note below it is B3
 class Pitch
 {
 public:
+    typedef Pitch ( Pitch::*PitchIncrementerFunc )() const;
+
     static Pitch FromMidi( int midi );
     static Pitch MiddleC();
     static Pitch C5();
@@ -22,6 +26,9 @@ public:
     ~Pitch();
 
     Pitch& operator=( const Pitch& );
+
+    bool operator==( const Pitch& rhs ) const;
+    bool operator!=( const Pitch& rhs ) const;
 
     int AsMidi() const;
 
@@ -34,6 +41,9 @@ public:
     int OctaveNumber() const;
 
     Pitch IncrementHalfStep() const;
+    Pitch IncrementWholeStep() const;
+
+    Pitch NormalizeToC4() const;
 
 private:
     explicit Pitch( int midi );
@@ -41,6 +51,28 @@ private:
     // CURRENTLY ALLOWING DEFAULT COPY CTOR. CAREFUL. ALL MUST BE TRIVIALLY COPYABLE.
     const int m_midi;
 };
+
+// clang-format off
+    static constexpr std::array<Pitch::PitchIncrementerFunc, 7> kMajorScaleIntervals{
+      &Pitch::IncrementWholeStep,
+      &Pitch::IncrementWholeStep,
+      &Pitch::IncrementHalfStep,
+      &Pitch::IncrementWholeStep,
+      &Pitch::IncrementWholeStep,
+      &Pitch::IncrementWholeStep,
+      &Pitch::IncrementHalfStep,
+    };
+
+    static constexpr std::array<Pitch::PitchIncrementerFunc, 7> kMinorScaleIntervals{
+      &Pitch::IncrementWholeStep,
+      &Pitch::IncrementHalfStep,
+      &Pitch::IncrementWholeStep,
+      &Pitch::IncrementWholeStep,
+      &Pitch::IncrementHalfStep,
+      &Pitch::IncrementWholeStep,
+      &Pitch::IncrementWholeStep,
+    };
+// clang-format on
 
 } // namespace heory
 
