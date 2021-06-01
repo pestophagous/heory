@@ -11,11 +11,13 @@ SOURCES += \
     cli_options.cc \
     fsynth.cc \
     logging_tags.cc \
+    music_enums.cc \
     music_notes.cc \
     notation_strings.cc \
     pitch.cc \
     pitch_training.cc \
-    resources.cc
+    resources.cc \
+    scale.cc
 
 android {
     QT += androidextras
@@ -29,11 +31,13 @@ HEADERS += \
     fsynth.h \
     incoming_pitch_listener_interface.h \
     logging_tags.h \
+    music_enums.h \
     music_notes.h \
     notation_strings.h \
     pitch.h \
     pitch_training.h \
     resources.h \
+    scale.h \
     sound_io_interface.h
 
 # 'pri' usage based on http://archive.is/https://www.toptal.com/qt/vital-guide-qmake
