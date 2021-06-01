@@ -30,6 +30,9 @@ public:
     bool operator==( const Pitch& rhs ) const;
     bool operator!=( const Pitch& rhs ) const;
 
+    bool IsFuzzyMatch( const Pitch& rhs ) const;
+    bool IsFuzzyMatchForMidi( int midi ) const;
+
     int AsMidi() const;
 
     bool PlayableOnPiano88Key() const;
