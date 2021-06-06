@@ -45,7 +45,6 @@ sudo apt-get --assume-yes install \
   libasound2-dev \
   libc-bin \
   libdbus-1-3 \
-  libdouble-conversion1 \
   libfontconfig1 \
   libfuse2 \
   libgcc1:i386 \
