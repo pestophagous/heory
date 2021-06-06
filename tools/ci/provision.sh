@@ -55,7 +55,6 @@ sudo apt-get --assume-yes install \
   libglu1-mesa-dev \
   libgtk-3-0 \
   libharfbuzz0b \
-  libicu60 \
   libjpeg8 \
   libncurses5:i386 \
   libpcaudio-dev \
