@@ -1,5 +1,6 @@
 #include "key_signature_drill.h"
 
+#include "src/lib_app/deck_of_scales.h"
 #include "src/util/random.h"
 #include "util-assert.h"
 
@@ -16,10 +17,12 @@ KeySignatureDrill::KeySignatureDrill( SoundIO_Interface* io, Random* random,
     : m_io( io )
     , m_random( random )
     , m_callback( callback )
+    , m_allScales( std::make_unique<DeckOfScales>( random ) )
     , m_currentScale( Scale::MajorFromTonicLength8( Pitch::FromMidi( 60 ) ) )
 {
     FASSERT( m_io, "cannot be null" );
     m_io->SubscribeToIncomingPitches( this );
+    m_allScales->Shuffle();
 }
 
 KeySignatureDrill::~KeySignatureDrill()
@@ -29,17 +32,10 @@ KeySignatureDrill::~KeySignatureDrill()
 
 KeySignatureDrillGuiState KeySignatureDrill::GetCurrentGuiState() const
 {
-    // struct GuiState
-    // {
-    //     QString tonalityLabel;
-    //     QString svgFile;
-    //     QString progressCueLabel;
-    // };
-
-    // TODO: handle svgFile
     KeySignatureDrillGuiState state;
     state.tonalityLabel = TonalityLabelString( m_currentScale.GetTonalityLabel() );
     state.progressCueLabel = m_pendingProgressIcon;
+    state.svgFile = m_currentImage;
 
     m_pendingProgressIcon = "";
     return state;
@@ -49,7 +45,10 @@ void KeySignatureDrill::Advance()
 {
     thisfiletrace.stream() << "Advance";
 
-    // TODO: implement random without replacement
+    const auto scaleAndMore = m_allScales->NextScale_ReshuffleAtWraparound();
+    m_currentScale = scaleAndMore.scale;
+    m_currentImage = scaleAndMore.imageName;
+
     thisfiletrace.stream() << "Current Scale:" << m_currentScale.Name();
 
     m_callback( GetCurrentGuiState() );

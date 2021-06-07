@@ -10,6 +10,7 @@
 #include <QString>
 
 #include <functional>
+#include <memory>
 
 #include "src/lib_app/incoming_pitch_listener_interface.h"
 #include "src/lib_app/pitch.h"
@@ -18,6 +19,7 @@
 
 namespace heory
 {
+class DeckOfScales;
 class Random;
 
 // It would be nice to make this a nested class, but then it cannot be forward declared.
@@ -53,7 +55,9 @@ private:
 
     bool m_enabled = false;
 
+    std::unique_ptr<DeckOfScales> m_allScales;
     Scale m_currentScale;
+    QString m_currentImage;
     int m_nextScaleIndexAwaiting = 0;
     mutable QString m_pendingProgressIcon;
 };

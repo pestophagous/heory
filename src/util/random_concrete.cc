@@ -84,4 +84,9 @@ void RandomConcrete::Reset()
 {
     m_impl->m_distributions.clear();
 }
+
+bool RandomConcrete::ConstructedWithRepeatableSeed() const
+{
+    return m_usingRepeatableSeed;
+}
 } // namespace heory

@@ -47,7 +47,11 @@ KeySigVM::~KeySigVM() = default;
 void KeySigVM::OnNewGuiState( KeySignatureDrillGuiState state )
 {
     m_tonalityLabel = state.tonalityLabel;
-    m_svgFile = state.svgFile;
+    m_svgFile = "";
+    if( !state.svgFile.isEmpty() )
+    {
+        m_svgFile = QString( "images/key_sig/" ) + state.svgFile;
+    }
     m_progressCueLabel = state.progressCueLabel;
     emit SignalAll();
 }

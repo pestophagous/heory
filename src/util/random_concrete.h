@@ -25,6 +25,8 @@ public:
     // random sequence, once again seeding it with the repeatable seed.
     void Reset() override;
 
+    bool ConstructedWithRepeatableSeed() const override;
+
 private:
     explicit RandomConcrete( bool repeatableSeed );
 

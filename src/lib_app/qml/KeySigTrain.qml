@@ -46,9 +46,12 @@ FramedSubScreen {
         Layout.minimumWidth: subroot.width
         Layout.maximumWidth: Layout.minimumWidth
 
-        Binding on source {
-          when: (keySigTrainerViewModel.svgFile.length > 0)
-          value: resourceHelper.imageSourcePrefix + keySigTrainerViewModel.svgFile
+        source: {
+          if (keySigTrainerViewModel.svgFile.length > 0) {
+            resourceHelper.imageSourcePrefix + keySigTrainerViewModel.svgFile
+          } else {
+            ""
+          }
         }
         fillMode: Image.PreserveAspectFit
       }

@@ -20,6 +20,8 @@ public:
     // random sequence, once again seeding it with the repeatable seed.
     virtual void Reset() = 0;
 
+    virtual bool ConstructedWithRepeatableSeed() const = 0;
+
 private:
 };
 

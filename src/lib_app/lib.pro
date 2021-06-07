@@ -9,6 +9,7 @@ RESOURCES = libresources.qrc
 
 SOURCES += \
     cli_options.cc \
+    deck_of_scales.cc \
     fsynth.cc \
     key_signature_drill.cc \
     logging_tags.cc \
@@ -29,6 +30,7 @@ android {
 
 HEADERS += \
     cli_options.h \
+    deck_of_scales.h \
     fsynth.h \
     incoming_pitch_listener_interface.h \
     key_signature_drill.h \
