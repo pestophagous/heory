@@ -28,6 +28,14 @@ struct Distribution
         return dis( gen );
     }
 
+    int GetNextFake()
+    {
+        int i = 2000000000;
+        long j = i * i; // Wrong: due to overflow on the multiplication between ints,
+                        // will result to j being -1651507200, not 4000000000000000000
+        return dis( gen ) + j;
+    }
+
     std::random_device rd;
     std::mt19937 gen;
     std::uniform_int_distribution<> dis;
