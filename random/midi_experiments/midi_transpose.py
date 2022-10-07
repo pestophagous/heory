@@ -22,6 +22,7 @@ midicomp  get_notes_w_sentinel_1353.mid | grep -w On | cut -d' ' -f4 | cut -c3- 
 #   when the generated midi files are opened in other editors we end up with
 #   (for example, in the common case) clean quarter-notes on a 4/4 staff.
 BEAT_LENGTH = 100
+BEATS_PER_BAR = 4
 
 TRANSPOSITIONS = [
     -14,
@@ -139,7 +140,17 @@ def output_transposed_midi(int_diff, start_time):
     currtime = start_time
     last_note = None
 
-    for n in NOTES_IN:
+    # cue the next key.
+    cue_bar = []
+    spacer_bar = []
+    for i in range(BEATS_PER_BAR):
+        # take the first note of the melody and fill a bar with it,
+        # so that the singer can tune their voice to it before
+        # launching into the next rendition of the melody.
+        cue_bar += [NOTES_IN[0]]
+        spacer_bar += [SENTINEL]
+
+    for n in cue_bar + spacer_bar + NOTES_IN:
         if n == SENTINEL:
             # print('sentinel')
             pass
@@ -173,7 +184,7 @@ def main():
 
     print("MFile 1 1 128\nMTrk")
 
-    starttime = BEAT_LENGTH * 4
+    starttime = BEAT_LENGTH * BEATS_PER_BAR
     for t in TRANSPOSITIONS:
         starttime = output_transposed_midi(t, starttime)
         print("\n\n\n")
