@@ -25,3 +25,7 @@ INCLUDEPATH += $${top_srcdir}
 
 target.path = $$top_exe_dir
 INSTALLS += target
+
+QMAKE_CXXFLAGS += "\
+     -Wno-error=conversion \
+     "
